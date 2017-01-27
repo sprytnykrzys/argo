@@ -1,0 +1,20 @@
+<div id="outer" class="row">
+    <div id="adminHeader" class="col s12">
+        <nav>
+            <div class="nav-wrapper">
+                <a ui-sref="main" class="brand-logo center"><img src="img/argo.png" /></a>
+                <a href="" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars" aria-hidden="true"></i>
+                </a>
+                <ul class="left hide-on-med-and-down">
+                    <li ng-repeat="item in adminMenuItems" ng-if="verifyUser(item.ifLogged)" ng-class="{'active' : currState == item.activeStateRule}"><a href="" ng-click="changeState(item.uiSref)">{{item.labelPl}}</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li ng-repeat="item in adminMenuItems" ng-if="verifyUser(item.ifLogged)" ng-class="{'active' : currState == item.activeStateRule}"><a href="" ng-click="changeState(item.uiSref)">{{item.labelPl}}</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="ui-view-container">
+        <div class="fade" ui-view></div>
+    </div>
+</div>
