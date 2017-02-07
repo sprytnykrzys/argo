@@ -71,7 +71,7 @@ input {
 
 .page {
     min-height: 300px !important;
-    border: 1px solid #ee6e73;
+    border: 1px solid #26a69a;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px !important;
@@ -160,4 +160,12 @@ blockquote{
     .scrollableTable td, .scrollableTable th{
         height: 150px;
     }
+}
+
+nav{
+    background-color: #26a69a !important;
+}
+
+button{
+    background-color: #ee6e73 !important;
 }

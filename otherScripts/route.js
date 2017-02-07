@@ -77,6 +77,8 @@ angular.module('Argo.Routes', [
             if (((to.name != 'adminLogin') && (to.parent == 'admin' || to.name == 'admin')) && !$localStorage.user) {
                 e.preventDefault();
                 $state.go("adminLogin");
+            } else if(to.name == 'admin' && $localStorage.user) {
+                $state.go("products");
             }
         });
 
