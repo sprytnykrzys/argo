@@ -11,7 +11,10 @@ angular.module('Argo.Routes', [
         'Argo.Controllers.IndexCtrl',
         'Argo.Controllers.ProductsCtrl',
         'Argo.Controllers.CategoriesCtrl',
-    ])
+        'Argo.Controllers.MainProductsCtrl',
+        'Argo.Controllers.ContactCtrl',
+    ]) 
+
     .config([
         '$stateProvider',
         '$urlRouterProvider',
@@ -47,6 +50,18 @@ angular.module('Argo.Routes', [
                     templateUrl: 'views/categories.html',
                     parent: 'admin',
                     controller: 'CategoriesCtrl'
+                })
+                .state('mainProducts', {
+                	url: '/products',
+                	templateUrl: 'views/mainProducts.html',
+                	parent: 'main',
+                	controller: 'MainProductsCtrl'
+                })
+                .state('contact', {
+                	url: '/contact',
+                	templateUrl: 'views/contact.html',
+                	parent: 'main',
+                	controller: 'ContactCtrl'
                 });
             // $locationProvider.html5Mode(true);
 
@@ -77,8 +92,6 @@ angular.module('Argo.Routes', [
             if (((to.name != 'adminLogin') && (to.parent == 'admin' || to.name == 'admin')) && !$localStorage.user) {
                 e.preventDefault();
                 $state.go("adminLogin");
-            } else if(to.name == 'admin' && $localStorage.user) {
-                $state.go("products");
             }
         });
 

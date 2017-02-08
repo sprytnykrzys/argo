@@ -149,5 +149,23 @@ angular.module('Argo.Services.ContentSrvc', [
             return promise;
         };
 
+        this.sendMail = function(con) {
+            var req = {
+                method: 'POST',
+                url: $rootScope.endpointURL + "/contact",
+                data: con,
+                headers: {
+                    "Content-Type": "text/plain"
+                }
+            };
+
+            var promise = $http(req);
+
+            promise.then(function(data) {
+
+            });
+
+            return promise;
+        };
     }
 ]);
