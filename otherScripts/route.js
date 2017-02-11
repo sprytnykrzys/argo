@@ -13,6 +13,7 @@ angular.module('Argo.Routes', [
         'Argo.Controllers.CategoriesCtrl',
         'Argo.Controllers.MainProductsCtrl',
         'Argo.Controllers.ContactCtrl',
+        'Argo.Controllers.HistoryCtrl',
     ]) 
 
     .config([
@@ -62,6 +63,12 @@ angular.module('Argo.Routes', [
                 	templateUrl: 'views/contact.html',
                 	parent: 'main',
                 	controller: 'ContactCtrl'
+                })
+                .state('history', {
+                    url: '/history',
+                    templateUrl: 'views/history.html',
+                    parent: 'main',
+                    controller: 'HistoryCtrl'
                 });
             // $locationProvider.html5Mode(true);
 
@@ -84,7 +91,15 @@ angular.module('Argo.Routes', [
             }
 
             //TODO - should be moved to config file
-            $rootScope.lang = 'pl';
+
+            if(!$localStorage.currLang){
+                $rootScope.lang = 'pl';
+                $localStorage.currLang = 'pl';
+            }else{
+                $rootScope.lang = $localStorage.currLang;
+            }
+
+ 
             $rootScope.endpointURL = 'http://argo.k-org.pl';
 
 

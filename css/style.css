@@ -56,6 +56,10 @@ input {
     height: 60px;
 }
 
+#mainHeader {
+    height: 60px;
+}
+
 .brand-logo {
     height: 100%;
 }
@@ -118,13 +122,13 @@ input {
     padding: 0 1rem !important;
 }
 
-.pinkButton {
-    background-color: #ee6e73 !important;
+.greenButton {
+    background-color: #26a69a !important;
 }
 
-.pinkButton:hover {
-     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
-     background-color: #ff8186 !important;
+.greenButton:hover{
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+    background-color: #2bbbad !important;
 }
 
 input:not([type]),
@@ -160,6 +164,10 @@ blockquote{
     .scrollableTable td, .scrollableTable th{
         height: 150px;
     }
+
+    .fixed-action-btn{
+        right: 10px !important
+    }
 }
 
 nav{
@@ -167,5 +175,47 @@ nav{
 }
 
 button{
+    background-color: #ee6e73 !important;
+}
+
+button:hover{
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+    background-color: #ff8186 !important;
+}
+
+.fixed-action-btn {
+    position: relative !important;
+    bottom: 0;
+    float: right;
+    top: -43px;
+    padding-top: 0 !important;
+}
+
+.fixed-action-btn.active ul{
+    bottom: unset;
+}
+
+.fixed-action-btn ul{
+    margin-top: 6px !important;
+}
+
+.fixed-action-btn ul li{
+    margin-bottom: 6px !important;
+}
+
+.btn-floating{
+    background-size: 37px 50px !important;
+    background-position: center !important;
+    height: 35px !important;
+    width: 35px !important;
+}
+
+.carousel .indicators .indicator-item{
+    width: 16px !important;
+    height: 16px !important;
+    background-color: #26a69a !important;
+}
+
+.carousel .indicators .indicator-item.active{
     background-color: #ee6e73 !important;
 }

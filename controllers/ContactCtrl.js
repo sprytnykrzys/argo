@@ -28,16 +28,6 @@ angular
                 });
             };
 
-            $scope.changeState = function(state){
-                if(state && state != 'logout'){
-                    $state.go(state);
-                }else if(state == 'logout'){
-                    $localStorage.user = null;
-                    $rootScope.user = null;
-                    $state.go('adminLogin');
-                }  
-            };
-
         
         }
     ]);
