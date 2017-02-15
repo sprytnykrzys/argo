@@ -9,9 +9,12 @@ angular.module('Argo.Services.ContentSrvc', [
     '$rootScope',
     '$window',
     '$q',
+
+    
     function($http, $localStorage, $state, $rootScope, $window, $q) {
 
         this.getProducts = function() {
+            $rootScope.showPreloader();
             var req = {
                 method: 'GET',
                 url: $rootScope.endpointURL + "/product",
@@ -24,12 +27,14 @@ angular.module('Argo.Services.ContentSrvc', [
 
             promise.then(function(data) {
                 $localStorage.products = data.data.products;
+                $rootScope.hidePreloader();
             });
 
             return promise;
         };
 
         this.getCategories = function() {
+            $rootScope.showPreloader();
             var req = {
                 method: 'GET',
                 url: $rootScope.endpointURL + "/category",
@@ -42,12 +47,14 @@ angular.module('Argo.Services.ContentSrvc', [
 
             promise.then(function(data) {
                 $localStorage.categories = data.data.categories;
+                $rootScope.hidePreloader();
             });
 
             return promise;
         };
 
         this.updateProduct = function(prod) {
+            $rootScope.showPreloader();
             var data = {
                     "uid": $localStorage.user.uid,
                     "token": $localStorage.user.token,
@@ -69,12 +76,14 @@ angular.module('Argo.Services.ContentSrvc', [
 
             promise.then(function(data) {
                 $localStorage.user.token = data.data.token;
+                $rootScope.hidePreloader();
             });
 
             return promise;
         };
 
         this.updateCategory = function(p) {
+            $rootScope.showPreloader();
             var data = {
                     "uid": $localStorage.user.uid,
                     "token": $localStorage.user.token,
@@ -96,12 +105,14 @@ angular.module('Argo.Services.ContentSrvc', [
 
             promise.then(function(data) {
                 $localStorage.user.token = data.data.token;
+                $rootScope.hidePreloader();
             });
 
             return promise;
         };
 
         this.deleteProduct = function(prod) {
+            $rootScope.showPreloader();
             var data = {
                     "uid": $localStorage.user.uid,
                     "token": $localStorage.user.token,
@@ -120,12 +131,14 @@ angular.module('Argo.Services.ContentSrvc', [
 
             promise.then(function(data) {
                 $localStorage.user.token = data.data.token;
+                $rootScope.hidePreloader();
             });
 
             return promise;
         };
 
         this.deleteCategory = function(p) {
+            $rootScope.showPreloader();
             var data = {
                     "uid": $localStorage.user.uid,
                     "token": $localStorage.user.token,
@@ -144,12 +157,14 @@ angular.module('Argo.Services.ContentSrvc', [
 
             promise.then(function(data) {
                 $localStorage.user.token = data.data.token;
+                $rootScope.hidePreloader();
             });
 
             return promise;
         };
 
         this.sendMail = function(con) {
+            $rootScope.showPreloader();
             var req = {
                 method: 'POST',
                 url: $rootScope.endpointURL + "/contact",
@@ -162,7 +177,7 @@ angular.module('Argo.Services.ContentSrvc', [
             var promise = $http(req);
 
             promise.then(function(data) {
-
+                $rootScope.hidePreloader();
             });
 
             return promise;

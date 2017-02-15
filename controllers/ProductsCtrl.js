@@ -18,7 +18,6 @@ angular
                     defered.resolve();
                 }, function(data) {
                     Materialize.toast('Wystąpił błąd', 4000);
-                    defered.reject();
                 });
             };
 
@@ -29,7 +28,6 @@ angular
                     defered.resolve();
                 }, function(data) {
                     Materialize.toast('Wystąpił błąd', 4000);
-                    defered.reject();
                 });
             };
 
@@ -80,7 +78,6 @@ angular
                     } else {
                         Materialize.toast('Wystąpił błąd', 4000);
                         $scope.getProductsFromAPI();
-                        defered.reject();
                     }
                 });
             };
@@ -107,7 +104,6 @@ angular
                     } else {
                         Materialize.toast('Wystąpił błąd', 4000);
                         $scope.getProductsFromAPI();
-                        defered.reject();
                     }
                 });
             };
@@ -130,7 +126,6 @@ angular
                     } else {
                         Materialize.toast('Wystąpił błąd', 4000);
                         $scope.getProductsFromAPI();
-                        defered.reject();
                     }
                 });
             };

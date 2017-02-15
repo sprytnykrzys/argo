@@ -23,8 +23,11 @@ angular
                     Materialize.toast('Wiadomość została wysłana', 4000);
                     defered.resolve();
                 }, function(data) {
-                    Materialize.toast('Wystąpił błąd', 4000);
-                    defered.reject();
+                    $rootScope.hidePreloader();
+                     setTimeout(function() {
+                        Materialize.toast('Wystąpił błąd', 4000);
+                    }, 500);
+                    
                 });
             };
 

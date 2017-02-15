@@ -68,6 +68,8 @@ angular
                 $('#mainlang').removeClass('active')
             };
 
+
+
             $scope.init = function() {
                 if ($localStorage.currLang) {
                     for (var i = 0; i < $scope.globalLang.length; i++) {
@@ -86,6 +88,24 @@ angular
 
             $scope.init();
 
+            $scope.preloaderCounter = 0;
+
+            $rootScope.showPreloader = function() {
+                $('.loader-wrapper').show();
+                $scope.preloaderCounter++;
+            }
+
+            $rootScope.hidePreloader = function() {
+                if ($scope.preloaderCounter == 1) {
+                    setTimeout(function() {
+                        $('.loader-wrapper').hide();
+                    }, 500);
+                }
+
+                $scope.preloaderCounter--;
+            }
+            
+            $('.carousel').carousel();
 
         }
     ]);

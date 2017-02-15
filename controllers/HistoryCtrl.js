@@ -11,7 +11,7 @@ angular
         '$rootScope',
         function($scope, $state, $timeout, $localStorage, $rootScope) {
 
-        $('.carousel.carousel-slider').carousel({fullWidth: true, dist: 0});
+             $('.materialboxed').materialbox();
 
          $scope.changeState = function(state){
                 $state.go(state);  

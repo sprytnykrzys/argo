@@ -1,6 +1,10 @@
 <div id="outer" class="row subpage">
     <div class="page col s12 m12 l12">
-        <blockquote>Skontaktuj się z nami !</blockquote>
+        <blockquote>
+            <span ng-if="lang == 'pl'">Skontaktuj się z nami!</span>
+            <span ng-if="lang == 'en'">Contact us!</span>
+            <span ng-if="lang == 'ru'">связаться с нами!</span>
+        </blockquote>
         <div class="container">
             <div class="row">
                 <form class="col l12 m12 s12">
@@ -8,12 +12,20 @@
                         <div class="input-field col l6 m6 s12">
                             <i class="material-icons prefix"><i class="fa fa-user" aria-hidden="true"></i></i>
                             <input id="icon_prefix" type="text" class="validate" ng-model="contactData.subject">
-                            <label for="icon_prefix">Temat</label>
+                            <label for="icon_prefix">
+                                <span ng-if="lang == 'pl'">Temat</span>
+                                <span ng-if="lang == 'en'">Subject</span>
+                                <span ng-if="lang == 'ru'">тема</span>
+                            </label>
                         </div>
                         <div class="input-field col l6 m6 s12">
                             <i class="material-icons prefix"><i class="fa fa-envelope" aria-hidden="true"></i></i>
                             <input id="email" type="email" class="validate" ng-model="contactData.from">
-                            <label for="email" data-error="wrong" data-success="right">Email</label>
+                            <label for="email" data-error="wrong" data-success="right">
+                                <span ng-if="lang == 'pl'">Email</span>
+                                <span ng-if="lang == 'en'">Email</span>
+                                <span ng-if="lang == 'ru'">е-мейл</span>
+                            </label>
                         </div>
                     </div>
                 </form>
@@ -24,13 +36,20 @@
                         <div class="input-field col s12">
                             <i class="material-icons prefix"><i class="fa fa-pencil" aria-hidden="true"></i></i>
                             <textarea id="icon_prefix2" class="materialize-textarea" ng-model="contactData.message"></textarea>
-                            <label for="icon_prefix2">Treść</label>
+                            <label for="icon_prefix2">
+                                <span ng-if="lang == 'pl'">Treść</span>
+                                <span ng-if="lang == 'en'">Content</span>
+                                <span ng-if="lang == 'ru'">содержание</span>
+                            </label>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="row centered">
-                <button class="btn waves-effect waves-light" type="button" ng-click="send()">Wyślij
+                <button class="btn waves-effect waves-light" type="button" ng-click="send()">
+                    <span ng-if="lang == 'pl'">Wyślij</span>
+                    <span ng-if="lang == 'en'">Send</span>
+                    <span ng-if="lang == 'ru'">послать</span>
                     <i class="fa fa-paper-plane" aria-hidden="true"></i>
                 </button>
             </div>

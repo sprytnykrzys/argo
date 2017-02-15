@@ -219,3 +219,22 @@ button:hover{
 .carousel .indicators .indicator-item.active{
     background-color: #ee6e73 !important;
 }
+
+.loader-wrapper{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 70px;
+    left: 0;
+    z-index: 1000;
+    background-color: rgb(250,250,250);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.history-img{
+    margin-top: 30px;
+}
+
