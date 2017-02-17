@@ -17,7 +17,7 @@ angular
                 'labelPl': 'Strona główna',
                 'activeStateRule': '',
                 'ifLogged': '-1',
-                'uiSref': 'main'
+                'uiSref': 'home'
             }, {
                 'labelPl': 'Produkty',
                 'activeStateRule': 'products',
@@ -67,23 +67,6 @@ angular
                     return true;
                 }
             };
-
-            $scope.preloaderCounter = 0;
-
-            $rootScope.showPreloader = function() {
-                $('.loader-wrapper').show();
-                $scope.preloaderCounter++;
-            }
-
-            $rootScope.hidePreloader = function() {
-                if ($scope.preloaderCounter == 1) {
-                    setTimeout(function() {
-                        $('.loader-wrapper').hide();
-                    }, 500);
-                }
-                
-                $scope.preloaderCounter--;
-            }
 
 
         }

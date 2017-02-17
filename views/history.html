@@ -1,34 +1,65 @@
 <div id="outer" class="row subpage">
     <div class="page col s12 m12 l12">
-        <blockquote>O nas</blockquote>
-        <div class="container" style="text-align: center;">
+        <blockquote>
+            <span ng-if="lang == 'pl'">O nas</span>
+            <span ng-if="lang == 'en'">About us</span>
+            <span ng-if="lang == 'ru'">О компании</span>
+        </blockquote>
+        <div class="container">
             <div class="row">
                 <div class="col l12 m12 s12">
-                    <h5 class="center">O firmie</h5>
-                    <p>Historia naszej firmy sięga trzech pokoleń wstecz, kiedy to rzemieślnik Adam Ciechanowski założył firmę Argo. Jego syn poszerzył ofertę firmy o akcesoria malarskie, a w następnych latach nastąpił dalszy rozwój naszego przedsiębiorstwa. Argo jako producent profesjonalnych narzędzi i wałków malarskich oraz narzędzi budowlanych stawia przede wszystkim na najwyższą jakość oferowanych artykułów. Dbamy także o to, by ich ceny odpowiadały możliwościom Klientów. Współpracujemy z takimi sieciami jak Castorama i Leroy Merlin. Naszą markę doceniono też za granicą – produkty firmy Argo trafiają do Niemiec i Francji.</p>
-                    <img src="img/1.jpg" class="z-depth-3 history-img">
+                    <h5 class="center">
+                        <span ng-if="lang == 'pl'">O firmie</span>
+                        <span ng-if="lang == 'en'">About company</span>
+                        <span ng-if="lang == 'ru'">О компании</span>
+                    </h5>
+                    <p>
+                        <span ng-if="lang == 'pl'">
+                        Historia naszej firmy sięga trzech pokoleń wstecz, kiedy to rzemieślnik Adam Ciechanowski założył firmę Argo. Jego syn poszerzył ofertę firmy o akcesoria malarskie, a w następnych latach nastąpił dalszy rozwój naszego przedsiębiorstwa. Argo jako producent profesjonalnych narzędzi i wałków malarskich oraz narzędzi budowlanych stawia przede wszystkim na najwyższą jakość oferowanych artykułów. Dbamy także o to, by ich ceny odpowiadały możliwościom Klientów. Współpracujemy z takimi sieciami jak Castorama i Leroy Merlin. Naszą markę doceniono też za granicą – produkty firmy Argo trafiają do Niemiec i Francji.</span>
+                        <span ng-if="lang == 'en'">The history of our company goes back three generations ago, when a craftsman Adam Ciechanowski founded the company Argo. His son expanded the company's offer of painting accessories, and in subsequent years there has been further development of our company. Argo as a manufacturer of professional tools and paint rollers and tools for building sets primarily on the highest quality products. We also make sure that their prices match the capabilities customers. We cooperate with networks such as Castorama and Leroy Merlin. Our brand was also appreciated abroad - products Argo goes to Germany and France.</span>
+                        <span ng-if="lang == 'ru'">История нашей компании восходит три поколения назад, когда ремесленник Адам Ciechanowski основал компанию Арго. Его сын расширили предложение компании живописи аксессуаров, а в последующие годы наблюдается дальнейшее развитие нашей компании. Арго как производитель профессиональных инструментов и малярных валиков и инструментов для строительства устанавливает прежде всего на высокое качество продукции. Мы также уверены, что их цены соответствуют возможностям клиентов. Мы сотрудничаем с сетями, такими как Castorama и Leroy Merlin. Наш бренд был также оценен за рубежом - продукция Арго идет в Германию и Францию.</span>
+                    </p>
+                    <div class="history-img" style="display: block; margin-right: auto; margin-left: auto; height: 196px; width: 118px">
+                        <img src="img/1.jpg" class="z-depth-3 materialboxed">
+                    </div>
                     <div class="divider history-img"></div>
                 </div>
             </div>
             <div class="row">
                 <div class="col l12 m12 s12">
-                    <h5 class="center">Historia</h5>
-                    <p>Początki firmy ARGO sięgają trzech pokoleń wstecz. Założyciel - Adam Ciechanowski - był znanym rzemieślnikiem w Cechu Rzemieślników Krakowskich w latach dwudziestych. Zajmował się usługami ślusarskimi. Jego syn, Stefan Ciechanowski - następny właściciel ARGO - poszerzył działalność o produkcję wag oraz produkcję artykułów malarskich takich jak rynienki malarskie, skrobaki, szpachle. W roku 1977 ARGO przejął Edward Ciechanowski, obecny właściciel. Po rozeznaniu potrzeb rynkowych rozszerzył i zmienił nieco profil produkcji. Wałki futrzane, gąbkowe, kuwety, ociekacze, uchwyty do wałków i inne akcesoria malarskie firmy ARGO zaczęły wchodzić na rynek. ARGO ciągle wprowadza nowe technologie, nowe maszyny, nowe materiały - korzystając nie tylko z polskich osiągnięć w tej dziedzinie, ale także niemieckich czy francuskich. Priorytetem ARGO jest ciągłe podnoszenie jakości produkcji oraz dostosowanie cen do możliwości klienta. </p>
+                    <h5 class="center">
+                        <span ng-if="lang == 'pl'">Historia</span>
+                        <span ng-if="lang == 'en'">History</span>
+                        <span ng-if="lang == 'ru'">история</span>
+                    </h5>
+                    <p>
+                        <span ng-if="lang == 'pl'">Początki firmy ARGO sięgają trzech pokoleń wstecz. Założyciel - Adam Ciechanowski - był znanym rzemieślnikiem w Cechu Rzemieślników Krakowskich w latach dwudziestych. Zajmował się usługami ślusarskimi. Jego syn, Stefan Ciechanowski - następny właściciel ARGO - poszerzył działalność o produkcję wag oraz produkcję artykułów malarskich takich jak rynienki malarskie, skrobaki, szpachle. W roku 1977 ARGO przejął Edward Ciechanowski, obecny właściciel. Po rozeznaniu potrzeb rynkowych rozszerzył i zmienił nieco profil produkcji. Wałki futrzane, gąbkowe, kuwety, ociekacze, uchwyty do wałków i inne akcesoria malarskie firmy ARGO zaczęły wchodzić na rynek. ARGO ciągle wprowadza nowe technologie, nowe maszyny, nowe materiały - korzystając nie tylko z polskich osiągnięć w tej dziedzinie, ale także niemieckich czy francuskich. Priorytetem ARGO jest ciągłe podnoszenie jakości produkcji oraz dostosowanie cen do możliwości klienta.</span>
+                        <span ng-if="lang == 'en'">The beginning of ARGO goes back three generations back. Founder - Adam Ciechanowski - was a famous craftsman in Cracow Guild of Craftsmen in the twenties. He was ślusarskimi services. His son, Stefan Ciechanowski - the next owner of ARGO - extended activity to scales and production of articles such as painting gutters painting, scrapers, spatulas. In 1977, ARGO took Edward Ciechanowski, the current owner. After discerning the needs of the market has expanded and changed slightly the production profile. Rollers with fur, sponge, trays, drip, handles for rollers and other painting accessories company ARGO began to enter the market. ARGO is constantly introducing new technologies, new machines, new materials - using not only the Polish achievements in this field, but also German and French. ARGO priority is to constantly improve the quality of production and price adjustment to the client's capabilities.</span>
+                        <span ng-if="lang == 'ru'">Начало АРГО восходит три поколения назад. Основатель - Адам Ciechanowski - был известным мастером в Кракове Гильдии Мастеров в двадцатых годах. Он был ślusarskimi услуги. Его сын, Стефан Ciechanowski - следующий владелец АРГО - расширенная деятельность по шкалам и производство изделий, таких как живопись желобов живописи, скребки, шпатели. В 1977 году ARGO принял Эдвард Ciechanowski, нынешний владелец. После того, как различая потребности рынка расширился и изменился незначительно профиль производства. Ролики с мехом, губки, подносы, капельно, ручки для валиков и других принадлежностей для рисования компании ARGO начали выходить на рынок. ARGO постоянно внедряет новые технологии, новые машины, новые материалы - используя не только польские достижения в этой области, но и на немецком и французском языках. Приоритет ARGO является постоянное улучшение качества продукции и корректировки цен к возможностям клиента.</span>
+                    </p>
                     <div class="row">
-                        <div class="col l3 m3 s6">
-                            <img src="img/2.jpg" class="z-depth-3 history-img">
+                        <div class="col l3 m3 s6 history-img">
+                            <div class="center-img">
+                                <img src="img/2.jpg" class="z-depth-3 materialboxed">
+                            </div>
                             <p>Adam Ciechanowski</p>
                         </div>
-                        <div class="col l3 m3 s6">
-                            <img src="img/3.jpg" class="z-depth-3 history-img">
+                        <div class="col l3 m3 s6 history-img">
+                            <div class="center-img">
+                                <img src="img/3.jpg" class="z-depth-3 materialboxed">
+                            </div>
                             <p>Stefan Ciechanowski</p>
                         </div>
-                        <div class="col l3 m3 s6">
-                            <img src="img/4.jpg" class="z-depth-3 history-img">
+                        <div class="col l3 m3 s6 history-img">
+                            <div class="center-img" style="height: 113px; width: 113px;">
+                                <img src="img/4.jpg" class="z-depth-3 materialboxed">
+                            </div>
                             <p>Janina Ciechanowska</p>
                         </div>
-                        <div class="col l3 m3 s6">
-                            <img src="img/5.jpg" class="z-depth-3 history-img">
+                        <div class="col l3 m3 s6 history-img">
+                            <div class="center-img" style="height: 113px; width: 113px;">
+                                <img src="img/5.jpg" class="z-depth-3 materialboxed">
+                            </div>
                             <p>Edward Ciechanowski</p>
                         </div>
                     </div>

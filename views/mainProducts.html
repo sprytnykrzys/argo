@@ -1,7 +1,11 @@
 <div id="outer" class="row subpage">
     <div class="page col s12 m12 l12">
         <div class="row centered scrollableTable">
-            <blockquote>Lista produktów</blockquote>
+            <blockquote>
+                <span ng-if="lang == 'pl'">Lista produktów</span>
+                <span ng-if="lang == 'en'">Products list</span>
+                <span ng-if="lang == 'ru'">Список продуктов</span>
+            </blockquote>
             <table class="highlight responsive-table centered">
                 <thead>
                     <tr>
