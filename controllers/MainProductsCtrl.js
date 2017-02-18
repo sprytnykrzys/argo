@@ -15,7 +15,6 @@ angular
                 $scope.products = null;
                 ContentSrvc.getProducts().then(function(data) {
                     $scope.products = data.data.products;
-                    defered.resolve();
                 }, function(data) {
                     Materialize.toast('Wystąpił błąd', 4000);
                 });
@@ -25,7 +24,6 @@ angular
                 $scope.categories = null;
                 ContentSrvc.getCategories().then(function(data) {
                     $scope.categories = data.data.categories;
-                    defered.resolve();
                 }, function(data) {
                     Materialize.toast('Wystąpił błąd', 4000);
                 });
@@ -34,6 +32,10 @@ angular
             $scope.getProductsFromAPI();
 
             $scope.getCategoriesFromAPI();
+
+                $('select').material_select();
+                $('ul.tabs').tabs();
+                
 
         
         }

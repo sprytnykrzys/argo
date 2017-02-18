@@ -1,69 +1,83 @@
 <div id="outer" class="row subpage">
     <div class="page col s12 m12 l12">
-        <div class="row centered scrollableTable">
-            <blockquote>
-                <span ng-if="lang == 'pl'">Lista produktów</span>
-                <span ng-if="lang == 'en'">Products list</span>
-                <span ng-if="lang == 'ru'">Список продуктов</span>
-            </blockquote>
-            <table class="highlight responsive-table centered">
-                <thead>
-                    <tr>
-                        <th>Zdjęcie</th>
-                        <th>Kategoria</th>
-                        <th>Promowany</th>
-                        <th>Kod kreskowy</th>
-                        <th>Kod produktu</th>
-                        <th ng-repeat="(key, value) in products[0].name">Tytuł {{key | uppercase}}</th>
-                        <th ng-repeat="(key, value) in products[0].description">Opis {{key | uppercase}}</th>
-                    </tr>
-                </thead>
-                <tbody class="products">
-                    <tr ng-repeat="p in products" ng-init="p.edit = null">
-                        <td><img ng-src="{{p.image_url}}" ng-if="!p.edit" />
-                            <div class="file-field input-field" ng-if="p.edit">
-                                <div class="btn">
-                                    <span>Plik</span>
-                                    <input type="file" id="file{{p.id}}">
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text">
-                                </div>
-                            </div>
-                        </td>
-                        <td><span ng-show="!p.edit && cat.id == p.categoryId" ng-repeat="cat in categories">{{cat.name.pl}}</span>
-                            <div class="input-field col s12" ng-show="p.edit" style="text-align: left">
-                                <p ng-repeat="cat in categories">
-                                    <input ng-model="p.categoryId" type="radio" name="category{{p.id}}" id="{{cat.id}}{{p.id}}" ng-value="{{cat.id}}" />
-                                    <label for="{{cat.id}}{{p.id}}">{{cat.name.pl}}</label>
+        <div class="row">
+            <div class="col l8 m6 s12">
+                <blockquote>
+                    <span ng-if="lang == 'pl'">Kategorie</span>
+                    <span ng-if="lang == 'en'">Categories</span>
+                    <span ng-if="lang == 'ru'">категории</span>
+                </blockquote>
+            </div>
+            <div class="input-field col l4 m6 s12">
+                <i class="material-icons prefix"><i class="fa fa-search" aria-hidden="true"></i></i>
+                <input id="icon_prefix" type="text" class="validate" ng-model="contactData.subject">
+                <label for="icon_prefix">
+                    <span ng-if="lang == 'pl'">Wyszukaj produkt</span>
+                    <span ng-if="lang == 'en'">Subject</span>
+                    <span ng-if="lang == 'ru'">тема</span>
+                </label>
+            </div>
+        </div>
+        <!--<div class="row">
+            <div class="col s12">
+                <div class="col l4 m6 s12">
+                    <ul class="collection">
+                        <li class="collection-item avatar">
+                            <span class="title">Wszystkie kategorie</span>
+                            <a href="#!" class="secondary-content"></a>
+                            <form action="#">
+                                <p>
+                                    <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                                    <label for="filled-in-box"></label>
                                 </p>
-                            </div>
-                        </td>
-                        <td><span ng-if="!p.edit"><span ng-if="p.isNew">tak</span><span ng-if="!p.isNew">nie
-                        </span></span>
-                            <div class="switch" ng-if="p.edit">
-                                <label>
-                                    Nie
-                                    <input type="checkbox" ng-model="p.isNew">
-                                    <span class="lever"></span> Tak
-                                </label>
-                            </div>
-                        </td>
-                        <td><span ng-if="!p.edit"><span ng-if="p.barcode">{{p.barcode}}</span><span ng-if="!p.barcode">-</span></span>
-                            <input ng-if="p.edit" type="text" ng-model="p.barcode" />
-                        </td>
-                        <td><span ng-if="!p.edit"><span ng-if="p.productCode">{{p.productCode}}</span><span ng-if="!p.productCode">-</span></span>
-                            <input ng-if="p.edit" type="text" ng-model="p.productCode" />
-                        </td>
-                        <td ng-repeat="(key, value) in p.name"><span ng-if="!p.edit"><span ng-if="p.name[key]">{{p.name[key]}}</span><span ng-if="!p.name[key]">-</span></span>
-                            <input ng-if="p.edit" type="text" ng-model="p.name[key]" />
-                        </td>
-                        <td ng-repeat="(key, value) in p.description"><span ng-if="!p.edit"><span ng-if="p.description[key]">{{p.description[key]}}</span><span ng-if="!p.description[key]">-</span></span>
-                            <input ng-if="p.edit" type="text" ng-model="p.description[key]" />
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            </form>
+                        </li>
+                        <li class="collection-item avatar" ng-repeat="p in categories">
+                            <img ng-src="{{p.image_url}}" alt="" class="circle">
+                            <span class="title">{{p.name.pl}}</span>
+                            <a href="#!" class="secondary-content"></a>
+                            <form action="#">
+                                <p>
+                                    <input type="checkbox" class="filled-in" id="{{p.name.pl}}" checked="checked" />
+                                    <label for="{{p.name.pl}}"></label>
+                                </p>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col l2 m6 s12"></div>
+                <div class="col l3 m6 s12"></div>
+                <div class="col l3 m6 s12"></div>
+            </div>
+        </div>-->
+        <div class="row">
+            <div class="col s12 m3 l2" ng-repeat="p in categories">
+                <div class="card-panel teal">
+                    <img ng-src="{{p.image_url}}" width="30px" class="circle">
+                    <span class="white-text">{{p.name.pl}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col l6" ng-repeat="p in products">
+                <div class="card">
+                    <div class="card-content history-img">
+                        <h5>{{p.name.pl}}</h5>
+                        <img ng-src="{{p.image_url}}" class="z-depth-2">
+                    </div>
+                    <div class="card-tabs">
+                        <ul class="tabs tabs-fixed-width">
+                            <li class="tab"><a class="active" href="#test5">Opis produktu</a></li>
+                            <li class="tab"><a href="#test6">Więcej informacji</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-content grey lighten-4">
+                        <div id="test5">{{p.description.pl}}</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 </div>

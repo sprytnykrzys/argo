@@ -21,10 +21,9 @@ angular
             $scope.send = function() {
                 ContentSrvc.sendMail($scope.contactData).then(function(data) {
                     Materialize.toast('Wiadomość została wysłana', 4000);
-                    defered.resolve();
                 }, function(data) {
                     $rootScope.hidePreloader();
-                     setTimeout(function() {
+                    setTimeout(function() {
                         Materialize.toast('Wystąpił błąd', 4000);
                     }, 500);
                     

@@ -16,7 +16,6 @@ angular
                 $scope.categories = null;
                 ContentSrvc.getCategories().then(function(data) {
                     $scope.categories = data.data.categories;
-                    defered.resolve();
                 }, function(data) {
                     Materialize.toast('Wystąpił błąd', 4000);
                 });

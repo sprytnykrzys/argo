@@ -21,7 +21,6 @@ angular
                 AuthorizationSrvc.loginUser($scope.userData).then(function(data) {
                     Materialize.toast('Zostałeś zalogowany!', 4000);
                     $state.go('products');
-                    defered.resolve();
                 }, function(data) {
                     Materialize.toast('Wystąpił błąd', 4000);
                 });

@@ -254,3 +254,27 @@ button:hover{
     height: 113px;
     width: 88px;
 }
+
+.collection .collection-item.avatar{
+    min-height: 0 !important;
+}
+
+.collection{
+    border: 1px solid #26a69a !important;
+    border-radius: 5px !important;
+}
+
+.circle {
+    width: 35px!important;
+    height: 40px !important;
+}
+
+.card-panel{
+     border-radius: 12px !important;
+     padding: 12px !important;
+}
+
+.card-content img{
+    width: 60%;
+    height: 60%;
+}
