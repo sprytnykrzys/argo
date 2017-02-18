@@ -1,5 +1,6 @@
 angular.module('Argo', [
   'Argo.Routes',
-  'ngStorage'
+  'ngStorage',
+  'ui.materialize',
 ]);
  
