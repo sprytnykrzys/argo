@@ -9,8 +9,9 @@ angular
         '$timeout',
         '$localStorage',
         '$rootScope',
+        '$filter',
         'ContentSrvc',
-        function($scope, $state, $timeout, $localStorage, $rootScope, ContentSrvc) {
+        function($scope, $state, $timeout, $localStorage, $rootScope, $filter, ContentSrvc) {
             $scope.getProductsFromAPI = function() {
                 $scope.products = null;
                 ContentSrvc.getProducts().then(function(data) {
@@ -33,10 +34,32 @@ angular
 
             $scope.getCategoriesFromAPI();
 
-                $('select').material_select();
-                $('ul.tabs').tabs();
-                
+            $scope.allCategory = true;
+            $scope.currProd = 0;
 
-        
+            $scope.changeCategory = function(category, categoryId) {
+                $scope.category = category;
+                $scope.categoryId = categoryId;
+                $scope.allCategory = false;
+            }
+
+            $scope.changeAllCategory = function() {
+                $scope.category = 0;
+                $scope.allCategory = true;
+            }
+
+            $scope.moreProduct = function(id){
+                $scope.currProd = id;
+            }
+
+            $scope.lessProduct = function(){
+                $scope.currProd = 0;
+            }
+            
+            // $('select').material_select();
+            // $('ul.tabs').tabs();
+
+
+
         }
     ]);

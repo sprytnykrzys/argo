@@ -11,7 +11,7 @@ angular
         '$rootScope',
         'ContentSrvc',
         function($scope, $state, $timeout, $localStorage, $rootScope, ContentSrvc) {
-            
+        
             $scope.getProductsFromAPI = function() {
                 $scope.products = null;
                 ContentSrvc.getProducts().then(function(data) {
