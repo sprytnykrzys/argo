@@ -21,3 +21,30 @@
         <div class="fade" ui-view></div>
     </div>
 </div>
+<footer class="page-footer">
+    <div class="row">
+        <div class="col l12 m12 s12">
+            <nav id="nav-footer">
+                <div class="brand-logo footer-height center hide-on-med-and-down">
+                    <ul class="lista">
+                        <li class="lista2" ng-repeat="item in adminMenuItems" ng-if="verifyUser(item.ifLogged)" ng-class="{'active' : currState == item.activeStateRule}">
+                            <a href="" ng-click="changeState(item.uiSref)">
+                                <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                                <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                                <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="btn waves-effect waves-light right" type="button" ng-click="scrollToTop()">
+                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                </button>
+            </nav>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container center">
+            © 2017 ARGO Edward Ciechanowski ---- designed & made by <a href="http://k-org.pl/">k-org.pl</a>
+        </div>
+    </div>
+</footer>

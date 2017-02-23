@@ -43,26 +43,29 @@
     </div>
 </div>
 <footer class="page-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col l6 s12">
-                <h5 class="white-text">Argo</h5>
-                <p class="grey-text text-lighten-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lacinia egestas libero ut gravida. Phasellus pulvinar eros a dapibus eleifend. Quisque magna lacus, maximus ac efficitur tristique, laoreet eu augue. In id ex nunc. Donec mauris nisi, scelerisque mattis ipsum eu, malesuada mattis felis.</p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
-            </div>
+    <div class="row">
+        <div class="col l12 m12 s12">
+            <nav id="nav-footer">
+                <div class="brand-logo footer-height center hide-on-med-and-down">
+                    <ul class="lista">
+                        <li class="lista2" ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}">
+                            <a href="" ng-click="changeState(item.uiSref)">
+                                <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                                <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                                <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="btn waves-effect waves-light right" type="button" ng-click="scrollToTop()">
+                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                </button>
+            </nav>
         </div>
     </div>
     <div class="footer-copyright">
         <div class="container center">
-            © 2017 Copyright Text
+            © 2017 ARGO Edward Ciechanowski ---- designed & made by <a href="http://k-org.pl/">k-org.pl</a>
         </div>
     </div>
 </footer>

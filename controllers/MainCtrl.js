@@ -9,7 +9,9 @@ angular
         '$timeout',
         '$localStorage',
         '$rootScope',
-        function($scope, $state, $timeout, $localStorage, $rootScope) {
+        '$location',
+        '$window',
+        function($scope, $state, $timeout, $localStorage, $rootScope, $location, $window) {
             $(".button-collapse").sideNav();
 
             $scope.mainMenuItems = [{
@@ -68,6 +70,9 @@ angular
                 $('#mainlang').removeClass('active')
             };
 
+            $rootScope.scrollToTop = function(){
+                $window.scrollTo(0, 0);
+            };
 
 
             $scope.init = function() {

@@ -52,6 +52,27 @@ input {
     display: none;
 }
 
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.ui-view-container {
+    min-height: 100%;
+    position: relative;
+}
+
+#outer {
+    padding-bottom: 100px;
+}
+
+.row {
+    margin-bottom: 0px !important;
+    padding-bottom: 20px;
+}
+
 #adminHeader {
     height: 60px;
 }
@@ -110,9 +131,9 @@ input {
     width: 150px;
 }
 
-.waves-effect {
+/*.waves-effect {
     transition: none !important;
-}
+}*/
 
 .btn,
 .btn-large {
@@ -219,21 +240,6 @@ button:hover {
     width: 35px !important;
 }
 
-
-/*.carousel .indicators .indicator-item{
-    width: 16px !important;
-    height: 16px !important;
-    background-color: #26a69a !important;
-}
-
-.carousel .indicators .indicator-item.active{
-    background-color: #ee6e73 !important;
-}*/
-
-.carousel {
-    height: 315px !important;
-}
-
 .loader-wrapper {
     position: fixed;
     height: 100%;
@@ -262,33 +268,32 @@ button:hover {
 }
 
 .circle {
-    width: 35px!important;
+    width: 40px!important;
     height: 40px !important;
-    float: left;
     margin-top: -4px;
-    margin-right: 9px;
-    margin-left: -10px;
 }
 
 .card-panel {
-    border-radius: 12px !important;
-    padding: 17px !important;
+    padding: 8px !important;
     color: #222222;
     border: 1.5px solid #26a69a;
     width: 100% !important;
     height: 70px;
+    text-align: center;
 }
 
 .card-panel:hover {
     background-color: #26a69a !important;
+    color: #fff;
 }
 
 .card-panel p {
-    margin-top: 7px;
+    margin-top: -7px;
 }
 
 .active-category {
     background-color: #26a69a !important;
+    color: #fff;
 }
 
 .card-content img {
@@ -296,9 +301,13 @@ button:hover {
     height: 60%;
 }
 
+.carousel .carousel-item {
+    padding-top: 10px;
+}
+
 .carousel-item img {
     height: 44%;
-    margin-top: 87px;
+    margin-top: 30px;
     border: 2px solid #26a69a !important;
     border-radius: 10px;
 }
@@ -307,13 +316,14 @@ button:hover {
     color: #26a69a;
 }
 
-.more-product {
+
+/*.more-product {
     width: 100% !important;
     -webkit-transition: all 0.3s ease-in;
     -moz-transition: all 0.3s ease-in;
     -o-transition: all 0.3s ease-in;
     transition: all 0.3s ease-in;
-}
+}*/
 
 .more-product .card-content img {
     width: 50%;
@@ -332,11 +342,36 @@ button:hover {
     float: left;
 }
 
-.less-product {
+
+/*.less-product {
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+}*/
+
+.footer-copyright .container a {
+    text-decoration: none;
+    color: #222;
+}
+
+.footer-copyright .container a:hover {
+    color: #bdbdbd;
+}
+
+#nav-footer {
+    background-color: #ee6e73 !important;
+}
+
+.footer-height {
+    height: 50%;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    height: 154px;
 }
 
 @media(max-width: 601px) {

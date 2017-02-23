@@ -19,19 +19,20 @@
             </div>
         </div>
         <div class="row">
-            <div class="col s12 m4 l2">
+            <div class="col s12 m6 l3">
                 <div class="card-panel waves-effect waves-light" ng-click="changeAllCategory()" ng-class="{'active-category' : allCategory}">
-                    <p>Wszystkie kategorie</p>
+                    <p style="padding-top: 22.5px;padding-bottom: 22.5px;">Wszystkie kategorie</p>
                 </div>
             </div>
-            <div class="col s12 m4 l2" ng-repeat="cat in categories">
+            <div class="col s12 m6 l3" ng-repeat="cat in categories">
                 <div class="waves-effect waves-light card-panel" ng-click="changeCategory(cat.name.pl, cat.id)" ng-class="{'active-category' : category == cat.name.pl}">
                     <img ng-src="{{cat.image_url}}" width="30px" class="circle">
                     <p>{{cat.name.pl}}</p>
                 </div>
             </div>
         </div>
-        <div class="row"> <!-- ng-class="{'more-product' : currProd, 'less-product' : !currProd}" --> 
+        <div class="row">
+            <!-- ng-class="{'more-product' : currProd, 'less-product' : !currProd}" -->
             <div class="col l6" ng-class="{'more-product' : p.productCode == currProd, 'less-product' : currProd == 0}" ng-if="p.categoryId == categoryId || allCategory" ng-repeat="p in products | filter : search">
                 <div class="card">
                     <div class="card-content history-img">
@@ -55,5 +56,4 @@
             </div>
         </div>
     </div>
-</div>
 </div>

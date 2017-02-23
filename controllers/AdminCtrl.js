@@ -9,7 +9,9 @@ angular
         '$timeout',
         '$localStorage',
         '$rootScope',
-        function($scope, $state, $timeout, $localStorage, $rootScope) {
+        '$location',
+        '$window',
+        function($scope, $state, $timeout, $localStorage, $rootScope, $location, $window) {
             $(".button-collapse").sideNav();
 
 
@@ -67,6 +69,8 @@ angular
                     return true;
                 }
             };
+
+
 
 
         }
