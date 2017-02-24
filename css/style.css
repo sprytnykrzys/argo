@@ -131,6 +131,7 @@ body {
     width: 150px;
 }
 
+
 /*.waves-effect {
     transition: none !important;
 }*/
@@ -301,6 +302,10 @@ button:hover {
     height: 60%;
 }
 
+.carousel {
+    top: -40px;
+}
+
 .carousel .carousel-item {
     padding-top: 10px;
 }
@@ -388,5 +393,20 @@ footer {
         width: 100%;
         padding-top: 10px;
         float: left;
+    }
+    .footer-copyright {
+        height: 100px !important;
+    }
+    footer {
+        height: 196px;
+    }
+    #outer {
+        padding-bottom: 120px;
+    }
+}
+
+@media(max-width: 1366px) {
+    #divider-home {
+        margin-top: -100px;
     }
 }
