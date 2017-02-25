@@ -29,9 +29,7 @@
                     <ul class="lista">
                         <li class="lista2" ng-repeat="item in adminMenuItems" ng-if="verifyUser(item.ifLogged)" ng-class="{'active' : currState == item.activeStateRule}">
                             <a href="" ng-click="changeState(item.uiSref)">
-                                <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
-                                <span ng-if="lang == 'en'">{{item.labelEn}}</span>
-                                <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                                {{item.labelPl}}
                             </a>
                         </li>
                     </ul>
@@ -44,7 +42,8 @@
     </div>
     <div class="footer-copyright">
         <div class="container center">
-            © 2017 ARGO Edward Ciechanowski ---- designed & made by <a href="http://k-org.pl/">k-org.pl</a>
+            <span>© 2017 ARGO Edward Ciechanowski </span>
+            <span id="link-k-org"><span id="dash">---</span> designed & made by <a href="http://k-org.pl/" target="_blank">k-org.pl</a></span>
         </div>
     </div>
 </footer>

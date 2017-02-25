@@ -15,6 +15,7 @@ angular.module('Argo.Routes', [
     'Argo.Controllers.ContactCtrl',
     'Argo.Controllers.HistoryCtrl',
     'Argo.Controllers.HomeCtrl',
+    'Argo.Controllers.FeaturesCtrl',
 ])
 
 .config([
@@ -46,6 +47,12 @@ angular.module('Argo.Routes', [
                     templateUrl: 'views/products.html',
                     parent: 'admin',
                     controller: 'ProductsCtrl'
+                })
+                .state('features', {
+                    url: '/features',
+                    templateUrl: 'views/features.html',
+                    parent: 'admin',
+                    controller: 'FeaturesCtrl'
                 })
                 .state('categories', {
                     url: '/categories',

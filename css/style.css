@@ -403,6 +403,16 @@ footer {
     #outer {
         padding-bottom: 120px;
     }
+    #link-k-org {
+        display: block;
+    }
+    #dash {
+        display: none;
+    }
+    #button-scroll{
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media(max-width: 1366px) {

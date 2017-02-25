@@ -26,6 +26,11 @@ angular
                 'ifLogged': '1',
                 'uiSref': 'products'
             }, {
+                'labelPl': 'Cechy produktów',
+                'activeStateRule': 'features',
+                'ifLogged': '1',
+                'uiSref': 'features'
+            }, {
                 'labelPl': 'Kategorie',
                 'activeStateRule': 'categories',
                 'ifLogged': '1',
@@ -68,6 +73,11 @@ angular
                 } else if (ifRequired == '-1') {
                     return true;
                 }
+            };
+
+
+            $scope.scrollToTop = function() {
+                $window.scrollTo(0, 0);
             };
 
 

@@ -70,7 +70,7 @@ angular
                 $('#mainlang').removeClass('active')
             };
 
-            $rootScope.scrollToTop = function(){
+            $scope.scrollToTop = function(){
                 $window.scrollTo(0, 0);
             };
 
