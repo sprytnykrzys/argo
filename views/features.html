@@ -1,44 +1,72 @@
 <div id="outer" class="row subpage">
     <div class="page col s12 m12 l12">
-        <div class="row centered scrollableTable">
-            <blockquote>Lista produktów</blockquote>
-            <table class="highlight responsive-table centered">
-                <thead>
-                    <tr>
-                        <th>Zdjęcie</th>
-                        <th>Tytuł PL</th>
-                        <th>Edytuj</th>
-                        <th>Usuń</th>
-                    </tr>
-                </thead>
-                <tbody class="products">
-                    <tr ng-repeat="p in products" ng-init="p.edit = null">
-                        <td><img ng-src="{{p.image_url}}" ng-if="!p.edit" />
-                            <div class="file-field input-field" ng-if="p.edit">
-                                <div class="btn">
-                                    <span>Plik</span>
-                                    <input type="file" id="file{{p.id}}">
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text">
-                                </div>
-                            </div>
-                        </td>
-                        <td ng-repeat="(key, value) in p.name"><span ng-if="!p.edit"><span ng-if="p.name[key]">{{p.name[key]}}</span><span ng-if="!p.name[key]">-</span></span>
-                            <input ng-if="p.edit" type="text" ng-model="p.name[key]" />
-                        </td>
-                        <td class="optionsInTable">
-                            <button type="button" ng-if="!p.edit" class="btn waves-effect waves-light" ng-click="editProduct(p)">Edytuj</button>
-                            <button type="button" ng-if="p.edit" class="btn waves-effect waves-light buttonWithIcon greenButton" ng-click="selectPicture($index, p)"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-                            <button type="button" ng-if="p.edit" class="btn waves-effect waves-light buttonWithIcon" ng-click="closeEditMode(p)"><i class="fa fa-times" aria-hidden="true"></i>
-                            </button>
-                        </td>
-                        <td class="optionsInTable">
-                            <button type="button" class="btn waves-effect waves-light" ng-click="deleteProduct(p)">Usuń</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>         
+        <div class="row">
+            <div class="col l8 m6 s12">
+                <blockquote>Cechy produktów</blockquote>
+            </div>
+            <div class="row">
+                <div class="col l6 more-product" ng-repeat="p in products">
+                    <div class="card">
+                        <div class="card-content history-img">
+                            <h5>{{p.name.pl}}</h5>
+                            <img ng-src="{{p.image_url}}" class="z-depth-2">
+                        </div>
+                        <div class="card-tabs">
+                            <table class="highlight responsive-table centered">
+                                <thead>
+                                    <tr>
+                                        <th ng-repeat="(key, value) in products[0].name">Tytuł {{key | uppercase}}</th>
+                                        <th ng-repeat="(key, value) in products[0].description">Opis {{key | uppercase}}</th>
+                                        <th>Edytuj</th>
+                                        <th>Usuń</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="products">
+                                    <tr ng-repeat="p in products" ng-init="p.edit = null">
+                                        <td ng-repeat="(key, value) in p.name"><span ng-if="!p.edit"><span ng-if="p.name[key]">{{p.name[key]}}</span><span ng-if="!p.name[key]">-</span></span>
+                                            <input ng-if="p.edit" type="text" ng-model="p.name[key]" />
+                                        </td>
+                                        <td ng-repeat="(key, value) in p.description"><span ng-if="!p.edit"><span ng-if="p.description[key]">{{p.description[key]}}</span><span ng-if="!p.description[key]">-</span></span>
+                                            <input ng-if="p.edit" type="text" ng-model="p.description[key]" />
+                                        </td>
+                                        <td class="optionsInTable">
+                                            <button type="button" ng-if="!p.edit" class="btn waves-effect waves-light" ng-click="editProduct(p)">Edytuj</button>
+                                            <button type="button" ng-if="p.edit" class="btn waves-effect waves-light buttonWithIcon greenButton" ng-click="selectPicture($index, p)"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                                            <button type="button" ng-if="p.edit" class="btn waves-effect waves-light buttonWithIcon" ng-click="closeEditMode(p)"><i class="fa fa-times" aria-hidden="true"></i>
+                                            </button>
+                                        </td>
+                                        <td class="optionsInTable">
+                                            <button type="button" class="btn waves-effect waves-light" ng-click="deleteProduct(p)">Usuń</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <blockquote>Dodawanie nowej cechy</blockquote>
+                            <table class="highlight responsive-table centered">
+                                <thead>
+                                    <tr>
+                                        <th ng-repeat="(key, value) in products[0].name">Tytuł {{key | uppercase}}</th>
+                                        <th ng-repeat="(key, value) in products[0].description">Opis {{key | uppercase}}</th>
+                                        <th>Dodaj</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td ng-repeat="(key, value) in products[0].name">
+                                            <input type="text" ng-model="newItem.properties[key][key][name]" />
+                                        </td>
+                                        <td ng-repeat="(key, value) in products[0].description">
+                                            <input type="text" ng-model="newItem.description[key]" />
+                                        </td>
+                                        <td class="optionsInTable">
+                                            <button type="button" class="btn waves-effect waves-light" ng-click="addProperties()">Dodaj</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>

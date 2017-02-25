@@ -40,22 +40,16 @@ angular
                 description: {
 
                 },
-                categoryId: 1
+                categoryId: 1,
+                properties: {
+
+                }
             };
 
-            $scope.addProduct = function() {
-                var selectedFile = document.getElementById('newFile').files[0];
-                if (typeof selectedFile == 'undefined') {
-                    $scope.newItem.image = null;
-                    $scope.sendProduct($scope.newItem);
-                } else {
-                    selectedFile.convertToBase64(function(base) {
-                        base = base.substring(base.indexOf(';base64,') + 8, base.length);
-                        var base64 = base;
-                        $scope.newItem.image = base64;
-                        $scope.sendProduct($scope.newItem);
-                    });
-                }
+            $scope.addProperties = function() {
+
+                $scope.sendProperties($scope.newItem);
+
             };
 
             $scope.editProduct = function(prod) {
@@ -80,7 +74,7 @@ angular
                 });
             };
 
-            $scope.sendProduct = function(prod) {
+            $scope.sendProperties = function(prod) {
                 ContentSrvc.updateProduct(prod).then(function(data) {
                     $scope.getProductsFromAPI();
                     Materialize.toast('Zapisano!', 4000);
@@ -91,7 +85,10 @@ angular
                         description: {
 
                         },
-                        categoryId: 1
+                        categoryId: 1,
+                        properties: {
+
+                        }
                     };
                 }, function(data) {
                     if (data.status == 403) {

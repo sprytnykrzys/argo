@@ -322,30 +322,15 @@ button:hover {
 }
 
 
-/*.more-product {
+.more-product {
     width: 100% !important;
-    -webkit-transition: all 0.3s ease-in;
-    -moz-transition: all 0.3s ease-in;
-    -o-transition: all 0.3s ease-in;
-    transition: all 0.3s ease-in;
-}*/
+    text-align: center;
+}
 
 .more-product .card-content img {
-    width: 50%;
-    display: block;
-    margin-left: 5%;
-    float: left;
-    margin-bottom: 10px;
+    width: 20%;
 }
 
-.more-product .card-content p {
-    font-size: 20px;
-    margin-left: 20px !important;
-    margin-top: 5px !important;
-    width: 40%;
-    padding-top: 10px;
-    float: left;
-}
 
 
 /*.less-product {
@@ -384,14 +369,6 @@ footer {
         width: 90%;
         display: block;
         margin-left: 5%;
-        float: left;
-    }
-    .more-product .card-content p {
-        font-size: 20px;
-        margin-left: 0px !important;
-        margin-top: 5px !important;
-        width: 100%;
-        padding-top: 10px;
         float: left;
     }
     .footer-copyright {

@@ -11,7 +11,8 @@ angular
         '$rootScope',
         '$filter',
         'ContentSrvc',
-        function($scope, $state, $timeout, $localStorage, $rootScope, $filter, ContentSrvc) {
+        '$stateParams',
+        function($scope, $state, $timeout, $localStorage, $rootScope, $filter, ContentSrvc, $stateParams) {
             $scope.getProductsFromAPI = function() {
                 $scope.products = null;
                 ContentSrvc.getProducts().then(function(data) {
@@ -59,7 +60,10 @@ angular
             // $('select').material_select();
             // $('ul.tabs').tabs();
 
-
+            if($stateParams.id){
+                alert("To jest produkt " + $stateParams.id);
+               
+            }
 
         }
     ]);

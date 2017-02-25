@@ -61,7 +61,7 @@ angular.module('Argo.Routes', [
                     controller: 'CategoriesCtrl'
                 })
                 .state('mainProducts', {
-                    url: '/products',
+                    url: '/products?id',
                     templateUrl: 'views/mainProducts.html',
                     parent: 'main',
                     controller: 'MainProductsCtrl'
