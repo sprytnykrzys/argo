@@ -13,6 +13,9 @@ angular
         'ContentSrvc',
         '$stateParams',
         function($scope, $state, $timeout, $localStorage, $rootScope, $filter, ContentSrvc, $stateParams) {
+
+            $scope.singleProduct = false;
+
             $scope.getProductsFromAPI = function() {
                 $scope.products = null;
                 ContentSrvc.getProducts().then(function(data) {
@@ -49,20 +52,21 @@ angular
                 $scope.allCategory = true;
             }
 
-            $scope.moreProduct = function(id){
+            $scope.moreProduct = function(id) {
                 $scope.currProd = id;
             }
 
-            $scope.lessProduct = function(){
+            $scope.lessProduct = function() {
                 $scope.currProd = 0;
             }
-            
+
             // $('select').material_select();
             // $('ul.tabs').tabs();
 
-            if($stateParams.id){
-                alert("To jest produkt " + $stateParams.id);
-               
+            if ($stateParams.id) {
+                $scope.singleProduct = true;
+                $scope.currentProductId = $stateParams.id;
+
             }
 
         }

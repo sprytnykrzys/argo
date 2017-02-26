@@ -15,15 +15,18 @@ angular
                 $scope.products = null;
                 ContentSrvc.getProducts().then(function(data) {
                     $scope.products = data.data.products;
-                }, function(data) {
-                    Materialize.toast('Wystąpił błąd', 4000);
-                });
-            };
 
-            $scope.getCategoriesFromAPI = function() {
-                $scope.categories = null;
-                ContentSrvc.getCategories().then(function(data) {
-                    $scope.categories = data.data.categories;
+                    for(var i=0; i<$scope.products.length; i++){
+                        if($scope.products[i].properties){
+                            for(var key in $scope.products[i].properties){
+                                $scope.products[i].propertiesCount = key;
+                            }
+                            $scope.products[i].propertiesCount++;
+                        }else{
+                            $scope.products[i].propertiesCount = 1;
+                        }
+                    }
+
                 }, function(data) {
                     Materialize.toast('Wystąpił błąd', 4000);
                 });
@@ -31,25 +34,10 @@ angular
 
             $scope.getProductsFromAPI();
 
-            $scope.getCategoriesFromAPI();
-
             $scope.newItem = {
-                name: {
-
-                },
-                description: {
-
-                },
-                categoryId: 1,
                 properties: {
 
                 }
-            };
-
-            $scope.addProperties = function() {
-
-                $scope.sendProperties($scope.newItem);
-
             };
 
             $scope.editProduct = function(prod) {
@@ -74,18 +62,13 @@ angular
                 });
             };
 
-            $scope.sendProperties = function(prod) {
+            $scope.sendProperties = function(id) {
+                $scope.newItem.id = id;
+                var prod = $scope.newItem;
                 ContentSrvc.updateProduct(prod).then(function(data) {
                     $scope.getProductsFromAPI();
                     Materialize.toast('Zapisano!', 4000);
                     $scope.newItem = {
-                        name: {
-
-                        },
-                        description: {
-
-                        },
-                        categoryId: 1,
                         properties: {
 
                         }

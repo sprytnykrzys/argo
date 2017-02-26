@@ -1,5 +1,5 @@
 <div id="outer" class="row subpage">
-    <div class="page col s12 m12 l12">
+    <div class="page col s12 m12 l12" ng-if="!singleProduct">
         <div class="row">
             <div class="col l8 m6 s12">
                 <blockquote>
@@ -55,5 +55,17 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="page col s12 m12 l12" ng-if="singleProduct">
+        
+
+
+    {{currentProductId}}
+
+
+
+
+
+
     </div>
 </div>
