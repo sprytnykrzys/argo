@@ -321,6 +321,14 @@ button:hover {
     color: #26a69a;
 }
 
+.features-product {
+    width: 100% !important;
+    text-align: center;
+}
+
+.features-product .card-content img {
+    width: 20%;
+}
 
 .more-product {
     width: 100% !important;
@@ -331,14 +339,6 @@ button:hover {
     width: 20%;
 }
 
-
-
-/*.less-product {
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-}*/
 
 .footer-copyright .container a {
     text-decoration: none;
@@ -386,7 +386,7 @@ footer {
     #dash {
         display: none;
     }
-    #button-scroll{
+    #button-scroll {
         margin-left: auto;
         margin-right: auto;
     }

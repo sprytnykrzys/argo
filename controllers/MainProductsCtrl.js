@@ -20,6 +20,15 @@ angular
                 $scope.products = null;
                 ContentSrvc.getProducts().then(function(data) {
                     $scope.products = data.data.products;
+                    if ($stateParams.id) {
+                        for (var i = 0; i < $scope.products.length; i++) {
+                            if ($scope.products[i].id == $stateParams.id) {
+                                $scope.singleProduct = true;
+                                $scope.currentProductId = $stateParams.id;
+                            }
+                        }
+
+                    }
                 }, function(data) {
                     Materialize.toast('Wystąpił błąd', 4000);
                 });
@@ -63,11 +72,9 @@ angular
             // $('select').material_select();
             // $('ul.tabs').tabs();
 
-            if ($stateParams.id) {
-                $scope.singleProduct = true;
-                $scope.currentProductId = $stateParams.id;
 
-            }
+
+
 
         }
     ]);

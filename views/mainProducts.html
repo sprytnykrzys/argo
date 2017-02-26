@@ -33,19 +33,16 @@
         </div>
         <div class="row">
             <!-- ng-class="{'more-product' : currProd, 'less-product' : !currProd}" -->
-            <div class="col l6" ng-class="{'more-product' : p.productCode == currProd, 'less-product' : currProd == 0}" ng-if="p.categoryId == categoryId || allCategory" ng-repeat="p in products | filter : search">
+            <div class="col l6" ng-if="p.categoryId == categoryId || allCategory" ng-repeat="p in products | filter : search">
                 <div class="card">
                     <div class="card-content history-img">
                         <h5>{{p.name.pl}}</h5>
                         <img ng-src="{{p.image_url}}" class="z-depth-2">
-                        <p ng-if="p.productCode == currProd">Kod kreskowy : {{p.barcode}}</p>
-                        <p ng-if="p.productCode == currProd">Kod produktu : {{p.productCode}}</p>
                     </div>
                     <div class="card-tabs">
                         <ul class="tabs tabs-fixed-width">
                             <li class="tab">
-                                <a href="" ng-if="!currProd" ng-click="moreProduct(p.productCode)">Więcej informacji</a>
-                                <a href="" ng-if="currProd" ng-click="lessProduct()">Mniej informacji</a>
+                                <a ui-sref="mainProducts({id : p.id})" ng-click="">Więcej informacji</a>
                             </li>
                         </ul>
                     </div>
@@ -57,15 +54,24 @@
         </div>
     </div>
     <div class="page col s12 m12 l12" ng-if="singleProduct">
-        
-
-
-    {{currentProductId}}
-
-
-
-
-
-
+        <div class="row">
+            <div class="col l6 more-product" ng-repeat="p in products" ng-if="p.id == currentProductId">
+                <div class="card">
+                    <div class="card-content history-img">
+                        <h5>{{p.name.pl}}</h5>
+                        <img ng-src="{{p.image_url}}" class="z-depth-2">
+                        <p>Kod kreskowy : {{p.barcode}}</p>
+                        <p>Kod produktu : {{p.productCode}}</p>
+                    </div>
+                    <!-- <div class="card-tabs">
+                        <ul class="tabs tabs-fixed-width">
+                            <li class="tab">
+                                <a ui-sref="mainProducts">Mniej informacji</a>
+                            </li>
+                        </ul>
+                    </div> -->
+                </div>
+            </div>
+        </div>
     </div>
 </div>
