@@ -7,11 +7,25 @@
                 </a>
                 <ul class="left hide-on-med-and-down">
                     <li ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}">
-                        <a href="" ng-click="changeState(item.uiSref)">
-                            <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
-                            <span ng-if="lang == 'en'">{{item.labelEn}}</span>
-                            <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
-                        </a>
+                        <span ng-if="!singleProduct">
+                            <a ng-click="changeState(item.uiSref)">
+                                <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                                <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                                <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                            </a>
+                        </span>
+                        <span ng-if="singleProduct">
+                            <a ng-if="item.labelPl == 'Produkty'" ui-sref="mainProducts({id : undefined})" >
+                                <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                                <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                                <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                            </a>
+                            <a ng-if="item.labelPl !== 'Produkty'" ng-click="changeState(item.uiSref)">
+                                <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                                <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                                <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                            </a>
+                        </span>
                     </li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
@@ -49,11 +63,25 @@
                 <div class="brand-logo footer-height center hide-on-med-and-down">
                     <ul class="lista">
                         <li class="lista2" ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}">
-                            <a href="" ng-click="changeState(item.uiSref)">
-                                <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
-                                <span ng-if="lang == 'en'">{{item.labelEn}}</span>
-                                <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
-                            </a>
+                            <span ng-if="!singleProduct">
+                                <a ng-click="changeState(item.uiSref)">
+                                    <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                                    <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                                    <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                                </a>
+                            </span>
+                            <span ng-if="singleProduct">
+                                <a ng-if="item.labelPl == 'Produkty'" ui-sref="mainProducts({id : undefined})" >
+                                    <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                                    <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                                    <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                                </a>
+                                <a ng-if="item.labelPl !== 'Produkty'" ng-click="changeState(item.uiSref)">
+                                    <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                                    <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                                    <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                                </a>
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -67,15 +95,6 @@
         <div class="container center">
             <span>© 2017 ARGO Edward Ciechanowski </span>
             <span id="link-k-org"><span id="dash">---</span> designed & made by <a href="http://k-org.pl/" target="_blank">k-org.pl</a></span>
-            <!--  <div class="row">
-            <div class="col l4 m4 s12"></div>
-                <div class="col l4 m4 s12 centered">
-                    <p>© 2017 ARGO Edward Ciechanowski</p>
-                </div>
-                <div class="col l4 m4 s12">
-                    <p style="text-align: right;">designed & made by <a href="http://k-org.pl/" target="_blank">k-org.pl</a></p>
-                </div>
-            </div> -->
         </div>
     </div>
 </footer>

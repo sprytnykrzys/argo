@@ -7,12 +7,21 @@
             <div class="row">
                 <div class="col l6 features-product" ng-repeat="p in products">
                     <div class="card">
-                        <div class="card-content history-img">
+                        <div class="card-content feature-img">
                             <h5>{{p.name.pl}}</h5>
                             <img ng-src="{{p.image_url}}" class="z-depth-2">
                         </div>
                         <div>
-                        <span ng-if="!p.properties">Brak cech niestandardowych</span>
+                            <span ng-if="!p.properties">Brak cech niestandardowych</span>
+                            <div class="row" ng-if="p.properties" ng-repeat="(key, value) in products[0].properties">
+                                <div class="col s12 m5">
+                                    <div class="card-panel teal">
+                                        <span class="white-text">
+                                            <!-- {{p.properties}} -->
+                                         </span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-tabs">
                             <blockquote>Dodawanie nowej cechy</blockquote>

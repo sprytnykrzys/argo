@@ -260,6 +260,11 @@ button:hover {
     text-align: center;
 }
 
+.feature-img {
+    margin-top: 30px;
+    text-align: left;
+}
+
 .center-img {
     display: block;
     margin-right: auto;
@@ -272,6 +277,10 @@ button:hover {
     width: 40px!important;
     height: 40px !important;
     margin-top: -4px;
+}
+
+.product-card:hover{
+    border: 1px solid #26a69a;
 }
 
 .card-panel {
@@ -319,6 +328,10 @@ button:hover {
 
 .carousel-item p {
     color: #26a69a;
+}
+
+.carousel-item p:hover {
+    color: #80cbc4;
 }
 
 .features-product {

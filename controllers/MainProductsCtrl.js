@@ -14,7 +14,8 @@ angular
         '$stateParams',
         function($scope, $state, $timeout, $localStorage, $rootScope, $filter, ContentSrvc, $stateParams) {
 
-            $scope.singleProduct = false;
+             $('.materialboxed').materialbox();
+            $rootScope.singleProduct = false;
 
             $scope.getProductsFromAPI = function() {
                 $scope.products = null;
@@ -23,7 +24,7 @@ angular
                     if ($stateParams.id) {
                         for (var i = 0; i < $scope.products.length; i++) {
                             if ($scope.products[i].id == $stateParams.id) {
-                                $scope.singleProduct = true;
+                                $rootScope.singleProduct = true;
                                 $scope.currentProductId = $stateParams.id;
                             }
                         }
@@ -69,9 +70,7 @@ angular
                 $scope.currProd = 0;
             }
 
-            // $('select').material_select();
-            // $('ul.tabs').tabs();
-
+         
 
 
 

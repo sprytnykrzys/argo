@@ -34,7 +34,7 @@
         <div class="row">
             <!-- ng-class="{'more-product' : currProd, 'less-product' : !currProd}" -->
             <div class="col l6" ng-if="p.categoryId == categoryId || allCategory" ng-repeat="p in products | filter : search">
-                <div class="card">
+                <div class="card product-card" ui-sref="mainProducts({id : p.id})">
                     <div class="card-content history-img">
                         <h5>{{p.name.pl}}</h5>
                         <img ng-src="{{p.image_url}}" class="z-depth-2">
@@ -57,19 +57,42 @@
         <div class="row">
             <div class="col l6 more-product" ng-repeat="p in products" ng-if="p.id == currentProductId">
                 <div class="card">
-                    <div class="card-content history-img">
-                        <h5>{{p.name.pl}}</h5>
-                        <img ng-src="{{p.image_url}}" class="z-depth-2">
-                        <p>Kod kreskowy : {{p.barcode}}</p>
-                        <p>Kod produktu : {{p.productCode}}</p>
+                    <div class="card-content feature-img">
+                        <button class="btn waves-effect waves-light right" type="button" ui-sref="mainProducts({id : undefined})">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </button>
+                        <div class="row">
+                            <div class="col l5 left">
+                                <h5 style="font-size: 2.20rem;">{{p.name.pl}}</h5>
+                                <img ng-src="{{p.image_url}}" class="z-depth-2 materialboxed" materialboxed style="width: 80%;">
+                            </div>
+                            <div class="col l7">
+                           <!--      <span ng-if="lang == 'pl'">{{p.description.pl}}</span>
+                                <span ng-if="lang == 'en'">{{p.description.en}}</span>
+                                <span ng-if="lang == 'ru'">{{p.description.ru}}</span> -->
+                                <ul class="collapsible" data-collapsible="accordion" style="margin-top: 25px;">
+                                    <li ng-repeat="p in products" ng-if="p.id == currentProductId">
+                                        <div class="collapsible-header">Kod Kreskowy</div>
+                                        <div class="collapsible-body">
+                                            <p>{{p.barcode}}</p>
+                                        </div>
+                                    </li>
+                                    <li ng-repeat="p in products" ng-if="p.id == currentProductId">
+                                        <div class="collapsible-header">Kod produktu</div>
+                                        <div class="collapsible-body">
+                                            <p>{{p.productCode}}</p>
+                                        </div>
+                                    </li>
+                                    <li ng-repeat="p in products" ng-if="p.id == currentProductId">
+                                        <div class="collapsible-header">Opis produktu</div>
+                                        <div class="collapsible-body">
+                                            <p>{{p.description.pl}}</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <!-- <div class="card-tabs">
-                        <ul class="tabs tabs-fixed-width">
-                            <li class="tab">
-                                <a ui-sref="mainProducts">Mniej informacji</a>
-                            </li>
-                        </ul>
-                    </div> -->
                 </div>
             </div>
         </div>
