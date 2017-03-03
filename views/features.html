@@ -22,7 +22,7 @@
                                             <div class="collapsible-header">{{p.properties[key].pl.name}}
                                             <span class="badge">
                                                 <button type="button" ng-if="!p.edit" class="btn waves-effect waves-light feature-button" ng-click="editProduct(p)">Usuń</button>
-                                                <button type="button" ng-if="p.edit" class="btn waves-effect waves-light greenButton feature-button" ng-click="deleteProperties(p, p.properties[key])">Tak</button>
+                                                <button type="button" ng-if="p.edit" class="btn waves-effect waves-light greenButton feature-button" ng-click="deleteProperties(p, key)">Tak</button>
                                                 <button type="button" ng-if="p.edit" class="btn waves-effect waves-light feature-button" ng-click="closeEditMode(p)">Nie
                                                 </button>
                                             </span>
