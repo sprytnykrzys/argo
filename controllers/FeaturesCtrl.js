@@ -27,6 +27,8 @@ angular
                         }
                     }
 
+                    
+
                 }, function(data) {
                     Materialize.toast('Wystąpił błąd', 4000);
                 });
@@ -91,8 +93,8 @@ angular
                 $scope.products = angular.copy($localStorage.products);
             };
 
-            $scope.deleteProduct = function(prod) {
-                ContentSrvc.deleteProduct(prod).then(function(data) {
+            $scope.deleteProperties = function(prod, prop) {
+                ContentSrvc.deleteProperty(prod, prop).then(function(data) {
                     $scope.getProductsFromAPI();
                     Materialize.toast('Usunięto!', 4000);
                 }, function(data) {

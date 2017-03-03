@@ -10,7 +10,7 @@ angular.module('Argo.Services.ContentSrvc', [
     '$window',
     '$q',
 
-    
+
     function($http, $localStorage, $state, $rootScope, $window, $q) {
 
         this.getProducts = function() {
@@ -56,9 +56,9 @@ angular.module('Argo.Services.ContentSrvc', [
         this.updateProduct = function(prod) {
             $rootScope.showPreloader();
             var data = {
-                    "uid": $localStorage.user.uid,
-                    "token": $localStorage.user.token,
-                    "product": prod
+                "uid": $localStorage.user.uid,
+                "token": $localStorage.user.token,
+                "product": prod
             };
 
             delete data.product.edit;
@@ -85,9 +85,9 @@ angular.module('Argo.Services.ContentSrvc', [
         this.updateCategory = function(p) {
             $rootScope.showPreloader();
             var data = {
-                    "uid": $localStorage.user.uid,
-                    "token": $localStorage.user.token,
-                    "category": p
+                "uid": $localStorage.user.uid,
+                "token": $localStorage.user.token,
+                "category": p
             };
 
             delete data.category.edit;
@@ -114,9 +114,9 @@ angular.module('Argo.Services.ContentSrvc', [
         this.deleteProduct = function(prod) {
             $rootScope.showPreloader();
             var data = {
-                    "uid": $localStorage.user.uid,
-                    "token": $localStorage.user.token,
-                    "id" : prod.id,
+                "uid": $localStorage.user.uid,
+                "token": $localStorage.user.token,
+                "id": prod.id,
             };
             var req = {
                 method: 'POST',
@@ -137,12 +137,39 @@ angular.module('Argo.Services.ContentSrvc', [
             return promise;
         };
 
+        this.deleteProperty = function(prod, property) {
+            $rootScope.showPreloader();
+            var data = {
+                "uid": $localStorage.user.uid,
+                "token": $localStorage.user.token,
+                "id_product": prod.id,
+                "id_property": property,
+            };
+            var req = {
+                method: 'POST',
+                data: data,
+                url: $rootScope.endpointURL + "/property/delete",
+                headers: {
+                    "Content-Type": "text/plain"
+                }
+            };
+
+            var promise = $http(req);
+
+            promise.then(function(data) {
+                $localStorage.user.token = data.data.token;
+                $rootScope.hidePreloader();
+            });
+
+            return promise;
+        };
+
         this.deleteCategory = function(p) {
             $rootScope.showPreloader();
             var data = {
-                    "uid": $localStorage.user.uid,
-                    "token": $localStorage.user.token,
-                    "id" : p.id,
+                "uid": $localStorage.user.uid,
+                "token": $localStorage.user.token,
+                "id": p.id,
             };
             var req = {
                 method: 'POST',

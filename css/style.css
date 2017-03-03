@@ -343,6 +343,10 @@ button:hover {
     width: 20%;
 }
 
+.feature-button{
+    margin-top: -28px;
+}
+
 .more-product {
     width: 100% !important;
     text-align: center;

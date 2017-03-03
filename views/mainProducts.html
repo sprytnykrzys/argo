@@ -63,10 +63,11 @@
                         </button>
                         <div class="row">
                             <div class="col l5 left">
-                                <h5 style="font-size: 2.20rem;">{{p.name.pl}}</h5>
-                                <img ng-src="{{p.image_url}}" class="z-depth-2 materialboxed" materialboxed style="width: 80%;">
+                                <h5 style="font-size: 1.90rem;">{{p.name.pl}}</h5>
+                                <img ng-src="{{p.image_url}}" class="z-depth-2 materialboxed responsive-img" materialboxed style="width: 80%;" >
                             </div>
-                            <div class="col l7">
+                            
+                            <div class="col l7 m12 s12">
                            <!--      <span ng-if="lang == 'pl'">{{p.description.pl}}</span>
                                 <span ng-if="lang == 'en'">{{p.description.en}}</span>
                                 <span ng-if="lang == 'ru'">{{p.description.ru}}</span> -->
@@ -87,6 +88,12 @@
                                         <div class="collapsible-header">Opis produktu</div>
                                         <div class="collapsible-body">
                                             <p>{{p.description.pl}}</p>
+                                        </div>
+                                    </li>
+                                    <li ng-repeat="(key, value) in p.properties" ng-if="p.id == currentProductId">
+                                        <div class="collapsible-header">{{p.properties[key].pl.name}}</div>
+                                        <div class="collapsible-body">
+                                            <p>{{p.properties[key].pl.value}}</p>
                                         </div>
                                     </li>
                                 </ul>
