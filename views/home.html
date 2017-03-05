@@ -10,8 +10,11 @@
                 <div carousel ng-repeat="p in products" ng-if="$index == 0">
                     <a class="carousel-item" href="javascript:void(0);" ng-repeat="p in products" ng-if="p.isNew">
                         <img class="z-depth-3" ng-src="{{p.image_url}}">
-                        <p ui-sref="mainProducts({id : p.id})"  class="center">{{p.name.pl}}</p>
-
+                        <p ui-sref="mainProducts({id : p.id})" class="center">
+                            <span ng-if="lang == 'pl'">{{p.name.pl}}</span>
+                            <span ng-if="lang == 'en'">{{p.name.en}}</span>
+                            <span ng-if="lang == 'ru'">{{p.name.ru}}</span>
+                        </p>
                     </a>
                 </div>
                 <div id="divider-home" class="divider history-img"></div>

@@ -21,33 +21,52 @@
         <div class="row">
             <div class="col s12 m6 l3">
                 <div class="card-panel waves-effect waves-light" ng-click="changeAllCategory()" ng-class="{'active-category' : allCategory}">
-                    <p style="padding-top: 22.5px;padding-bottom: 22.5px;">Wszystkie kategorie</p>
+                    <p style="padding-top: 22.5px;padding-bottom: 22.5px;">
+                        <span ng-if="lang == 'pl'">Wszystkie kategorie</span>
+                        <span ng-if="lang == 'en'">All categories</span>
+                        <span ng-if="lang == 'ru'">Все категории</span>
+                    </p>
                 </div>
             </div>
             <div class="col s12 m6 l3" ng-repeat="cat in categories">
                 <div class="waves-effect waves-light card-panel" ng-click="changeCategory(cat.name.pl, cat.id)" ng-class="{'active-category' : category == cat.name.pl}">
                     <img ng-src="{{cat.image_url}}" width="30px" class="circle">
-                    <p>{{cat.name.pl}}</p>
+                    <p>
+                        <span ng-if="lang == 'pl'">{{cat.name.pl}}</span>
+                        <span ng-if="lang == 'en'">{{cat.name.en}}</span>
+                        <span ng-if="lang == 'ru'">{{cat.name.ru}}</span>
+                    </p>
                 </div>
             </div>
         </div>
         <div class="row">
-            <!-- ng-class="{'more-product' : currProd, 'less-product' : !currProd}" -->
             <div class="col l6" ng-if="p.categoryId == categoryId || allCategory" ng-repeat="p in products | filter : search">
                 <div class="card product-card" ui-sref="mainProducts({id : p.id})">
                     <div class="card-content history-img">
-                        <h5>{{p.name.pl}}</h5>
+                        <h5>
+                            <span ng-if="lang == 'pl'">{{p.name.pl}}</span>
+                            <span ng-if="lang == 'en'">{{p.name.en}}</span>
+                            <span ng-if="lang == 'ru'">{{p.name.ru}}</span>
+                        </h5>
                         <img ng-src="{{p.image_url}}" class="z-depth-2">
                     </div>
                     <div class="card-tabs">
                         <ul class="tabs tabs-fixed-width">
                             <li class="tab">
-                                <a ui-sref="mainProducts({id : p.id})" ng-click="">Więcej informacji</a>
+                                <a ui-sref="mainProducts({id : p.id})" ng-click="">
+                                    <span ng-if="lang == 'pl'">Więcej informacji</span>
+                                    <span ng-if="lang == 'en'">More information</span>
+                                    <span ng-if="lang == 'ru'">больше информации</span>
+                                </a>
                             </li>
                         </ul>
                     </div>
                     <div class="card-content center grey lighten-4">
-                        <div id="test5">{{p.description.pl}}</div>
+                        <div id="test5">
+                            <span ng-if="lang == 'pl'">{{p.description.pl}}</span>
+                            <span ng-if="lang == 'en'">{{p.description.en}}</span>
+                            <span ng-if="lang == 'ru'">{{p.description.ru}}</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -63,41 +82,80 @@
                         </button>
                         <div class="row">
                             <div class="col l5 left">
-                                <h5 style="font-size: 1.90rem;">{{p.name.pl}}</h5>
-                                <img ng-src="{{p.image_url}}" class="z-depth-2 materialboxed responsive-img" materialboxed style="width: 80%;" >
+                                <h5 style="font-size: 1.90rem;">
+                                    <span ng-if="lang == 'pl'">{{p.name.pl}}</span>
+                                    <span ng-if="lang == 'en'">{{p.name.en}}</span>
+                                    <span ng-if="lang == 'ru'">{{p.name.ru}}</span>
+                                </h5>
+                                <img ng-src="{{p.image_url}}" class="z-depth-2 materialboxed responsive-img" materialboxed style="width: 80%;">
                             </div>
-                            
                             <div class="col l7 m12 s12">
-                           <!--      <span ng-if="lang == 'pl'">{{p.description.pl}}</span>
-                                <span ng-if="lang == 'en'">{{p.description.en}}</span>
-                                <span ng-if="lang == 'ru'">{{p.description.ru}}</span> -->
-                                <ul class="collapsible" data-collapsible="accordion" style="margin-top: 25px;">
-                                    <li ng-repeat="p in products" ng-if="p.id == currentProductId">
-                                        <div class="collapsible-header">Kod Kreskowy</div>
-                                        <div class="collapsible-body">
-                                            <p>{{p.barcode}}</p>
-                                        </div>
-                                    </li>
-                                    <li ng-repeat="p in products" ng-if="p.id == currentProductId">
-                                        <div class="collapsible-header">Kod produktu</div>
-                                        <div class="collapsible-body">
-                                            <p>{{p.productCode}}</p>
-                                        </div>
-                                    </li>
-                                    <li ng-repeat="p in products" ng-if="p.id == currentProductId">
-                                        <div class="collapsible-header">Opis produktu</div>
-                                        <div class="collapsible-body">
-                                            <p>{{p.description.pl}}</p>
-                                        </div>
-                                    </li>
-                                    <li ng-repeat="(key, value) in p.properties" ng-if="p.id == currentProductId">
-                                        <div class="collapsible-header">{{p.properties[key].pl.name}}</div>
-                                        <div class="collapsible-body">
-                                            <p>{{p.properties[key].pl.value}}</p>
-                                        </div>
-                                    </li>
-                                </ul>
+                                <table class="bordered responsive-table single-product-table">
+                                    <tbody>
+                                        <tr ng-repeat="p in products" ng-if="p.id == currentProductId">
+                                            <td style="width: 25%;">
+                                                <span ng-if="lang == 'pl'">Kod kreskowy</span>
+                                                <span ng-if="lang == 'en'">Barcode</span>
+                                                <span ng-if="lang == 'ru'">Штрих-код</span>
+                                            </td>
+                                            <td>{{p.barcode}}</td>
+                                        </tr>
+                                        <tr ng-repeat="p in products" ng-if="p.id == currentProductId">
+                                            <td style="width: 25%;">
+                                                <span ng-if="lang == 'pl'">Kod produktu</span>
+                                                <span ng-if="lang == 'en'">Product code</span>
+                                                <span ng-if="lang == 'ru'">код продукта</span>
+                                            </td>
+                                            <td>{{p.productCode}}</td>
+                                        </tr>
+                                        <tr ng-repeat="p in products" ng-if="p.id == currentProductId">
+                                            <td style="width: 25%;">
+                                                <span ng-if="lang == 'pl'">Opis produktu</span>
+                                                <span ng-if="lang == 'en'">Product description</span>
+                                                <span ng-if="lang == 'ru'">Описание продукта</span>
+                                            </td>
+                                            <td>
+                                                <span ng-if="lang == 'pl'">{{p.description.pl}}</span>
+                                                <span ng-if="lang == 'en'">{{p.description.en}}</span>
+                                                <span ng-if="lang == 'ru'">{{p.description.ru}}</span>
+                                            </td>
+                                        </tr>
+                                        <tr ng-repeat="(key, value) in p.properties" ng-if="p.id == currentProductId">
+                                            <td style="width: 25%;">
+                                                <span ng-if="lang == 'pl'">{{p.properties[key].pl.name}}</span>
+                                                <span ng-if="lang == 'en'">{{p.properties[key].en.name}}</span>
+                                                <span ng-if="lang == 'ru'">{{p.properties[key].ru.name}}</span>
+                                            </td>
+                                            <td>
+                                                <span ng-if="lang == 'pl'">{{p.properties[key].pl.value}}</span>
+                                                <span ng-if="lang == 'en'">{{p.properties[key].en.value}}</span>
+                                                <span ng-if="lang == 'ru'">{{p.properties[key].ru.value}}</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
+                        </div>
+                        <div class="row center">
+                            <div class="col l5 m4 s3"></div>
+                            <div class="col l2 m4 s6">
+                                <div class="input-field">
+                                    <input placeholder="1" id="first_name" type="text" class="validate" ng-model="amountOfProduct.amount">
+                                    <label for="first_name">
+                                        <span ng-if="lang == 'pl'">Ilość</span>
+                                        <span ng-if="lang == 'en'">Amount</span>
+                                        <span ng-if="lang == 'ru'">номер</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col l5 m4 s3"></div>
+                        </div>
+                        <div class="row centered" style="margin-top: -20px;">
+                            <button class="btn waves-effect waves-light" type="button" ng-click="addToShoppingBasket(p.id)">
+                                <span ng-if="lang == 'pl'">Dodaj do koszyka</span>
+                                <span ng-if="lang == 'en'">Add to basket</span>
+                                <span ng-if="lang == 'ru'">Добавить в корзину</span>
+                            </button>
                         </div>
                     </div>
                 </div>

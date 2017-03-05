@@ -1,21 +1,34 @@
 angular
-    .module('Argo.Controllers.MainProductsCtrl', [
+    .module('Argo.Controllers.ShoppingBasketCtrl', [
         'ui.router',
         'ngAnimate',
     ])
-    .controller('MainProductsCtrl', [
+    .controller('ShoppingBasketCtrl', [
         '$scope',
         '$state',
         '$timeout',
         '$localStorage',
         '$rootScope',
-        '$filter',
         'ContentSrvc',
-        '$stateParams',
-        function($scope, $state, $timeout, $localStorage, $rootScope, $filter, ContentSrvc, $stateParams) {
+        function($scope, $state, $timeout, $localStorage, $rootScope, ContentSrvc) {
 
-            $('.materialboxed').materialbox();
-            $rootScope.singleProduct = false;
+            $scope.contactData = {
+                "from": "",
+                "message": "",
+                "subject": ""
+            };
+
+            $scope.send = function() {
+                ContentSrvc.sendMail($scope.contactData).then(function(data) {
+                    Materialize.toast('Wiadomość została wysłana', 4000);
+                }, function(data) {
+                    $rootScope.hidePreloader();
+                    setTimeout(function() {
+                        Materialize.toast('Wystąpił błąd', 4000);
+                    }, 500);
+                    
+                });
+            };
 
             $scope.getProductsFromAPI = function() {
                 $scope.products = null;
@@ -48,45 +61,6 @@ angular
 
             $scope.getCategoriesFromAPI();
 
-            $scope.allCategory = true;
-            $scope.currProd = 0;
-
-            $scope.changeCategory = function(category, categoryId) {
-                $scope.category = category;
-                $scope.categoryId = categoryId;
-                $scope.allCategory = false;
-            }
-
-            $scope.changeAllCategory = function() {
-                $scope.category = 0;
-                $scope.allCategory = true;
-            }
-
-            $scope.moreProduct = function(id) {
-                $scope.currProd = id;
-            }
-
-            $scope.lessProduct = function() {
-                $scope.currProd = 0;
-            }
-
-            $scope.amountOfProduct = {
-                amount: ''
-
-
-
-            };
-
-
-            $scope.addToShoppingBasket = function(id) {
-                $scope.amountOfProduct.id = id;
-                var koszyk = $scope.amountOfProduct;
-                $localStorage.shoppingBasket = koszyk;
-            }
-
-
-
-
-
+        
         }
     ]);

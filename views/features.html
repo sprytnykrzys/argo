@@ -5,63 +5,69 @@
                 <blockquote>Cechy produktów</blockquote>
             </div>
             <div class="row">
-                <div class="col l12" ng-repeat="p in products">
-                    <div class="card">
-                        <div class="row">
-                            <div class="col l4">
-                                <div class="card-content">
-                                    <h5>{{p.name.pl}}</h5>
-                                    <img ng-src="{{p.image_url}}" class="z-depth-2">
-                                </div>
+                <div class="col l12 m12 s12">
+                    <ul class="collapsible" data-collapsible="accordion" style="margin-top: 25px;">
+                        <li ng-repeat="p in products">
+                            <div class="collapsible-header">
+                                <img ng-src="{{p.image_url}}" class="feature-circle"> {{p.name.pl}}
                             </div>
-                            <div class="col l8">
-                                <p ng-if="!p.properties" style="margin-top: 100px">Brak cech niestandardowych</p>
-                                <div class="row" ng-if="p.properties">
-                                    <ul class="collapsible" data-collapsible="accordion" style="margin-top: 25px;">
-                                        <li ng-repeat="(key, value) in p.properties">
-                                            <div class="collapsible-header">{{p.properties[key].pl.name}}
-                                            <span class="badge">
-                                                <button type="button" ng-if="!p.edit" class="btn waves-effect waves-light feature-button" ng-click="editProduct(p)">Usuń</button>
-                                                <button type="button" ng-if="p.edit" class="btn waves-effect waves-light greenButton feature-button" ng-click="deleteProperties(p, key)">Tak</button>
-                                                <button type="button" ng-if="p.edit" class="btn waves-effect waves-light feature-button" ng-click="closeEditMode(p)">Nie
-                                                </button>
-                                            </span>
-                                            </div>
-                                            <div class="collapsible-body">
-                                                <p>{{p.properties[key].pl.value}}</p>
-                                            </div>
-                                        </li>
-                                    </ul>
+                            <div class="collapsible-body">
+                                <div class="row">
+                                    <!-- <div class="col l4">
+                                                    <div class="card-content">
+                                                        <h5>{{p.name.pl}}</h5>
+                                                        <img ng-src="{{p.image_url}}" class="z-depth-2">
+                                                    </div>
+                                                </div> -->
+                                    <div class="col l12 m12 s12">
+                                        <p ng-if="!p.properties">Brak cech niestandardowych</p>
+                                        <div class="row" ng-if="p.properties">
+                                            <table class="bordered responsive-table feature-table">
+                                                <tbody>
+                                                    <tr ng-repeat="(key, value) in p.properties">
+                                                        <td style="width: 25%;">{{p.properties[key].pl.name}}</td>
+                                                        <td>{{p.properties[key].pl.value}}
+                                                            <button type="button" ng-if="!p.edit" class="btn waves-effect waves-light right" ng-click="editProduct(p)">Usuń</button>
+                                                            <button type="button" ng-if="p.edit" class="btn waves-effect waves-light right" ng-click="closeEditMode(p)">Nie
+                                                            </button>
+                                                            <button type="button" ng-if="p.edit" class="btn waves-effect waves-light greenButton right" ng-click="deleteProperties(p, key)">Tak</button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-tabs">
+                                    <blockquote>Dodawanie nowej cechy</blockquote>
+                                    <table class="highlight responsive-table centered">
+                                        <thead>
+                                            <tr>
+                                                <th ng-repeat="(key, value) in products[0].name">Nazwa cechy {{key | uppercase}}</th>
+                                                <th ng-repeat="(key, value) in products[0].description">Wartość {{key | uppercase}}</th>
+                                                <th>Dodaj</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td ng-repeat="(key, value) in products[0].name">
+                                                    <input type="text" ng-model="newItem.properties[p.propertiesCount][key].name" />
+                                                </td>
+                                                <td ng-repeat="(key, value) in products[0].name">
+                                                    <input type="text" ng-model="newItem.properties[p.propertiesCount][key].value" />
+                                                </td>
+                                                <td class="optionsInTable">
+                                                    <button type="button" class="btn waves-effect waves-light" ng-click="sendProperties(p.id)">Dodaj</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-tabs">
-                            <blockquote>Dodawanie nowej cechy</blockquote>
-                            <table class="highlight responsive-table centered">
-                                <thead>
-                                    <tr>
-                                        <th ng-repeat="(key, value) in products[0].name">Nazwa cechy {{key | uppercase}}</th>
-                                        <th ng-repeat="(key, value) in products[0].description">Wartość {{key | uppercase}}</th>
-                                        <th>Dodaj</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td ng-repeat="(key, value) in products[0].name">
-                                            <input type="text" ng-model="newItem.properties[p.propertiesCount][key].name" />
-                                        </td>
-                                        <td ng-repeat="(key, value) in products[0].name">
-                                            <input type="text" ng-model="newItem.properties[p.propertiesCount][key].value" />
-                                        </td>
-                                        <td class="optionsInTable">
-                                            <button type="button" class="btn waves-effect waves-light" ng-click="sendProperties(p.id)">Dodaj</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
+    

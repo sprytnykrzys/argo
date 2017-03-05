@@ -38,6 +38,12 @@ angular
                 'labelRu': 'контакт',
                 'activeStateRule': 'contact',
                 'uiSref': 'contact'
+            }, {
+                'labelPl': 'Koszyk',
+                'labelEn': 'Basket',
+                'labelRu': 'корзина',
+                'activeStateRule': 'shoppingBasket',
+                'uiSref': 'shoppingBasket'
             }];
 
             $scope.globalLang = [{

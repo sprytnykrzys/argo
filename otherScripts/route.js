@@ -16,6 +16,7 @@ angular.module('Argo.Routes', [
     'Argo.Controllers.HistoryCtrl',
     'Argo.Controllers.HomeCtrl',
     'Argo.Controllers.FeaturesCtrl',
+    'Argo.Controllers.ShoppingBasketCtrl',
 ])
 
 .config([
@@ -77,6 +78,12 @@ angular.module('Argo.Routes', [
                     templateUrl: 'views/history.html',
                     parent: 'main',
                     controller: 'HistoryCtrl'
+                })
+                .state('shoppingBasket', {
+                    url: '/basket',
+                    templateUrl: 'views/shoppingBasket.html',
+                    parent: 'main',
+                    controller: 'ShoppingBasketCtrl'
                 })
                 .state('home', {
                     url: '/home',

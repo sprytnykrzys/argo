@@ -279,11 +279,11 @@ button:hover {
     margin-top: -4px;
 }
 
-.product-card{
+.product-card {
     cursor: pointer;
 }
 
-.product-card:hover{
+.product-card:hover {
     outline: 1px solid #26a69a;
 }
 
@@ -311,7 +311,7 @@ button:hover {
 }
 
 .card-content img {
-    width: 60%;
+    width: 80%;
     height: 60%;
 }
 
@@ -347,19 +347,24 @@ button:hover {
     width: 20%;
 }
 
-.feature-button{
-    margin-top: -28px;
+.feature-table {
+    margin-top: 20px;
+}
+
+.feature-table td {
+    border: 1px solid #d0d0d0;
+}
+
+.feature-circle {
+    width: 55px!important;
+    height: 40px !important;
+    margin-bottom: -15px;
 }
 
 .more-product {
     width: 100% !important;
     text-align: center;
 }
-
-.more-product .card-content img {
-    width: 20%;
-}
-
 
 .footer-copyright .container a {
     text-decoration: none;
@@ -376,6 +381,14 @@ button:hover {
 
 .footer-height {
     height: 50%;
+}
+
+.single-product-table {
+    margin-top: 20px;
+}
+
+.single-product-table td {
+    border: 1px solid #d0d0d0;
 }
 
 footer {
