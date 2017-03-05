@@ -70,19 +70,44 @@ angular
                 $scope.currProd = 0;
             }
 
-            $scope.amountOfProduct = {
-                amount: ''
+            $scope.shoppingBasket = $localStorage.shoppingBasket;
 
-
-
+            $scope.checkAmountOfProduct = function(p) {
+                p.amount = 0;
+                if ($scope.shoppingBasket) {
+                    for (var i = 0; i < $scope.shoppingBasket.length; i++) {
+                        if ($scope.shoppingBasket[i].id == $scope.currentProductId) {
+                            p.amount = $scope.shoppingBasket[i].amount;
+                        }
+                    }
+                }
             };
 
 
-            $scope.addToShoppingBasket = function(id) {
-                $scope.amountOfProduct.id = id;
-                var koszyk = $scope.amountOfProduct;
-                $localStorage.shoppingBasket = koszyk;
-            }
+            $scope.addToShoppingBasket = function(prod) {
+                if (!$localStorage.shoppingBasket) {
+                    $localStorage.shoppingBasket = [];
+                }
+
+                var isInArray = '-1';
+                for (var i = 0; i < $localStorage.shoppingBasket.length; i++) {
+                    if ($localStorage.shoppingBasket[i].id == prod.id) {
+                        isInArray = i;
+                    }
+                }
+                if (isInArray == '-1') {
+                    var obj = {
+                        'id': prod.id,
+                        'amount': prod.amount
+                    };
+                    $localStorage.shoppingBasket.push(obj);
+                } else {
+                    $localStorage.shoppingBasket[isInArray].amount = prod.amount;
+                }
+
+                $scope.shoppingBasket = $localStorage.shoppingBasket;
+                Materialize.toast('Dodano!', 2000);
+            };
 
 
 

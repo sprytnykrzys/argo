@@ -90,7 +90,7 @@ angular
 
             $scope.closeEditMode = function(prod) {
                 prod.edit = !prod.edit;
-                $scope.products = angular.copy($localStorage.products);
+                // $scope.products = angular.copy($localStorage.products);
             };
 
             $scope.deleteProperties = function(prod, prop) {

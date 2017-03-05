@@ -76,8 +76,21 @@ angular
                 $('#mainlang').removeClass('active')
             };
 
-            $scope.scrollToTop = function(){
+            $scope.scrollToTop = function() {
                 $window.scrollTo(0, 0);
+            };
+
+            $scope.ifBasketEmpty = function(name) {
+                console.log(name);
+                if (name == 'Koszyk') {
+                    if (!$localStorage.shoppingBasket || $localStorage.shoppingBasket.length == 0) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }   
             };
 
 
