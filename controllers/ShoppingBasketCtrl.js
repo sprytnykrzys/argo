@@ -66,14 +66,14 @@ angular
                 var email = $scope.basketData.mail;
 
                 if (email == '') {
-                    $scope.properEmail = true;
+                    return true;
 
                 }
 
                 if (!email.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
-                    $scope.properEmail = true;
+                    return true;
                 } else {
-                    $scope.properEmail = false;
+                    return false;
                 }
 
             }

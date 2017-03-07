@@ -47,7 +47,7 @@
                         </div>
                         <div class="input-field col l6 m6 s12">
                             <i class="material-icons prefix"><i class="fa fa-envelope" aria-hidden="true"></i></i>
-                            <input id="email" type="email" class="validate" ng-model="basketData.mail" ng-init="validate()">
+                            <input id="email" type="email" class="validate" ng-model="basketData.mail">
                             <label for="email" data-error="wrong" data-success="right">
                                 <span ng-if="lang == 'pl'">Email</span>
                                 <span ng-if="lang == 'en'">Email</span>
@@ -73,7 +73,7 @@
                 </form>
             </div>
             <div class="row centered">
-                <button class="btn waves-effect waves-light" type="button" ng-click="sendBasket()" ng-disabled="!basketData.mail">
+                <button class="btn waves-effect waves-light" type="button" ng-click="sendBasket()" ng-disabled="validate()">
                     <span ng-if="lang == 'pl'">Wyślij</span>
                     <span ng-if="lang == 'en'">Send</span>
                     <span ng-if="lang == 'ru'">послать</span>
