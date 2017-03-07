@@ -4,24 +4,50 @@
             <span ng-if="lang == 'pl'">Twój koszyk!</span>
             <span ng-if="lang == 'en'">Your basket!</span>
             <span ng-if="lang == 'ru'">Ваша корзина!</span>
-
         </blockquote>
         <div class="container">
             <div class="row">
+                <div class="col l12 m12 s12">
+                    <table class="bordered responsive-table">
+                        <tbody>
+                            <tr>
+                                <td style="width: 70%;">
+                                    <span ng-if="lang == 'pl'">Produkt</span>
+                                    <span ng-if="lang == 'en'">Barcode</span>
+                                    <span ng-if="lang == 'ru'">Штрих-код</span>
+                                </td>
+                                <td>Ilość</td>
+                            </tr>
+                            <tr ng-repeat="b in basket">
+                                <td style="width: 70%;" ng-repeat="p in products" ng-if="p.id == b.id">
+                                    <img ng-src="{{p.image_url}}" class="feature-circle">
+                                    <span ng-if="lang == 'pl'">{{p.name.pl}}</span>
+                                    <span ng-if="lang == 'en'">Barcode</span>
+                                    <span ng-if="lang == 'ru'">Штрих-код</span>
+                                </td>
+                                <td>{{b.qty}} 
+                                <button type="button" class="btn waves-effect waves-light right" ng-click="deleteProductFromBasket(b)">Usuń</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 50px;">
                 <form class="col l12 m12 s12">
                     <div class="row">
                         <div class="input-field col l6 m6 s12">
                             <i class="material-icons prefix"><i class="fa fa-user" aria-hidden="true"></i></i>
-                            <input id="icon_prefix" type="text" class="validate" ng-model="contactData.subject">
+                            <input id="icon_prefix" type="text" class="validate" ng-model="basketData.nip">
                             <label for="icon_prefix">
-                                <span ng-if="lang == 'pl'">Temat</span>
+                                <span ng-if="lang == 'pl'">Numer NIP</span>
                                 <span ng-if="lang == 'en'">Subject</span>
                                 <span ng-if="lang == 'ru'">тема</span>
                             </label>
                         </div>
                         <div class="input-field col l6 m6 s12">
                             <i class="material-icons prefix"><i class="fa fa-envelope" aria-hidden="true"></i></i>
-                            <input id="email" type="email" class="validate" ng-model="contactData.from">
+                            <input id="email" type="email" class="validate" ng-model="basketData.mail" ng-init="validate()">
                             <label for="email" data-error="wrong" data-success="right">
                                 <span ng-if="lang == 'pl'">Email</span>
                                 <span ng-if="lang == 'en'">Email</span>
@@ -36,7 +62,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix"><i class="fa fa-pencil" aria-hidden="true"></i></i>
-                            <textarea id="icon_prefix2" class="materialize-textarea" ng-model="contactData.message"></textarea>
+                            <textarea id="icon_prefix2" class="materialize-textarea" ng-model="basketData.message"></textarea>
                             <label for="icon_prefix2">
                                 <span ng-if="lang == 'pl'">Treść</span>
                                 <span ng-if="lang == 'en'">Content</span>
@@ -47,7 +73,7 @@
                 </form>
             </div>
             <div class="row centered">
-                <button class="btn waves-effect waves-light" type="button" ng-click="send()">
+                <button class="btn waves-effect waves-light" type="button" ng-click="sendBasket()" ng-disabled="!basketData.mail">
                     <span ng-if="lang == 'pl'">Wyślij</span>
                     <span ng-if="lang == 'en'">Send</span>
                     <span ng-if="lang == 'ru'">послать</span>

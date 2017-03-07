@@ -209,5 +209,25 @@ angular.module('Argo.Services.ContentSrvc', [
 
             return promise;
         };
+
+        this.sendBasket = function(data) {
+            $rootScope.showPreloader();
+            var req = {
+                method: 'POST',
+                url: $rootScope.endpointURL + "/basket",
+                data: data,
+                headers: {
+                    "Content-Type": "text/plain"
+                }
+            };
+
+            var promise = $http(req);
+
+            promise.then(function(data) {
+                $rootScope.hidePreloader();
+            });
+
+            return promise;
+        };
     }
 ]);

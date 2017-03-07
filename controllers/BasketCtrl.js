@@ -12,23 +12,21 @@ angular
         'ContentSrvc',
         function($scope, $state, $timeout, $localStorage, $rootScope, ContentSrvc) {
 
-            $scope.basketData = {
-                "lang": $localStorage.currLang,
-                "mail": "",
-                "nip": "",
+            $scope.contactData = {
+                "from": "",
                 "message": "",
-                "products": $localStorage.shoppingBasket
+                "subject": ""
             };
 
-            $scope.sendBasket = function() {
-                ContentSrvc.sendBasket($scope.basketData).then(function(data) {
+            $scope.send = function() {
+                ContentSrvc.sendMail($scope.contactData).then(function(data) {
                     Materialize.toast('Wiadomość została wysłana', 4000);
                 }, function(data) {
                     $rootScope.hidePreloader();
                     setTimeout(function() {
                         Materialize.toast('Wystąpił błąd', 4000);
                     }, 500);
-
+                    
                 });
             };
 
@@ -50,36 +48,9 @@ angular
                 });
             };
 
-
             $scope.getProductsFromAPI();
 
             $scope.basket = $localStorage.shoppingBasket;
-
-            $scope.deleteProductFromBasket = function(data) {
-                $localStorage.shoppingBasket.splice($localStorage.shoppingBasket.indexOf(data), 1);
-            }
-
-
-
-            $scope.validate = function() {
-
-                var email = $scope.basketData.mail;
-
-                if (email == '') {
-                    $scope.properEmail = true;
-
-                }
-
-                if (!email.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
-                    $scope.properEmail = true;
-                } else {
-                    $scope.properEmail = false;
-                }
-
-            }
-
-
-
-
+        
         }
     ]);

@@ -98,7 +98,7 @@ angular
                 if (isInArray == '-1') {
                     var obj = {
                         'id': prod.id,
-                        'amount': prod.amount
+                        'qty': prod.amount
                     };
                     $localStorage.shoppingBasket.push(obj);
                 } else {
