@@ -86,8 +86,8 @@ body {
 }
 
 .brand-logo img {
-    height: 85%;
-    margin-top: 8%;
+    height: 95%;
+    margin-top: 2%;
 }
 
 .button-collapse i {
@@ -181,6 +181,7 @@ table.responsive-table th {
 
 blockquote {
     text-align: left;
+    font-size: 17px;
 }
 
 @media(max-width: 991px) {
@@ -330,11 +331,11 @@ button:hover {
     border-radius: 10px;
 }
 
-.carousel-item p {
+.featured-products p {
     color: #26a69a;
 }
 
-.carousel-item p:hover {
+.featured-products p:hover {
     color: #80cbc4;
 }
 

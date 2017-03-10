@@ -142,9 +142,9 @@
                                 <div class="input-field">
                                     <input id="first_name" type="text" class="validate" ng-model="p.amount" ng-init="checkAmountOfProduct(p)">
                                     <label for="first_name">
-                                        <span ng-if="lang == 'pl'">Ilość w koszyku</span>
-                                        <span ng-if="lang == 'en'">Amount in basket</span>
-                                        <span ng-if="lang == 'ru'">номер</span>
+                                        <span ng-if="lang == 'pl'">Ilość w zapytaniu</span>
+                                        <span ng-if="lang == 'en'">Amount in inquiry</span>
+                                        <span ng-if="lang == 'ru'">Количество в запрос</span>
                                     </label>
                                 </div>
                             </div>
@@ -152,9 +152,9 @@
                         </div>
                         <div class="row centered" style="margin-top: -20px;">
                             <button class="btn waves-effect waves-light" type="button" ng-click="addToShoppingBasket(p)" ng-disabled="!p.amount || !(p.amount>0)">
-                                <span ng-if="lang == 'pl'">Dodaj do koszyka</span>
-                                <span ng-if="lang == 'en'">Add to basket</span>
-                                <span ng-if="lang == 'ru'">Добавить в корзину</span>
+                                <span ng-if="lang == 'pl'">Dodaj do zapytania ofertowego</span>
+                                <span ng-if="lang == 'en'">Add to inquiry</span>
+                                <span ng-if="lang == 'ru'">Добавить в запрос</span>
                             </button>
                         </div>
                     </div>

@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div carousel ng-repeat="p in products" ng-if="$index == 0">
-                    <a class="carousel-item" href="javascript:void(0);" ng-repeat="p in products" ng-if="p.isNew">
+                    <a class="carousel-item featured-products" href="javascript:void(0);" ng-repeat="p in products" ng-if="p.isNew">
                         <img class="z-depth-3" ng-src="{{p.image_url}}">
                         <p ui-sref="mainProducts({id : p.id})" class="center">
                             <span ng-if="lang == 'pl'">{{p.name.pl}}</span>

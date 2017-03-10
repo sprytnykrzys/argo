@@ -29,7 +29,7 @@
                     </li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                    <li ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}">
+                    <li ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}" ng-if="!ifBasketEmpty(item.labelPl)">
                         <a href="" ng-click="changeState(item.uiSref)">
                             <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
                             <span ng-if="lang == 'en'">{{item.labelEn}}</span>
@@ -62,7 +62,7 @@
             <nav id="nav-footer">
                 <div class="brand-logo footer-height center hide-on-med-and-down">
                     <ul class="lista">
-                        <li class="lista2" ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}">
+                        <li class="lista2" ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}" ng-if="!ifBasketEmpty(item.labelPl)">
                             <span ng-if="!singleProduct">
                                 <a ng-click="changeState(item.uiSref)">
                                     <span ng-if="lang == 'pl'">{{item.labelPl}}</span>

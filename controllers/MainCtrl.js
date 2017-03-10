@@ -39,9 +39,9 @@ angular
                 'activeStateRule': 'contact',
                 'uiSref': 'contact'
             }, {
-                'labelPl': 'Koszyk',
-                'labelEn': 'Basket',
-                'labelRu': 'корзина',
+                'labelPl': 'Zapytanie Ofertowe',
+                'labelEn': 'Inquiry',
+                'labelRu': 'запрос',
                 'activeStateRule': 'shoppingBasket',
                 'uiSref': 'shoppingBasket'
             }];
@@ -82,7 +82,7 @@ angular
 
             $scope.ifBasketEmpty = function(name) {
                 console.log(name);
-                if (name == 'Koszyk') {
+                if (name == 'Zapytanie Ofertowe') {
                     if (!$localStorage.shoppingBasket || $localStorage.shoppingBasket.length == 0) {
                         return true;
                     } else {

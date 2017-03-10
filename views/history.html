@@ -7,12 +7,19 @@
         </blockquote>
         <div class="container">
             <div class="row">
+                <div class="col l12 m12 s12 center">
+                    <ul class="pagination">
+                        <li ng-repeat="item in historyItems" ng-class="{'active' : activeView == item.labelPl}" ng-click="changeView(item)"><a href="">{{item.labelPl}}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col l12 m12 s12">
-                    <h5 class="center">
-                        <span ng-if="lang == 'pl'">O firmie</span>
-                        <span ng-if="lang == 'en'">About company</span>
-                        <span ng-if="lang == 'ru'">О компании</span>
-                    </h5>
+                    <p>Po rozeznaniu potrzeb rynkowych rozszerzył i zmienił nieco profil produkcji. Wałki futrzane, gąbkowe, kuwety, ociekacze, uchwyty do wałków i inne akcesoria malarskie firmy ARGO zaczęły wchodzić na rynek. ARGO ciągle wprowadza nowe technologie, nowe maszyny, nowe materiały.</p>
+                </div>
+            </div>
+            <div class="row" ng-repeat="item in historyItems" ng-if="item.labelPl == 'O firmie' && activeView == item.labelPl">
+                <div class="col l12 m12 s12">
                     <p>
                         <span ng-if="lang == 'pl'">
                         Historia naszej firmy sięga trzech pokoleń wstecz, kiedy to rzemieślnik Adam Ciechanowski założył firmę Argo. Jego syn poszerzył ofertę firmy o akcesoria malarskie, a w następnych latach nastąpił dalszy rozwój naszego przedsiębiorstwa. Argo jako producent profesjonalnych narzędzi i wałków malarskich oraz narzędzi budowlanych stawia przede wszystkim na najwyższą jakość oferowanych artykułów. Dbamy także o to, by ich ceny odpowiadały możliwościom Klientów. Współpracujemy z takimi sieciami jak Castorama i Leroy Merlin. Naszą markę doceniono też za granicą – produkty firmy Argo trafiają do Niemiec i Francji.</span>
@@ -25,13 +32,8 @@
                     <div class="divider history-img"></div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ng-repeat="item in historyItems" ng-if="item.labelPl == 'Historia' && activeView == item.labelPl">
                 <div class="col l12 m12 s12">
-                    <h5 class="center">
-                        <span ng-if="lang == 'pl'">Historia</span>
-                        <span ng-if="lang == 'en'">History</span>
-                        <span ng-if="lang == 'ru'">история</span>
-                    </h5>
                     <p>
                         <span ng-if="lang == 'pl'">Początki firmy ARGO sięgają trzech pokoleń wstecz. Założyciel - Adam Ciechanowski - był znanym rzemieślnikiem w Cechu Rzemieślników Krakowskich w latach dwudziestych. Zajmował się usługami ślusarskimi. Jego syn, Stefan Ciechanowski - następny właściciel ARGO - poszerzył działalność o produkcję wag oraz produkcję artykułów malarskich takich jak rynienki malarskie, skrobaki, szpachle. W roku 1977 ARGO przejął Edward Ciechanowski, obecny właściciel. Po rozeznaniu potrzeb rynkowych rozszerzył i zmienił nieco profil produkcji. Wałki futrzane, gąbkowe, kuwety, ociekacze, uchwyty do wałków i inne akcesoria malarskie firmy ARGO zaczęły wchodzić na rynek. ARGO ciągle wprowadza nowe technologie, nowe maszyny, nowe materiały - korzystając nie tylko z polskich osiągnięć w tej dziedzinie, ale także niemieckich czy francuskich. Priorytetem ARGO jest ciągłe podnoszenie jakości produkcji oraz dostosowanie cen do możliwości klienta.</span>
                         <span ng-if="lang == 'en'">The beginning of ARGO goes back three generations back. Founder - Adam Ciechanowski - was a famous craftsman in Cracow Guild of Craftsmen in the twenties. He was ślusarskimi services. His son, Stefan Ciechanowski - the next owner of ARGO - extended activity to scales and production of articles such as painting gutters painting, scrapers, spatulas. In 1977, ARGO took Edward Ciechanowski, the current owner. After discerning the needs of the market has expanded and changed slightly the production profile. Rollers with fur, sponge, trays, drip, handles for rollers and other painting accessories company ARGO began to enter the market. ARGO is constantly introducing new technologies, new machines, new materials - using not only the Polish achievements in this field, but also German and French. ARGO priority is to constantly improve the quality of production and price adjustment to the client's capabilities.</span>

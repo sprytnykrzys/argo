@@ -13,20 +13,28 @@
                             <tr>
                                 <td style="width: 70%;">
                                     <span ng-if="lang == 'pl'">Produkt</span>
-                                    <span ng-if="lang == 'en'">Barcode</span>
-                                    <span ng-if="lang == 'ru'">Штрих-код</span>
+                                    <span ng-if="lang == 'en'">Product</span>
+                                    <span ng-if="lang == 'ru'">продукт</span>
                                 </td>
-                                <td>Ilość</td>
+                                <td>
+                                    <span ng-if="lang == 'pl'">Ilość</span>
+                                    <span ng-if="lang == 'en'">Amount</span>
+                                    <span ng-if="lang == 'ru'">номер</span>
+                                </td>
                             </tr>
                             <tr ng-repeat="b in basket">
                                 <td style="width: 70%;" ng-repeat="p in products" ng-if="p.id == b.id">
                                     <img ng-src="{{p.image_url}}" class="feature-circle">
                                     <span ng-if="lang == 'pl'">{{p.name.pl}}</span>
-                                    <span ng-if="lang == 'en'">Barcode</span>
-                                    <span ng-if="lang == 'ru'">Штрих-код</span>
+                                    <span ng-if="lang == 'en'">{{p.name.en}}</span>
+                                    <span ng-if="lang == 'ru'">{{p.name.ru}}</span>
                                 </td>
-                                <td>{{b.qty}} 
-                                <button type="button" class="btn waves-effect waves-light right" ng-click="deleteProductFromBasket(b)">Usuń</button>
+                                <td>{{b.qty}}
+                                    <button type="button" class="btn waves-effect waves-light right" ng-click="deleteProductFromBasket(b)">
+                                        <span ng-if="lang == 'pl'">Usuń</span>
+                                        <span ng-if="lang == 'en'">Delete</span>
+                                        <span ng-if="lang == 'ru'">удалять</span>
+                                    </button>
                                 </td>
                             </tr>
                         </tbody>
@@ -41,8 +49,8 @@
                             <input id="icon_prefix" type="text" class="validate" ng-model="basketData.nip">
                             <label for="icon_prefix">
                                 <span ng-if="lang == 'pl'">Numer NIP</span>
-                                <span ng-if="lang == 'en'">Subject</span>
-                                <span ng-if="lang == 'ru'">тема</span>
+                                <span ng-if="lang == 'en'">NIP</span>
+                                <span ng-if="lang == 'ru'">NIP</span>
                             </label>
                         </div>
                         <div class="input-field col l6 m6 s12">

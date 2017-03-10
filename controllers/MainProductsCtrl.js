@@ -77,7 +77,7 @@ angular
                 if ($scope.shoppingBasket) {
                     for (var i = 0; i < $scope.shoppingBasket.length; i++) {
                         if ($scope.shoppingBasket[i].id == $scope.currentProductId) {
-                            p.amount = $scope.shoppingBasket[i].amount;
+                            p.amount = $scope.shoppingBasket[i].qty;
                         }
                     }
                 }
@@ -102,7 +102,7 @@ angular
                     };
                     $localStorage.shoppingBasket.push(obj);
                 } else {
-                    $localStorage.shoppingBasket[isInArray].amount = prod.amount;
+                    $localStorage.shoppingBasket[isInArray].qty = prod.amount;
                 }
 
                 $scope.shoppingBasket = $localStorage.shoppingBasket;
