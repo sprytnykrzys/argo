@@ -221,6 +221,7 @@ button:hover {
     top: -43px;
     padding-top: 0 !important;
     z-index: 999 !important;
+    right: 10px !important;
 }
 
 .fixed-action-btn.active ul {
@@ -236,10 +237,33 @@ button:hover {
 }
 
 .btn-floating {
-    background-size: 37px 50px !important;
+    background-size: 35px 44px !important;
     background-position: center !important;
-    height: 35px !important;
-    width: 35px !important;
+    height: 32px !important;
+    width: 32px !important;
+}
+.hoverable-lang:hover{
+    height: 40px !important;
+    width: 40px !important;
+    background-size: 42px 54px !important;
+}
+
+#lang-items{
+    width: 60px;
+    position: relative;
+    float: right;
+    right: 5px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+#lang-arrow{
+    width: 18px;
+    height: 22px;
+    position: relative;
+    top: -38px;
+    z-index: 999 !important;
+    color: #fff;
 }
 
 .loader-wrapper {

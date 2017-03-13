@@ -7,25 +7,11 @@
                 </a>
                 <ul class="left hide-on-med-and-down">
                     <li ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}" ng-if="!ifBasketEmpty(item.labelPl)">
-                        <span ng-if="!singleProduct">
-                            <a ng-click="changeState(item.uiSref)">
-                                <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
-                                <span ng-if="lang == 'en'">{{item.labelEn}}</span>
-                                <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
-                            </a>
-                        </span>
-                        <span ng-if="singleProduct">
-                            <a ng-if="item.labelPl == 'Produkty'" ui-sref="mainProducts({id : undefined})" >
-                                <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
-                                <span ng-if="lang == 'en'">{{item.labelEn}}</span>
-                                <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
-                            </a>
-                            <a ng-if="item.labelPl !== 'Produkty'" ng-click="changeState(item.uiSref)">
-                                <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
-                                <span ng-if="lang == 'en'">{{item.labelEn}}</span>
-                                <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
-                            </a>
-                        </span>
+                        <a href="" ng-click="changeState(item.uiSref)">
+                            <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                            <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                            <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                        </a>
                     </li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
@@ -39,13 +25,18 @@
                 </ul>
             </div>
         </nav>
-        <div id="mainlang" class="fixed-action-btn click-to-toggle">
-            <a class="btn-floating btn-large z-depth-2" ng-repeat="l in globalLang" ng-if="l.selected" ng-style="{'background-image': 'url(' + l.flag + ')'}"></a>
-            <ul>
-                <li ng-repeat="l in globalLang" ng-if="!l.selected" ng-click="selectLang(l.langCode)">
-                    <a class="btn-floating z-depth-2" ng-style="{'background-image': 'url(' + l.flag + ')'}"></a>
-                </li>
-            </ul>
+        <div id="lang-items">
+            <div id="mainlang" class="fixed-action-btn click-to-toggle">
+                <a class="btn-floating btn-large z-depth-2" ng-repeat="l in globalLang" ng-if="l.selected" ng-style="{'background-image': 'url(' + l.flag + ')'}"></a>
+                <ul>
+                    <li ng-repeat="l in globalLang" ng-if="!l.selected" ng-click="selectLang(l.langCode)">
+                        <a class="btn-floating hoverable-lang z-depth-2" ng-style="{'background-image': 'url(' + l.flag + ')'}"></a>
+                    </li>
+                </ul>
+            </div>
+            <div id="lang-arrow">
+                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </div>
         </div>
     </div>
     <div class="loader-wrapper" ng-if="preloaderCounter > 0">
@@ -63,25 +54,11 @@
                 <div class="brand-logo footer-height center hide-on-med-and-down">
                     <ul class="lista">
                         <li class="lista2" ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}" ng-if="!ifBasketEmpty(item.labelPl)">
-                            <span ng-if="!singleProduct">
-                                <a ng-click="changeState(item.uiSref)">
-                                    <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
-                                    <span ng-if="lang == 'en'">{{item.labelEn}}</span>
-                                    <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
-                                </a>
-                            </span>
-                            <span ng-if="singleProduct">
-                                <a ng-if="item.labelPl == 'Produkty'" ui-sref="mainProducts({id : undefined})" >
-                                    <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
-                                    <span ng-if="lang == 'en'">{{item.labelEn}}</span>
-                                    <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
-                                </a>
-                                <a ng-if="item.labelPl !== 'Produkty'" ng-click="changeState(item.uiSref)">
-                                    <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
-                                    <span ng-if="lang == 'en'">{{item.labelEn}}</span>
-                                    <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
-                                </a>
-                            </span>
+                            <a href="" ng-click="changeState(item.uiSref)">
+                                <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                                <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                                <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                            </a>
                         </li>
                     </ul>
                 </div>

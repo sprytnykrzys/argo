@@ -1,10 +1,10 @@
 <div id="outer" class="row subpage">
-    <div class="page col s12 m12 l12">
-        <blockquote>
-            <span ng-if="lang == 'pl'">Promowane produkty</span>
-            <span ng-if="lang == 'en'">Featured products</span>
-            <span ng-if="lang == 'ru'">Рекомендуемые продукты</span>
-        </blockquote>
+    <div class="page col s12 m12 l12 centered">
+        <h5>
+            <span ng-if="lang == 'pl'">Polski producent narzędzi malarskich i budowlanych</span>
+            <span ng-if="lang == 'en'">Polish manufacturer of painting and construction tools</span>
+            <span ng-if="lang == 'ru'">Польский производитель инструментов для рисования и строительства</span>
+        </h5>
         <div class="container">
             <div class="row">
                 <div carousel ng-repeat="p in products" ng-if="$index == 0">

@@ -59,7 +59,7 @@ angular
 
 
             $scope.changeState = function(state) {
-                $state.go(state);
+                $state.go(state, {id : undefined});
             };
 
 
