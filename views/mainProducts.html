@@ -49,15 +49,17 @@
             </div>
         </div>
         <div class="row">
-            <div class="col l2" ng-if="p.categoryId == categoryId || allCategory" ng-repeat="p in products | filter : search">
+            <div class="col l2 m4 s6 main-product-col" ng-if="p.categoryId == categoryId || allCategory" ng-repeat="p in products | filter : search">
                 <div class="card product-card" ui-sref="mainProducts({id : p.id})">
-                    <div class="card-content history-img">
+                    <div class="product-name center grey lighten-4">
                         <p>
                             <span ng-if="lang == 'pl'">{{p.name.pl}}</span>
                             <span ng-if="lang == 'en'">{{p.name.en}}</span>
                             <span ng-if="lang == 'ru'">{{p.name.ru}}</span>
                         </p>
-                        <img ng-src="{{p.image_url}}" class="z-depth-2">
+                    </div>
+                    <div class="card-content main-products-card-content center">
+                        <img ng-src="{{p.image_url}}" class="z-depth-2 main-product-image">
                     </div>
                     <div class="card-tabs">
                         <ul class="tabs tabs-fixed-width">
@@ -69,13 +71,6 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
-                    <div class="card-content center grey lighten-4">
-                        <div id="test5">
-                            <span ng-if="lang == 'pl'">{{p.description.pl}}</span>
-                            <span ng-if="lang == 'en'">{{p.description.en}}</span>
-                            <span ng-if="lang == 'ru'">{{p.description.ru}}</span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -96,7 +91,7 @@
                                     <span ng-if="lang == 'en'">{{p.name.en}}</span>
                                     <span ng-if="lang == 'ru'">{{p.name.ru}}</span>
                                 </h5>
-                                <img ng-src="{{p.image_url}}" class="z-depth-2 materialboxed responsive-img" materialboxed style="width: 80%;">
+                                <img ng-src="{{p.image_url}}" class="z-depth-2 materialboxed responsive-img single-product-image" materialboxed style="width: 80%;">
                             </div>
                             <div class="col l7 m12 s12">
                                 <table class="bordered responsive-table single-product-table">

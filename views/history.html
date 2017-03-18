@@ -9,17 +9,25 @@
             <div class="row">
                 <div class="col l12 m12 s12 center">
                     <ul class="pagination">
-                        <li ng-repeat="item in historyItems" ng-class="{'active' : activeView == item.labelPl}" ng-click="changeView(item)"><a href="">{{item.labelPl}}</a></li>
+                        <li ng-repeat="item in historyItems" ng-class="{'active' : activeView == item.labelPl}" ng-click="changeView(item)"><a href="">
+                            <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                            <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                            <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                        </a></li>
                     </ul>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ng-repeat="item in historyItems" ng-if="item.labelPl == 'O nas' && activeView == item.labelPl" ng-init="materialBoxed()">
                 <div class="col l12 m12 s12">
-                    <p>Po rozeznaniu potrzeb rynkowych rozszerzył i zmienił nieco profil produkcji. Wałki futrzane, gąbkowe, kuwety, ociekacze, uchwyty do wałków i inne akcesoria malarskie firmy ARGO zaczęły wchodzić na rynek. ARGO ciągle wprowadza nowe technologie, nowe maszyny, nowe materiały.</p>
-                    <div class="divider history-img"></div>
+                    <p>
+                        <span ng-if="lang == 'pl'">
+                        Po rozeznaniu potrzeb rynkowych rozszerzył i zmienił nieco profil produkcji. Wałki futrzane, gąbkowe, kuwety, ociekacze, uchwyty do wałków i inne akcesoria malarskie firmy ARGO zaczęły wchodzić na rynek. ARGO ciągle wprowadza nowe technologie, nowe maszyny, nowe materiały.</span>
+                        <span ng-if="lang == 'en'">The history of our company goes back three generations ago, when a craftsman Adam Ciechanowski founded the company Argo. His son expanded the company's offer of painting accessories, and in subsequent years there has been further development of our company. Argo as a manufacturer of professional tools and paint rollers and tools for building sets primarily on the highest quality products. We also make sure that their prices match the capabilities customers. We cooperate with networks such as Castorama and Leroy Merlin. Our brand was also appreciated abroad - products Argo goes to Germany and France.</span>
+                        <span ng-if="lang == 'ru'">История нашей компании восходит три поколения назад, когда ремесленник Адам Ciechanowski основал компанию Арго. Его сын расширили предложение компании живописи аксессуаров, а в последующие годы наблюдается дальнейшее развитие нашей компании. Арго как производитель профессиональных инструментов и малярных валиков и инструментов для строительства устанавливает прежде всего на высокое качество продукции. Мы также уверены, что их цены соответствуют возможностям клиентов. Мы сотрудничаем с сетями, такими как Castorama и Leroy Merlin. Наш бренд был также оценен за рубежом - продукция Арго идет в Германию и Францию.</span>
+                    </p>
                 </div>
             </div>
-            <div class="row" ng-repeat="item in historyItems" ng-if="item.labelPl == 'O firmie' && activeView == item.labelPl">
+            <div class="row" ng-repeat="item in historyItems" ng-if="item.labelPl == 'O firmie' && activeView == item.labelPl" ng-init="materialBoxed()">
                 <div class="col l12 m12 s12">
                     <p>
                         <span ng-if="lang == 'pl'">
@@ -32,7 +40,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row" ng-repeat="item in historyItems" ng-if="item.labelPl == 'Historia' && activeView == item.labelPl">
+            <div class="row" ng-repeat="item in historyItems" ng-if="item.labelPl == 'Historia' && activeView == item.labelPl" ng-init="materialBoxed()">
                 <div class="col l12 m12 s12">
                     <p>
                         <span ng-if="lang == 'pl'">Początki firmy ARGO sięgają trzech pokoleń wstecz. Założyciel - Adam Ciechanowski - był znanym rzemieślnikiem w Cechu Rzemieślników Krakowskich w latach dwudziestych. Zajmował się usługami ślusarskimi. Jego syn, Stefan Ciechanowski - następny właściciel ARGO - poszerzył działalność o produkcję wag oraz produkcję artykułów malarskich takich jak rynienki malarskie, skrobaki, szpachle. W roku 1977 ARGO przejął Edward Ciechanowski, obecny właściciel. Po rozeznaniu potrzeb rynkowych rozszerzył i zmienił nieco profil produkcji. Wałki futrzane, gąbkowe, kuwety, ociekacze, uchwyty do wałków i inne akcesoria malarskie firmy ARGO zaczęły wchodzić na rynek. ARGO ciągle wprowadza nowe technologie, nowe maszyny, nowe materiały - korzystając nie tylko z polskich osiągnięć w tej dziedzinie, ale także niemieckich czy francuskich. Priorytetem ARGO jest ciągłe podnoszenie jakości produkcji oraz dostosowanie cen do możliwości klienta.</span>

@@ -99,11 +99,16 @@
                             </div>
                         </td>
                         <td>
-                            <div class="input-field col s12" style="text-align: left">
+                            <!-- <div class="input-field col s12" style="text-align: left">
                                 <p ng-repeat="cat in categories">
                                     <input ng-model="newItem.categoryId" type="radio" name="categoryNew" id="new{{cat.id}}" ng-value="{{cat.id}}" />
                                     <label for="new{{cat.id}}">{{cat.name.pl}}</label>
-                                </p>
+                                </p> 
+                            </div> -->
+                            <div class="input-field col s12" style="width: 200px;" input-field>
+                                <select class="" ng-model="newItem.categoryId" material-select watch>
+                                    <option ng-repeat="cat in categories" ng-value="{{cat.id}}">{{cat.name.pl}}</option>
+                                </select>
                             </div>
                         </td>
                         <td>

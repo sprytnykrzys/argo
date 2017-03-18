@@ -16,10 +16,22 @@ angular
                 $scope.categories = null;
                 ContentSrvc.getCategories().then(function(data) {
                     $scope.categories = data.data.categories;
+
+                    $scope.searchByNameId = function(id) {
+                        for (var i = 0; i < $scope.categories.length; i++) {
+                            if ($scope.categories[i].id == id) {
+                                return $scope.categories[i].name.pl
+
+                            }
+                        }
+                    }
+
+
                 }, function(data) {
                     Materialize.toast('Wystąpił błąd', 4000);
                 });
             };
+
 
             $scope.newItem = {
                 name: {
@@ -27,7 +39,8 @@ angular
                 },
                 description: {
 
-                }
+                },
+                id_parent: ""
             };
 
             $scope.getCategoriesFromAPI();
@@ -57,7 +70,8 @@ angular
                         },
                         description: {
 
-                        }
+                        },
+                        id_parent: ""
                     };
                 }, function(data) {
                     if (data.status == 403) {
@@ -122,14 +136,46 @@ angular
                 if (typeof selectedFile == 'undefined') {
                     $scope.categories[index].image = null;
                     $scope.saveCategory(index, p);
+                    $scope.changeParentCategory(p);
                 } else {
                     selectedFile.convertToBase64(function(base) {
                         base = base.substring(base.indexOf(';base64,') + 8, base.length);
                         var base64 = base;
                         $scope.categories[index].image = base64;
                         $scope.saveCategory(index, p);
+                        $scope.changeParentCategory(p);
                     });
                 }
+            };
+
+
+            $scope.parentCategory = {
+                id: ""
+            };
+
+
+            $scope.changeParentCategory = function(p) {
+                var parentId = $scope.parentCategory;
+                ContentSrvc.changeParentCategory(p, parentId).then(function(data) {
+                    // $scope.getCategoriesFromAPI();
+                    // Materialize.toast('Zapisano!', 4000);
+
+                    $scope.parentCategory = {
+                        id: ""
+                    };
+
+                }, function(data) {
+                    if (data.status == 403) {
+                        $localStorage.user = null;
+                        $rootScope.user = null;
+                        Materialize.toast('Zostałeś wylogowany', 4000);
+                        $state.go('adminLogin');
+                    } else {
+                        Materialize.toast('Wystąpił błąd', 4000);
+                        $scope.getCategoriesFromAPI();
+                    }
+                });
+
             };
 
             File.prototype.convertToBase64 = function(callback) {

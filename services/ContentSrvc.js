@@ -229,5 +229,35 @@ angular.module('Argo.Services.ContentSrvc', [
 
             return promise;
         };
+
+        this.changeParentCategory = function(p, parent) {
+            $rootScope.showPreloader();
+            var data = {
+                "uid": $localStorage.user.uid,
+                "token": $localStorage.user.token,
+                "id": p.id,
+                "id_parent": parent.id
+            };
+
+            // delete data.category.edit;
+
+            var req = {
+                method: 'POST',
+                data: data,
+                url: $rootScope.endpointURL + "/category/set/parent",
+                headers: {
+                    "Content-Type": "text/plain"
+                }
+            };
+
+            var promise = $http(req);
+
+            promise.then(function(data) {
+                $localStorage.user.token = data.data.token;
+                $rootScope.hidePreloader();
+            });
+
+            return promise;
+        }
     }
 ]);

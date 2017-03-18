@@ -17,29 +17,32 @@ angular
             };
 
             $scope.historyItems = [{
-                'labelPl': 'O firmie',
-                'labelEn': 'About company',
-                'labelRu': 'О компании'
+                'labelPl': 'O nas',
+                'labelEn': 'About us',
+                'labelRu': 'О компании '
             }, {
                 'labelPl': 'Historia',
                 'labelEn': 'History',
                 'labelRu': 'история'
             }, {
-                'labelPl': 'O nas',
-                'labelEn': 'About us',
-                'labelRu': 'adada'
+                'labelPl': 'O firmie',
+                'labelEn': 'About company',
+                'labelRu': 'сведения об организации'
             }];
 
-            $scope.activeView;
+            $scope.activeView = 'O nas';
 
             $scope.changeView = function(data) {
                 $scope.activeView = data.labelPl;
-                 $('.materialboxed').materialbox();
             }
 
+            $scope.materialBoxed = function(){
+                $('.materialboxed').materialbox();
+            }
 
+         
 
-            $('.materialboxed').materialbox();
+            
 
         }
     ]);

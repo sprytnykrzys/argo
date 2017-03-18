@@ -6,6 +6,7 @@
                 <thead>
                     <tr>
                         <th>Zdjęcie</th>
+                        <th>Kategoria nadrzędna</th>
                         <th ng-repeat="(key, value) in categories[0].name">Tytuł {{key | uppercase}}</th>
                         <th ng-repeat="(key, value) in categories[0].description">Opis {{key | uppercase}}</th>
                         <th>Edytuj</th>
@@ -25,6 +26,19 @@
                                 </div>
                             </div>
                         </td>
+                        <td>
+                            <span ng-if="!p.edit">
+                                <span ng-if="p.id_parent">{{searchByNameId(p.id_parent)}}</span>
+                                <span ng-if="!p.id_parent">Brak</span>
+                            </span>
+                            <span ng-if="p.edit">
+                                <div class="input-field col s12" style="width: 200px; margin-top: 0px;" input-field>
+                                    <select class="" ng-model="parentCategory.id" material-select watch>
+                                        <option ng-repeat="cat in categories" ng-value="{{cat.id}}">{{cat.name.pl}}</option>
+                                     </select>
+                                </div>
+                            </span>
+                        </td>
                         <td ng-repeat="(key, value) in p.name"><span ng-if="!p.edit"><span ng-if="p.name[key]">{{p.name[key]}}</span><span ng-if="!p.name[key]">-</span></span>
                             <input ng-if="p.edit" type="text" ng-model="p.name[key]" />
                         </td>
@@ -33,7 +47,7 @@
                         </td>
                         <td class="optionsInTable">
                             <button type="button" ng-if="!p.edit" class="btn waves-effect waves-light" ng-click="editCategory(p)">Edytuj</button>
-                            <button type="button" ng-if="p.edit" class="btn waves-effect waves-light buttonWithIcon greenButton" ng-click="selectPicture($index, p)"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                            <button type="button" ng-if="p.edit" class="btn waves-effect waves-light buttonWithIcon greenButton" ng-click="selectPicture($index, p)"><i class="fa fa-floppy-o" aria-hidden="true"></i></button> <!-- selectPicture($index, p) -->
                             <button type="button" ng-if="p.edit" class="btn waves-effect waves-light buttonWithIcon" ng-click="closeEditMode(p)"><i class="fa fa-times" aria-hidden="true"></i>
                             </button>
                         </td>
@@ -48,6 +62,7 @@
                 <thead>
                     <tr>
                         <th>Zdjęcie</th>
+                        <th>Kategoria nadrzędna</th>
                         <th ng-repeat="(key, value) in categories[0].name">Tytuł {{key | uppercase}}</th>
                         <th ng-repeat="(key, value) in categories[0].description">Opis {{key | uppercase}}</th>
                         <th>Dodaj</th>
@@ -64,6 +79,13 @@
                                 <div class="file-path-wrapper">
                                     <input class="file-path validate" type="text">
                                 </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-field col s12" style="width: 200px; margin-top: 0px;" input-field>
+                                <select class="" ng-model="newItem.id_parent" material-select watch>
+                                    <option ng-repeat="cat in categories" ng-value="{{cat.id}}">{{cat.name.pl}}</option>
+                                </select>
                             </div>
                         </td>
                         <td ng-repeat="(key, value) in categories[0].name">
