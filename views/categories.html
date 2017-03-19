@@ -34,7 +34,8 @@
                             <span ng-if="p.edit">
                                 <div class="input-field col s12" style="width: 200px; margin-top: 0px;" input-field>
                                     <select class="" ng-model="parentCategory.id" material-select watch>
-                                        <option ng-repeat="cat in categories" ng-value="{{cat.id}}">{{cat.name.pl}}</option>
+                                        <option ng-value="0">Brak</option>
+                                        <option ng-repeat="cat in categories" ng-value="{{cat.id}}">{{cat.name.pl}}</option>     
                                      </select>
                                 </div>
                             </span>

@@ -94,8 +94,10 @@ angular
             $scope.saveCategory = function(index, p) {
                 ContentSrvc.updateCategory($scope.categories[index]).then(function(data) {
                     p.edit = !p.edit;
-                    $scope.getCategoriesFromAPI();
-                    Materialize.toast('Zapisano!', 4000);
+                    // $scope.getCategoriesFromAPI();
+                    // Materialize.toast('Zapisano!', 4000);
+                    $scope.changeParentCategory(p)
+                    
                 }, function(data) {
                     if (data.status == 403) {
                         $localStorage.user = null;
@@ -136,14 +138,12 @@ angular
                 if (typeof selectedFile == 'undefined') {
                     $scope.categories[index].image = null;
                     $scope.saveCategory(index, p);
-                    $scope.changeParentCategory(p);
                 } else {
                     selectedFile.convertToBase64(function(base) {
                         base = base.substring(base.indexOf(';base64,') + 8, base.length);
                         var base64 = base;
                         $scope.categories[index].image = base64;
                         $scope.saveCategory(index, p);
-                        $scope.changeParentCategory(p);
                     });
                 }
             };
@@ -157,8 +157,8 @@ angular
             $scope.changeParentCategory = function(p) {
                 var parentId = $scope.parentCategory;
                 ContentSrvc.changeParentCategory(p, parentId).then(function(data) {
-                    // $scope.getCategoriesFromAPI();
-                    // Materialize.toast('Zapisano!', 4000);
+                    $scope.getCategoriesFromAPI();
+                    Materialize.toast('Zapisano!', 4000);
 
                     $scope.parentCategory = {
                         id: ""
