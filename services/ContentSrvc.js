@@ -53,6 +53,26 @@ angular.module('Argo.Services.ContentSrvc', [
             return promise;
         };
 
+        this.getNestedCategories = function(){
+            $rootScope.showPreloader();
+                var req = {
+                method: 'GET',
+                url: $rootScope.endpointURL + "/category?nested=1",
+                headers: {
+                    "Content-Type": "text/plain"
+                }
+            };
+
+            var promise = $http(req);
+
+            promise.then(function(data) {
+                $localStorage.nestedCategories = data.data.categories;
+                $rootScope.hidePreloader();
+            });
+
+            return promise;
+        };
+
         this.updateProduct = function(prod) {
             $rootScope.showPreloader();
             var data = {
@@ -170,6 +190,7 @@ angular.module('Argo.Services.ContentSrvc', [
                 "uid": $localStorage.user.uid,
                 "token": $localStorage.user.token,
                 "id": p.id,
+                "children_append": "parent",
             };
             var req = {
                 method: 'POST',

@@ -35,6 +35,17 @@
     <script src="bower_components/materialize/js/materialize.min.js"></script>
     <script src="js/app.js?v=4"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
+    <script type="text/ng-template" id="namVal">
+        <div class="category-tree-divider" ng-if="cat.id_parent == 0"></div>
+        <div class="chip" ng-class="{'grey': cat.id_parent == 0}">
+            <img ng-src="{{cat.image_url}}">{{cat.name.pl}}
+        </div>
+        <ul ng-if="cat.subcategories" style="margin-left: 40px;">
+            <li ng-repeat="cat in cat.subcategories" ng-include="'namVal'"></li>
+        </ul>
+    </script>
 </body>
 
 </html>
+
+

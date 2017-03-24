@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col s12 m6 l3">
+            <div class="col s12 m6 l3" ng-if="mainCategory == 0">
                 <div class="card-panel waves-effect waves-light" ng-click="changeAllCategory()" ng-class="{'active-category' : allCategory}">
                     <p style="padding-top: 22.5px;padding-bottom: 22.5px;">
                         <span ng-if="lang == 'pl'">Wszystkie kategorie</span>
@@ -28,8 +28,18 @@
                     </p>
                 </div>
             </div>
-            <div class="col s12 m6 l3" ng-repeat="cat in categories">
+            <div class="col s12 m6 l3" ng-repeat="cat in nestedCategories" ng-if="mainCategory == 0">
                 <div class="waves-effect waves-light card-panel" ng-click="changeCategory(cat.name.pl, cat.id)" ng-class="{'active-category' : category == cat.name.pl}">
+                    <img ng-src="{{cat.image_url}}" width="30px" class="circle">
+                    <p>
+                        <span ng-if="lang == 'pl'">{{cat.name.pl}}</span>
+                        <span ng-if="lang == 'en'">{{cat.name.en}}</span>
+                        <span ng-if="lang == 'ru'">{{cat.name.ru}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="col s12 m6 l3" ng-repeat="cat in nestedCategories">
+                <div class="waves-effect waves-light card-panel" ng-if="parentId == 0" ng-click="changeCategory(cat.name.pl, cat.id)" ng-class="{'active-category' : category == cat.name.pl}">
                     <img ng-src="{{cat.image_url}}" width="30px" class="circle">
                     <p>
                         <span ng-if="lang == 'pl'">{{cat.name.pl}}</span>
@@ -85,16 +95,16 @@
                             <i class="fa fa-times" aria-hidden="true"></i>
                         </button>
                         <div class="row">
-                            <div class="col l5 left">
-                                <h5 style="font-size: 1.90rem;">
+                            <div class="col l5 single-product-left">
+                                <h5 id="single-product-name">
                                     <span ng-if="lang == 'pl'">{{p.name.pl}}</span>
                                     <span ng-if="lang == 'en'">{{p.name.en}}</span>
                                     <span ng-if="lang == 'ru'">{{p.name.ru}}</span>
                                 </h5>
-                                <img ng-src="{{p.image_url}}" class="z-depth-2 materialboxed responsive-img single-product-image" materialboxed style="width: 80%;">
+                                <img ng-src="{{p.image_url}}" class="z-depth-2 materialboxed single-product-image" materialboxed>
                             </div>
                             <div class="col l7 m12 s12">
-                                <table class="bordered responsive-table single-product-table">
+                                <table class="bordered  single-product-table">
                                     <tbody>
                                         <tr ng-repeat="p in products" ng-if="p.id == currentProductId">
                                             <td style="width: 25%;">
@@ -140,21 +150,21 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="row center">
-                            <div class="col l5 m4 s3"></div>
-                            <div class="col l2 m4 s6">
-                                <div class="input-field">
-                                    <input id="first_name" type="text" class="validate" ng-model="p.amount" ng-init="checkAmountOfProduct(p)">
-                                    <label for="first_name">
-                                        <span ng-if="lang == 'pl'">Ilość w zapytaniu</span>
-                                        <span ng-if="lang == 'en'">Amount in inquiry</span>
-                                        <span ng-if="lang == 'ru'">Количество в запрос</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col l5 m4 s3"></div>
+                        <!-- <div class="row center"> -->
+                        <!-- <div class="col l5 m4 s3"></div> -->
+                        <!-- <div class="col l2 m4 s6"> -->
+                        <div class="input-field center single-product-input">
+                            <input id="first_name" type="text" class="validate" ng-model="p.amount" ng-init="checkAmountOfProduct(p)">
+                            <label for="first_name center">
+                                <span ng-if="lang == 'pl'">Ilość w zapytaniu</span>
+                                <span ng-if="lang == 'en'">Amount in inquiry</span>
+                                <span ng-if="lang == 'ru'">Количество в запрос</span>
+                            </label>
                         </div>
-                        <div class="row centered" style="margin-top: -20px;">
+                        <!-- </div> -->
+                        <!-- <div class="col l5 m4 s3"></div> -->
+                        <!-- </div> -->
+                        <div class="row centered">
                             <button class="btn waves-effect waves-light" type="button" ng-click="addToShoppingBasket(p)" ng-disabled="!p.amount || !(p.amount>0)">
                                 <span ng-if="lang == 'pl'">Dodaj do zapytania ofertowego</span>
                                 <span ng-if="lang == 'en'">Add to inquiry</span>

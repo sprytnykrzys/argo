@@ -32,6 +32,18 @@ angular
                 });
             };
 
+             $scope.getNestedCategoriesFromAPI = function() {
+                $scope.nestedCategories = null;
+                ContentSrvc.getNestedCategories().then(function(data) {
+                    $scope.nestedCategories = data.data.categories;
+
+                }, function(data) {
+                    Materialize.toast('Wystąpił błąd', 4000);
+                });
+            };
+
+             $scope.getCategoriesFromAPI();
+             $scope.getNestedCategoriesFromAPI();
 
             $scope.newItem = {
                 name: {
@@ -43,7 +55,7 @@ angular
                 id_parent: ""
             };
 
-            $scope.getCategoriesFromAPI();
+           
 
             $scope.addCategory = function() {
                 var selectedFile = document.getElementById('newFile').files[0];
@@ -63,6 +75,7 @@ angular
             $scope.sendCategory = function(prod) {
                 ContentSrvc.updateCategory(prod).then(function(data) {
                     $scope.getCategoriesFromAPI();
+                    $scope.getNestedCategoriesFromAPI();
                     Materialize.toast('Zapisano!', 4000);
                     $scope.newItem = {
                         name: {
@@ -119,6 +132,7 @@ angular
             $scope.deleteCategory = function(p) {
                 ContentSrvc.deleteCategory(p).then(function(data) {
                     $scope.getCategoriesFromAPI();
+                    $scope.getNestedCategoriesFromAPI();
                     Materialize.toast('Usunięto!', 4000);
                 }, function(data) {
                     if (data.status == 403) {
@@ -158,6 +172,7 @@ angular
                 var parentId = $scope.parentCategory;
                 ContentSrvc.changeParentCategory(p, parentId).then(function(data) {
                     $scope.getCategoriesFromAPI();
+                    $scope.getNestedCategoriesFromAPI();
                     Materialize.toast('Zapisano!', 4000);
 
                     $scope.parentCategory = {

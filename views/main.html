@@ -30,7 +30,7 @@
                 <a class="btn-floating btn-large z-depth-2" ng-repeat="l in globalLang" ng-if="l.selected" ng-style="{'background-image': 'url(' + l.flag + ')'}"></a>
                 <ul>
                     <li ng-repeat="l in globalLang" ng-if="!l.selected" ng-click="selectLang(l.langCode)">
-                        <a class="btn-floating hoverable-lang z-depth-2" ng-style="{'background-image': 'url(' + l.flag + ')'}"></a>
+                        <a class="btn-floating z-depth-2" ng-style="{'background-image': 'url(' + l.flag + ')'}"></a>
                     </li>
                 </ul>
             </div>

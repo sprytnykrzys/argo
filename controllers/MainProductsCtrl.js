@@ -44,6 +44,18 @@ angular
                 });
             };
 
+            $scope.getNestedCategoriesFromAPI = function() {
+                $scope.nestedCategories = null;
+                ContentSrvc.getNestedCategories().then(function(data) {
+                    $scope.nestedCategories = data.data.categories;
+
+                }, function(data) {
+                    Materialize.toast('Wystąpił błąd', 4000);
+                });
+            };
+
+            $scope.getNestedCategoriesFromAPI();
+
             $scope.getProductsFromAPI();
 
             $scope.getCategoriesFromAPI();
@@ -51,10 +63,17 @@ angular
             $scope.allCategory = true;
             $scope.currProd = 0;
 
-            $scope.changeCategory = function(category, categoryId) {
-                $scope.category = category;
+            $scope.changeCategory = function(categoryName, categoryId) {
+                $scope.category = categoryName;
                 $scope.categoryId = categoryId;
                 $scope.allCategory = false;
+
+            }
+
+            $scope.mainCategory = 0;
+
+            $scope.changeMainCategory = function(data){
+                $scope.parentId = data;
             }
 
             $scope.changeAllCategory = function() {

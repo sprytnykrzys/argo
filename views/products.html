@@ -29,16 +29,11 @@
                                 </div>
                             </div>
                         </td>
-                        <td><!-- <span ng-show="!p.edit && cat.id == p.categoryId" ng-repeat="cat in categories">{{cat.name.pl}}</span>
-                            <div class="input-field col s12" ng-show="p.edit" style="text-align: left">
-                                <p ng-repeat="cat in categories">
-                                    <input ng-model="p.categoryId" type="radio" name="category{{p.id}}" id="{{cat.id}}{{p.id}}" ng-value="{{cat.id}}" />
-                                    <label for="{{cat.id}}{{p.id}}">{{cat.name.pl}}</label>
-                                </p>
-                            </div> -->
+                        <td>
                             <span ng-show="!p.edit && cat.id == p.categoryId" ng-repeat="cat in categories">{{cat.name.pl}}</span>
                             <div class="input-field col s12" ng-show="p.edit" style="width: 200px; margin-top: 0px;" input-field>
-                                <select class="" ng-model="p.categoryId" material-select watch>
+                                <select class="" ng-model="p.categoryId" material-select>
+                                    <option value="" disabled selected>Wybierz kategorię</option>
                                     <option ng-repeat="cat in categories" ng-value="{{cat.id}}">{{cat.name.pl}}</option>
                                 </select>
                             </div>
@@ -105,14 +100,9 @@
                             </div>
                         </td>
                         <td>
-                            <!-- <div class="input-field col s12" style="text-align: left">
-                                <p ng-repeat="cat in categories">
-                                    <input ng-model="newItem.categoryId" type="radio" name="categoryNew" id="new{{cat.id}}" ng-value="{{cat.id}}" />
-                                    <label for="new{{cat.id}}">{{cat.name.pl}}</label>
-                                </p> 
-                            </div> -->
                             <div class="input-field col s12" style="width: 200px; margin-top: 0px;" input-field>
-                                <select class="" ng-model="newItem.categoryId" material-select watch>
+                                <select class="" ng-model="newItem.categoryId" material-select>
+                                    <option value="" disabled selected>Wybierz kategorię</option>
                                     <option ng-repeat="cat in categories" ng-value="{{cat.id}}">{{cat.name.pl}}</option>
                                 </select>
                             </div>
