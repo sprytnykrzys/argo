@@ -6,6 +6,9 @@
                     <span ng-if="lang == 'pl'">Kategorie</span>
                     <span ng-if="lang == 'en'">Categories</span>
                     <span ng-if="lang == 'ru'">категории</span>
+                    <button class="btn waves-effect waves-light right" type="button" ng-if="nestedCategoriesCounter > 0" ng-click="backToAllCategory()">
+                        Wróć
+                    </button>
                 </blockquote>
             </div>
             <div class="input-field col l4 m6 s12">
@@ -19,7 +22,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col s12 m6 l3" ng-if="mainCategory == 0">
+            <div class="col l12 m12 s12" ng-if="nestedCategoriesCounter > 0">
+                <p style="float: left; margin-left: 5px;" ng-repeat="cat in linksToSubcategories">
+                    {{cat.name.pl}} >
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m6 l3" ng-if="allCategory">
                 <div class="card-panel waves-effect waves-light" ng-click="changeAllCategory()" ng-class="{'active-category' : allCategory}">
                     <p style="padding-top: 22.5px;padding-bottom: 22.5px;">
                         <span ng-if="lang == 'pl'">Wszystkie kategorie</span>
@@ -28,8 +38,8 @@
                     </p>
                 </div>
             </div>
-            <div class="col s12 m6 l3" ng-repeat="cat in nestedCategories" ng-if="mainCategory == 0">
-                <div class="waves-effect waves-light card-panel" ng-click="changeCategory(cat.name.pl, cat.id)" ng-class="{'active-category' : category == cat.name.pl}">
+            <div class="col s12 m6 l3" ng-repeat="cat in currentCategories" ng-if="ifEnter">
+                <div class="waves-effect waves-light card-panel" ng-click="changeCategory(cat.name, cat.id, cat.subcategories, cat)" ng-class="{'active-category' : category.pl == cat.name.pl}">
                     <img ng-src="{{cat.image_url}}" width="30px" class="circle">
                     <p>
                         <span ng-if="lang == 'pl'">{{cat.name.pl}}</span>
@@ -38,16 +48,18 @@
                     </p>
                 </div>
             </div>
-            <div class="col s12 m6 l3" ng-repeat="cat in nestedCategories">
-                <div class="waves-effect waves-light card-panel" ng-if="parentId == 0" ng-click="changeCategory(cat.name.pl, cat.id)" ng-class="{'active-category' : category == cat.name.pl}">
-                    <img ng-src="{{cat.image_url}}" width="30px" class="circle">
-                    <p>
-                        <span ng-if="lang == 'pl'">{{cat.name.pl}}</span>
-                        <span ng-if="lang == 'en'">{{cat.name.en}}</span>
-                        <span ng-if="lang == 'ru'">{{cat.name.ru}}</span>
-                    </p>
+            <span ng-repeat="cat in lastCategories" ng-if="!ifEnter && $last">
+                <div class="col s12 m6 l3" ng-repeat="(key, value) in cat">
+                    <div class="waves-effect waves-light card-panel" ng-click="changeCategory(cat[key].name, cat[key].id, cat[key].subcategories, cat)">
+                        <img ng-src="{{cat[key].image_url}}" width="30px" class="circle">
+                        <p>
+                            <span ng-if="lang == 'pl'">{{cat[key].name.pl}}</span>
+                            <span ng-if="lang == 'en'">{{cat[key].name.en}}</span>
+                            <span ng-if="lang == 'ru'">{{cat[key].name.ru}}</span>
+                        </p>
+                    </div>
                 </div>
-            </div>
+            </span>          
         </div>
         <div class="row">
             <div class="col l12 m12 s12">

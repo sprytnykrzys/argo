@@ -48,6 +48,7 @@ angular
                 $scope.nestedCategories = null;
                 ContentSrvc.getNestedCategories().then(function(data) {
                     $scope.nestedCategories = data.data.categories;
+                    $scope.currentCategories = data.data.categories;
 
                 }, function(data) {
                     Materialize.toast('Wystąpił błąd', 4000);
@@ -62,17 +63,64 @@ angular
 
             $scope.allCategory = true;
             $scope.currProd = 0;
+            $scope.linksToSubcategories = [];
+            $scope.lastCategories = [];
+            $localStorage.links = $scope.linksToSubcategories;
+            $localStorage.caa = $scope.lastCategories;
+            $scope.nestedCategoriesCounter = 0;
+            $scope.ifEnter = true;
 
-            $scope.changeCategory = function(categoryName, categoryId) {
-                $scope.category = categoryName;
+
+            $scope.changeCategory = function(categoryNames, categoryId, objSubcategories, cat) {
+                $scope.category = categoryNames;
                 $scope.categoryId = categoryId;
                 $scope.allCategory = false;
+                $scope.nestedCategoriesCounter++;
+                $scope.ifEnter = true;
 
+                if ($scope.nestedCategoriesCounter > 1) {
+                    $scope.lastCategory = $scope.currentCategories;
+                    $scope.lastCategories.push($scope.lastCategory);
+                }
+
+                if (objSubcategories) {
+                    $scope.currentCategories = objSubcategories;
+                    $scope.linksToSubcategories.push(cat);
+                    $scope.ifSubcategories = true;
+                } else {
+                    $scope.linksToSubcategories.push(cat);
+                    $scope.ifSubcategories = false;
+                }
             }
 
-            $scope.mainCategory = 0;
+            $scope.backToAllCategory = function() {
+                $scope.ifEnter = false;
+                $scope.currentCategories = $scope.lastCategory;
+                $scope.category = 0;
+                $scope.linksToSubcategories.pop();
+                $scope.nestedCategoriesCounter--;
 
-            $scope.changeMainCategory = function(data){
+
+                if ($scope.nestedCategoriesCounter > 0) {
+                    if ($scope.lastCategories.length == 1) {
+                        $scope.ifSubcategories = true;
+                    } else if ($scope.ifSubcategories) {
+                        $scope.lastCategories.pop();
+                    } else {
+                        $scope.ifSubcategories = true;
+                    }
+                }
+
+                if ($scope.nestedCategoriesCounter == 0) {
+                    $scope.lastCategories.pop();
+                    $scope.allCategory = true;
+                    $scope.currentCategories = $scope.nestedCategories;
+                    $scope.ifEnter = true;
+                }
+            }
+
+
+            $scope.changeMainCategory = function(data) {
                 $scope.parentId = data;
             }
 
