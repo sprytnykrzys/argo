@@ -81,7 +81,6 @@ angular
             };
 
             $scope.ifBasketEmpty = function(name) {
-                console.log(name);
                 if (name == 'Zapytanie Ofertowe') {
                     if (!$localStorage.shoppingBasket || $localStorage.shoppingBasket.length == 0) {
                         return true;

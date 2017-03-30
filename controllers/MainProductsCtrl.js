@@ -34,18 +34,9 @@ angular
                     Materialize.toast('Wystąpił błąd', 4000);
                 });
             };
-
-            $scope.getCategoriesFromAPI = function() {
-                $scope.categories = null;
-                ContentSrvc.getCategories().then(function(data) {
-                    $scope.categories = data.data.categories;
-                }, function(data) {
-                    Materialize.toast('Wystąpił błąd', 4000);
-                });
-            };
-
             $scope.getNestedCategoriesFromAPI = function() {
                 $scope.nestedCategories = null;
+                $scope.currentCategories = null;
                 ContentSrvc.getNestedCategories().then(function(data) {
                     $scope.nestedCategories = data.data.categories;
                     $scope.currentCategories = data.data.categories;
@@ -59,9 +50,6 @@ angular
 
             $scope.getProductsFromAPI();
 
-            $scope.getCategoriesFromAPI();
-
-            $scope.allCategory = true;
             $scope.currProd = 0;
             $scope.linksToSubcategories = [];
             $scope.lastCategories = [];
@@ -69,55 +57,67 @@ angular
             $localStorage.caa = $scope.lastCategories;
             $scope.nestedCategoriesCounter = 0;
             $scope.ifEnter = true;
+            $scope.allCategory = true;
 
 
-            $scope.changeCategory = function(categoryNames, categoryId, objSubcategories, cat) {
-                $scope.category = categoryNames;
-                $scope.categoryId = categoryId;
-                $scope.allCategory = false;
-                $scope.nestedCategoriesCounter++;
-                $scope.ifEnter = true;
+            $scope.changeCategory = function(cat) {
+                $scope.linksToSubcategories.push(cat);
+                $scope.showProperCategories();
+            };
 
-                if ($scope.nestedCategoriesCounter > 1) {
-                    $scope.lastCategory = $scope.currentCategories;
-                    $scope.lastCategories.push($scope.lastCategory);
-                }
-
-                if (objSubcategories) {
-                    $scope.currentCategories = objSubcategories;
-                    $scope.linksToSubcategories.push(cat);
-                    $scope.ifSubcategories = true;
-                } else {
-                    $scope.linksToSubcategories.push(cat);
-                    $scope.ifSubcategories = false;
-                }
-            }
-
-            $scope.backToAllCategory = function() {
-                $scope.ifEnter = false;
-                $scope.currentCategories = $scope.lastCategory;
-                $scope.category = 0;
+            $scope.back = function() {
                 $scope.linksToSubcategories.pop();
-                $scope.nestedCategoriesCounter--;
+                $scope.showProperCategories();
+            };
 
-
-                if ($scope.nestedCategoriesCounter > 0) {
-                    if ($scope.lastCategories.length == 1) {
-                        $scope.ifSubcategories = true;
-                    } else if ($scope.ifSubcategories) {
-                        $scope.lastCategories.pop();
-                    } else {
-                        $scope.ifSubcategories = true;
+            $scope.isInChild = function(catId, sub) {
+                if (!sub) {
+                    if (catId == $scope.linksToSubcategories[$scope.linksToSubcategories.length - 1].id) {
+                        return true; // sprawdzanie czy produkt jest w kategorii aktualnie wybranej (ostatniej)
+                    }
+                    if ($scope.linksToSubcategories[$scope.linksToSubcategories.length - 1].subcategories) {
+                        for (var i in $scope.linksToSubcategories[$scope.linksToSubcategories.length - 1].subcategories) {
+                            if ($scope.linksToSubcategories[$scope.linksToSubcategories.length - 1].subcategories.hasOwnProperty(i)) {
+                                if ($scope.linksToSubcategories[$scope.linksToSubcategories.length - 1].subcategories[i].id == catId) {
+                                    return true; //sprawdzanie czy produkt jest w dzieciach kategorii aktualnie wybranej (ostatniej)
+                                }
+                            }
+                        }
+                    }
+                    if ($scope.linksToSubcategories[$scope.linksToSubcategories.length - 1].subcategories) {
+                        for (var j in $scope.linksToSubcategories[$scope.linksToSubcategories.length - 1].subcategories) {
+                            if ($scope.linksToSubcategories[$scope.linksToSubcategories.length - 1].subcategories.hasOwnProperty(j)) {
+                                return $scope.isInChild(catId, $scope.linksToSubcategories[$scope.linksToSubcategories.length - 1].subcategories[j]);
+                            }
+                        }
+                    }
+                } else {
+                    console.log(sub);
+                    if (sub.id == catId) {
+                        return true;
+                    }
+                    if (sub.subcategories) {
+                        for (var j in sub.subcategories) {
+                            if (sub.subcategories.hasOwnProperty(j)) {
+                                return $scope.isInChild(catId, sub.subcategories[j]);
+                            }
+                        }
                     }
                 }
+            };
 
-                if ($scope.nestedCategoriesCounter == 0) {
-                    $scope.lastCategories.pop();
-                    $scope.allCategory = true;
-                    $scope.currentCategories = $scope.nestedCategories;
-                    $scope.ifEnter = true;
+            $scope.showProperCategories = function(category, index) {
+                if (!category) {
+                    if ($scope.linksToSubcategories.length > 0) {
+                        $scope.currentCategories = $scope.linksToSubcategories[$scope.linksToSubcategories.length - 1].subcategories;
+                    } else {
+                        $scope.currentCategories = $scope.nestedCategories;
+                    }
+                } else {
+                    $scope.currentCategories = category.subcategories;
+                    $scope.linksToSubcategories.splice(index + 1, $scope.linksToSubcategories.length - index);
                 }
-            }
+            };
 
 
             $scope.changeMainCategory = function(data) {
@@ -125,8 +125,8 @@ angular
             }
 
             $scope.changeAllCategory = function() {
-                $scope.category = 0;
-                $scope.allCategory = true;
+                $scope.currentCategories = $scope.nestedCategories;
+                $scope.linksToSubcategories = [];
             }
 
             $scope.moreProduct = function(id) {

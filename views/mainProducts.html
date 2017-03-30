@@ -6,7 +6,7 @@
                     <span ng-if="lang == 'pl'">Kategorie</span>
                     <span ng-if="lang == 'en'">Categories</span>
                     <span ng-if="lang == 'ru'">категории</span>
-                    <button class="btn waves-effect waves-light right" type="button" ng-if="nestedCategoriesCounter > 0" ng-click="backToAllCategory()">
+                    <button class="btn waves-effect waves-light right" type="button" ng-if="linksToSubcategories.length > 0" ng-click="back()">
                         Wróć
                     </button>
                 </blockquote>
@@ -22,15 +22,17 @@
             </div>
         </div>
         <div class="row">
-            <div class="col l12 m12 s12" ng-if="nestedCategoriesCounter > 0">
-                <p style="float: left; margin-left: 5px;" ng-repeat="cat in linksToSubcategories">
+            <div class="col l12 m12 s12">
+                <div><a href="" ng-click="changeAllCategory()">Wszystkie kategorie ></a> 
+                <a href="" ng-click="showProperCategories(cat, $index)" style="margin-left: 5px;" ng-repeat="cat in linksToSubcategories">
                     {{cat.name.pl}} >
-                </p>
+                </a>
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col s12 m6 l3" ng-if="allCategory">
-                <div class="card-panel waves-effect waves-light" ng-click="changeAllCategory()" ng-class="{'active-category' : allCategory}">
+            <div class="col s12 m6 l3" >
+                <div class="card-panel waves-effect waves-light active-category" ng-click="changeAllCategory()">
                     <p style="padding-top: 22.5px;padding-bottom: 22.5px;">
                         <span ng-if="lang == 'pl'">Wszystkie kategorie</span>
                         <span ng-if="lang == 'en'">All categories</span>
@@ -38,8 +40,8 @@
                     </p>
                 </div>
             </div>
-            <div class="col s12 m6 l3" ng-repeat="cat in currentCategories" ng-if="ifEnter">
-                <div class="waves-effect waves-light card-panel" ng-click="changeCategory(cat.name, cat.id, cat.subcategories, cat)" ng-class="{'active-category' : category.pl == cat.name.pl}">
+            <div class="col s12 m6 l3" ng-repeat="cat in currentCategories">
+                <div class="waves-effect waves-light card-panel" ng-click="changeCategory(cat)" ng-class="{'active-category' : category.pl == cat.name.pl}">
                     <img ng-src="{{cat.image_url}}" width="30px" class="circle">
                     <p>
                         <span ng-if="lang == 'pl'">{{cat.name.pl}}</span>
@@ -48,7 +50,7 @@
                     </p>
                 </div>
             </div>
-            <span ng-repeat="cat in lastCategories" ng-if="!ifEnter && $last">
+<!--             <span ng-repeat="cat in lastCategories" ng-if="!ifEnter && $last">
                 <div class="col s12 m6 l3" ng-repeat="(key, value) in cat">
                     <div class="waves-effect waves-light card-panel" ng-click="changeCategory(cat[key].name, cat[key].id, cat[key].subcategories, cat)">
                         <img ng-src="{{cat[key].image_url}}" width="30px" class="circle">
@@ -59,7 +61,7 @@
                         </p>
                     </div>
                 </div>
-            </span>          
+            </span> -->          
         </div>
         <div class="row">
             <div class="col l12 m12 s12">
@@ -71,7 +73,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col l2 m4 s6 main-product-col" ng-if="p.categoryId == categoryId || allCategory" ng-repeat="p in products | filter : search">
+            <div class="col l2 m4 s6 main-product-col" ng-if="p.categoryId == categoryId || linksToSubcategories.length == 0 || isInChild(p.categoryId)" ng-repeat="p in products | filter : search">
                 <div class="card product-card" ui-sref="mainProducts({id : p.id})">
                     <div class="product-name center grey lighten-4">
                         <p>
