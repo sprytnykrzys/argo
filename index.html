@@ -40,7 +40,7 @@
         <div class="chip" ng-class="{'grey': cat.id_parent == 0}">
             <img ng-src="{{cat.image_url}}">{{cat.name.pl}}
         </div>
-        <ul ng-if="cat.subcategories" style="margin-left: 40px;">
+        <ul style="margin-left: 40px;">
             <li ng-repeat="cat in cat.subcategories" ng-include="'namVal'"></li>
         </ul>
     </script>

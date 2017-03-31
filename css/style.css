@@ -307,11 +307,11 @@ button:hover {
     background-color: #e0e0e0;
 }
 
-.chip{
+.chip {
     border-radius: 6px !important;
 }
 
-.chip img{
+.chip img {
     border-radius: 5px !important;
 }
 
@@ -451,6 +451,20 @@ button:hover {
     width: 40px!important;
     height: 40px !important;
     margin-top: -4px;
+    border-radius: 20%!important;
+}
+.fa-angle-right {
+    color: #757575;
+}
+.link-to-subcategories {
+    color: #757575;
+    margin-left: 5px;
+}
+.link-to-subcategories:hover {
+    color: #9e9e9e;
+}
+#subcategories-links-row {
+    padding-bottom: 5px !important;
 }
 
 /*  ///////   FOOTER   ///////  */
