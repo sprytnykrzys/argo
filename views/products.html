@@ -31,12 +31,14 @@
                         </td>
                         <td>
                             <span ng-show="!p.edit && cat.id == p.categoryId" ng-repeat="cat in categories">{{cat.name.pl}}</span>
-                            <div class="input-field col s12" ng-show="p.edit" style="width: 200px; margin-top: 0px;" input-field>
-                                <select class="" ng-model="p.categoryId" material-select>
-                                    <option value="" disabled selected>Wybierz kategorię</option>
-                                    <option ng-repeat="cat in categories" ng-value="{{cat.id}}">{{cat.name.pl}}</option>
-                                </select>
-                            </div>
+                            <span ng-if="p.edit">
+                                <div class="input-field col s12" style="width: 200px; margin-top: 0px;" input-field>
+                                    <select class="" ng-model="p.categoryId" material-select>
+                                        <option value="" disabled selected>Wybierz kategorię</option>
+                                        <option ng-repeat="cat in categories" ng-value="{{cat.id}}">{{cat.name.pl}}</option>
+                                    </select>
+                                 </div>
+                            </span>
                         </td>
                         <td><span ng-if="!p.edit"><span ng-if="p.isNew">tak</span><span ng-if="!p.isNew">nie
                         </span></span>

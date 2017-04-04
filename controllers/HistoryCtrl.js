@@ -40,7 +40,8 @@ angular
                 $('.materialboxed').materialbox();
             }
 
-         
+
+               
 
             
 

@@ -58,10 +58,12 @@ angular
             $scope.nestedCategoriesCounter = 0;
             $scope.ifEnter = true;
             $scope.allCategory = true;
-
+            $scope.searchedProducts = $scope.products;
+            $localStorage.ser = $scope.searchedProducts;
 
             $scope.changeCategory = function(cat) {
                 $scope.linksToSubcategories.push(cat);
+                $scope.searchedProducts = [];
                 $scope.showProperCategories();
             };
 
@@ -73,13 +75,16 @@ angular
             $scope.isInChild = function(catId, sub) {
                 if (!sub) {
                     if (catId == $scope.linksToSubcategories[$scope.linksToSubcategories.length - 1].id) {
+                        $scope.searchedProducts.push(catId);
                         return true; // sprawdzanie czy produkt jest w kategorii aktualnie wybranej (ostatniej)
                     }
                     if ($scope.linksToSubcategories[$scope.linksToSubcategories.length - 1].subcategories) {
                         for (var i in $scope.linksToSubcategories[$scope.linksToSubcategories.length - 1].subcategories) {
                             if ($scope.linksToSubcategories[$scope.linksToSubcategories.length - 1].subcategories.hasOwnProperty(i)) {
                                 if ($scope.linksToSubcategories[$scope.linksToSubcategories.length - 1].subcategories[i].id == catId) {
+                                    $scope.searchedProducts.push(catId);
                                     return true; //sprawdzanie czy produkt jest w dzieciach kategorii aktualnie wybranej (ostatniej)
+
                                 }
                             }
                         }
@@ -94,7 +99,9 @@ angular
                 } else {
                     console.log(sub);
                     if (sub.id == catId) {
+                        $scope.searchedProducts.push(catId);
                         return true;
+
                     }
                     if (sub.subcategories) {
                         for (var j in sub.subcategories) {
@@ -112,6 +119,7 @@ angular
                         $scope.currentCategories = $scope.linksToSubcategories[$scope.linksToSubcategories.length - 1].subcategories;
                     } else {
                         $scope.currentCategories = $scope.nestedCategories;
+                         $scope.searchedProducts = $scope.products;
                     }
                 } else {
                     $scope.currentCategories = category.subcategories;
@@ -127,6 +135,7 @@ angular
             $scope.changeAllCategory = function() {
                 $scope.currentCategories = $scope.nestedCategories;
                 $scope.linksToSubcategories = [];
+                $scope.searchedProducts = $scope.products;
             }
 
             $scope.moreProduct = function(id) {

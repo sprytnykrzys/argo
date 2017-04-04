@@ -30,6 +30,7 @@ angular
                 });
             };
 
+            $scope.mati
         
         }
     ]);
