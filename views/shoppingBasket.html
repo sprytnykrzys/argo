@@ -8,29 +8,41 @@
         <div class="container">
             <div class="row">
                 <div class="col l12 m12 s12">
-                    <table class="bordered responsive-table">
+              <!--       <table class="bordered table">
                         <tbody>
-                            <tr>
-                                <td style="width: 70%;">
-                                    <span ng-if="lang == 'pl'">Produkt</span>
-                                    <span ng-if="lang == 'en'">Product</span>
-                                    <span ng-if="lang == 'ru'">продукт</span>
+                            <tr ng-repeat="b in basket">
+                                <td style="width: 100%; display: block;" ng-repeat="p in products" ng-if="p.id == b.id">
+                                    <img ng-src="{{p.image_url}}" class="shopping-basket-img" style="float: left;">
+                                    <p style="line-height: 40px;">
+                                        <span ng-if="lang == 'pl'" style="margin-left: 5px;">{{p.name.pl}}</span>
+                                        <span ng-if="lang == 'en'" style="margin-left: 5px;">{{p.name.en}}</span>
+                                        <span ng-if="lang == 'ru'" style="margin-left: 5px;">{{p.name.ru}}</span>
+                                    </p>
                                 </td>
-                                <td>
-                                    <span ng-if="lang == 'pl'">Ilość</span>
-                                    <span ng-if="lang == 'en'">Amount</span>
-                                    <span ng-if="lang == 'ru'">номер</span>
+                                <td style="display: block;">Ilość : {{b.qty}}
+                                    <button type="button" class="btn waves-effect waves-light right" ng-click="deleteProductFromBasket(b)">
+                                        <span ng-if="lang == 'pl'">Usuń</span>
+                                        <span ng-if="lang == 'en'">Delete</span>
+                                        <span ng-if="lang == 'ru'">удалять</span>
+                                    </button>
                                 </td>
                             </tr>
+                        </tbody>
+                    </table> -->
+                    <table class="bordered single-product-table">
+                        <tbody>
                             <tr ng-repeat="b in basket">
-                                <td style="width: 70%;" ng-repeat="p in products" ng-if="p.id == b.id">
-                                    <img ng-src="{{p.image_url}}" class="feature-circle">
-                                    <span ng-if="lang == 'pl'">{{p.name.pl}}</span>
-                                    <span ng-if="lang == 'en'">{{p.name.en}}</span>
-                                    <span ng-if="lang == 'ru'">{{p.name.ru}}</span>
+                                <td class="shopping-basket-td" style="width: 70%;" ng-repeat="p in products" ng-if="p.id == b.id">
+                                    <img ng-src="{{p.image_url}}" class="shopping-basket-img">
+                                    <p class="shopping-basket-p-name">
+                                        <span ng-if="lang == 'pl'" class="shopping-basket-p-name">{{p.name.pl}}</span>
+                                        <span ng-if="lang == 'en'" class="shopping-basket-p-name">{{p.name.en}}</span>
+                                        <span ng-if="lang == 'ru'" class="shopping-basket-p-name">{{p.name.ru}}</span>
+                                    </p>
                                 </td>
-                                <td>{{b.qty}}
-                                    <button type="button" class="btn waves-effect waves-light right" ng-click="deleteProductFromBasket(b)">
+                                <td class="shopping-basket-td-qty">
+                                    <p class="shopping-basket-p-qty">Ilosć : {{b.qty}}</p>
+                                    <button type="button" class="btn waves-effect waves-light right shopping-basket-button" ng-click="deleteProductFromBasket(b)">
                                         <span ng-if="lang == 'pl'">Usuń</span>
                                         <span ng-if="lang == 'en'">Delete</span>
                                         <span ng-if="lang == 'ru'">удалять</span>
