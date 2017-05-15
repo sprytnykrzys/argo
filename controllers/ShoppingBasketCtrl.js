@@ -78,6 +78,15 @@ angular
 
             }
 
+            $scope.ifBasketEmpty = function() {
+                if (!$localStorage.shoppingBasket || $localStorage.shoppingBasket.length == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            };
+
 
 
 

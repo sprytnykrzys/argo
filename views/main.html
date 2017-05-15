@@ -6,16 +6,17 @@
                 <a href="" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars" aria-hidden="true"></i>
                 </a>
                 <ul class="left hide-on-med-and-down">
-                    <li ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}" ng-if="!ifBasketEmpty(item.labelPl)">
+                    <li ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}">
                         <a href="" ng-click="changeState(item.uiSref)">
                             <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
                             <span ng-if="lang == 'en'">{{item.labelEn}}</span>
                             <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
                         </a>
+                        <!-- ng-if="!ifBasketEmpty(item.labelPl)" -->
                     </li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                    <li ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}" ng-if="!ifBasketEmpty(item.labelPl)">
+                    <li ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}">
                         <a href="" ng-click="changeState(item.uiSref)">
                             <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
                             <span ng-if="lang == 'en'">{{item.labelEn}}</span>
@@ -53,7 +54,7 @@
             <nav id="nav-footer">
                 <div class="brand-logo footer-height center hide-on-med-and-down">
                     <ul class="lista">
-                        <li class="lista2" ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}" ng-if="!ifBasketEmpty(item.labelPl)">
+                        <li class="lista2" ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}">
                             <a href="" ng-click="changeState(item.uiSref)">
                                 <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
                                 <span ng-if="lang == 'en'">{{item.labelEn}}</span>

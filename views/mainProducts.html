@@ -1,7 +1,7 @@
 <div id="outer" class="row subpage">
     <div class="page col s12 m12 l12" ng-if="!singleProduct">
         <div class="row">
-            <div class="col l8 m6 s12">
+            <div class="col l12 m12 s12">
                 <blockquote>
                     <span ng-if="lang == 'pl'">Kategorie</span>
                     <span ng-if="lang == 'en'">Categories</span>
@@ -12,15 +12,6 @@
                         <span ng-if="lang == 'ru'">возврат</span>
                     </button>
                 </blockquote>
-            </div>
-            <div class="input-field col l4 m6 s12">
-                <i class="material-icons prefix"><i class="fa fa-search" aria-hidden="true"></i></i>
-                <input id="icon_prefix" type="text" class="validate" ng-model="search">
-                <label for="icon_prefix">
-                    <span ng-if="lang == 'pl'">Wyszukaj produkt</span>
-                    <span ng-if="lang == 'en'">Subject</span>
-                    <span ng-if="lang == 'ru'">тема</span>
-                </label>
             </div>
         </div>
         <div class="row" id="subcategories-links-row">
@@ -42,45 +33,46 @@
             </div>
         </div>
         <div class="row">
-            <div class="col s12 m6 l3">
-                <div class="card-panel waves-effect waves-light active-category" ng-click="changeAllCategory()">
-                    <p style="padding-top: 22.5px;padding-bottom: 22.5px;">
+            <div class="col l3 m6 s6 main-product-col">
+                <div class="card category-card active-category all-category" ng-click="changeAllCategory()">
+                    <p>
                         <span ng-if="lang == 'pl'">Wszystkie kategorie</span>
                         <span ng-if="lang == 'en'">All categories</span>
                         <span ng-if="lang == 'ru'">Все категории</span>
                     </p>
                 </div>
             </div>
-            <div class="col s12 m6 l3" ng-repeat="cat in currentCategories">
-                <div class="waves-effect waves-light card-panel" ng-click="changeCategory(cat)" ng-class="{'active-category' : category.pl == cat.name.pl}">
-                    <img ng-src="{{cat.image_url}}" width="30px" class="circle">
-                    <p>
-                        <span ng-if="lang == 'pl'">{{cat.name.pl}}</span>
-                        <span ng-if="lang == 'en'">{{cat.name.en}}</span>
-                        <span ng-if="lang == 'ru'">{{cat.name.ru}}</span>
-                    </p>
-                </div>
-            </div>
-            <!--             <span ng-repeat="cat in lastCategories" ng-if="!ifEnter && $last">
-                <div class="col s12 m6 l3" ng-repeat="(key, value) in cat">
-                    <div class="waves-effect waves-light card-panel" ng-click="changeCategory(cat[key].name, cat[key].id, cat[key].subcategories, cat)">
-                        <img ng-src="{{cat[key].image_url}}" width="30px" class="circle">
+            <div class="col l3 m6 s6 main-product-col" ng-repeat="cat in currentCategories">
+                <div class="card category-card" ng-click="changeCategory(cat)" ng-class="{'active-category' : category.pl == cat.name.pl}">
+                    <div class="category-name center grey lighten-4">
                         <p>
-                            <span ng-if="lang == 'pl'">{{cat[key].name.pl}}</span>
-                            <span ng-if="lang == 'en'">{{cat[key].name.en}}</span>
-                            <span ng-if="lang == 'ru'">{{cat[key].name.ru}}</span>
+                            <span ng-if="lang == 'pl'">{{cat.name.pl}}</span>
+                            <span ng-if="lang == 'en'">{{cat.name.en}}</span>
+                            <span ng-if="lang == 'ru'">{{cat.name.ru}}</span>
                         </p>
                     </div>
+                    <div class="card-content main-products-card-content center">
+                        <img ng-src="{{cat.image_url}}" class="z-depth-2 main-category-image">
+                    </div>
                 </div>
-            </span> -->
+            </div>
         </div>
         <div class="row">
-            <div class="col l12 m12 s12">
+            <div class="col l8 m6 s12">
                 <blockquote>
                     <span ng-if="lang == 'pl'">Produkty</span>
                     <span ng-if="lang == 'en'">Products</span>
                     <span ng-if="lang == 'ru'">продукты</span>
                 </blockquote>
+            </div>
+            <div class="input-field col l4 m6 s12">
+                <i class="material-icons prefix"><i class="fa fa-search" aria-hidden="true"></i></i>
+                <input id="icon_prefix" type="text" class="validate" ng-model="search">
+                <label for="icon_prefix">
+                    <span ng-if="lang == 'pl'">Wyszukaj produkt</span>
+                    <span ng-if="lang == 'en'">Subject</span>
+                    <span ng-if="lang == 'ru'">тема</span>
+                </label>
             </div>
         </div>
         <div class="row">

@@ -26,7 +26,7 @@
                                                 <tbody>
                                                     <tr ng-repeat="(key, value) in p.properties">
                                                         <td style="width: 25%;">{{p.properties[key].pl.name}}</td>
-                                                        <td>{{p.properties[key].pl.value}}
+                                                        <td style="line-height: 33px;">{{p.properties[key].pl.value}}
                                                             <button type="button" ng-if="!p.properties[key].pl.edit" class="btn waves-effect waves-light right" ng-click="editProduct(p.properties[key].pl)">Usuń</button>
                                                             <button type="button" ng-if="p.properties[key].pl.edit" class="btn waves-effect waves-light right" ng-click="closeEditMode(p.properties[key].pl)">Nie
                                                             </button>

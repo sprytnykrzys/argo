@@ -1,37 +1,49 @@
 <div id="outer" class="row subpage">
     <div class="page col s12 m12 l12 centered">
-        <h5>
+        <div id="tlo" class="col s12 m12 l12" style="background-image: url('img/tlo.png');height: 500px;background-size: cover; margin-bottom: 40px;">
+            <!-- <img src="img/tlo.png"> -->
+            <h5 style="margin-top: 220px;">
             <span ng-if="lang == 'pl'">Polski producent narzędzi malarskich i budowlanych</span>
             <span ng-if="lang == 'en'">Polish manufacturer of painting and construction tools</span>
             <span ng-if="lang == 'ru'">Польский производитель инструментов для рисования и строительства</span>
         </h5>
+            <button class="btn waves-effect waves-light" type="button" ui-sref="mainProducts" style="margin-top: 125px;">
+                <span ng-if="lang == 'pl'">Zobacz produkty</span>
+                <span ng-if="lang == 'en'">See products</span>
+                <span ng-if="lang == 'ru'">Смотрите продукты</span>
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            </button>
+        </div>
         <div class="container">
             <div class="row">
-                <div carousel ng-repeat="p in products" ng-if="$index == 0">
-                    <a class="carousel-item featured-products" href="javascript:void(0);" ng-repeat="p in products" ng-if="p.isNew">
-                        <img class="z-depth-3" ng-src="{{p.image_url}}">
-                        <p ui-sref="mainProducts({id : p.id})" class="center">
-                            <span ng-if="lang == 'pl'">{{p.name.pl}}</span>
-                            <span ng-if="lang == 'en'">{{p.name.en}}</span>
-                            <span ng-if="lang == 'ru'">{{p.name.ru}}</span>
-                        </p>
-                    </a>
-                </div>
-                <div id="divider-home" class="divider history-img"></div>
-                <div class="row">
-                    <div class="col l12 m12 s12">
-                        <h5 class="center history-img">
-                            <span ng-if="lang == 'pl'">O firmie</span>
-                            <span ng-if="lang == 'en'">About company</span>
-                            <span ng-if="lang == 'ru'">О компании</span>
+                <!-- <div class="row "> -->
+                <div class="col l12 m12 s12">
+                    <h5 class="center history-img ">
+                            <span ng-if="lang=='pl' ">O firmie</span>
+                            <span ng-if="lang=='en' ">About company</span>
+                            <span ng-if="lang=='ru' ">О компании</span>
                         </h5>
-                        <p style="text-align: left;">
-                            <span ng-if="lang == 'pl'">
+                    <p style="text-align: left; ">
+                        <span ng-if="lang=='pl' ">
                         Historia naszej firmy sięga trzech pokoleń wstecz, kiedy to rzemieślnik Adam Ciechanowski założył firmę Argo. Jego syn poszerzył ofertę firmy o akcesoria malarskie, a w następnych latach nastąpił dalszy rozwój naszego przedsiębiorstwa. Argo jako producent profesjonalnych narzędzi i wałków malarskich oraz narzędzi budowlanych stawia przede wszystkim na najwyższą jakość oferowanych artykułów. Dbamy także o to, by ich ceny odpowiadały możliwościom Klientów. Współpracujemy z takimi sieciami jak Castorama i Leroy Merlin. Naszą markę doceniono też za granicą – produkty firmy Argo trafiają do Niemiec i Francji.</span>
-                            <span ng-if="lang == 'en'">The history of our company goes back three generations ago, when a craftsman Adam Ciechanowski founded the company Argo. His son expanded the company's offer of painting accessories, and in subsequent years there has been further development of our company. Argo as a manufacturer of professional tools and paint rollers and tools for building sets primarily on the highest quality products. We also make sure that their prices match the capabilities customers. We cooperate with networks such as Castorama and Leroy Merlin. Our brand was also appreciated abroad - products Argo goes to Germany and France.</span>
-                            <span ng-if="lang == 'ru'">История нашей компании восходит три поколения назад, когда ремесленник Адам Ciechanowski основал компанию Арго. Его сын расширили предложение компании живописи аксессуаров, а в последующие годы наблюдается дальнейшее развитие нашей компании. Арго как производитель профессиональных инструментов и малярных валиков и инструментов для строительства устанавливает прежде всего на высокое качество продукции. Мы также уверены, что их цены соответствуют возможностям клиентов. Мы сотрудничаем с сетями, такими как Castorama и Leroy Merlin. Наш бренд был также оценен за рубежом - продукция Арго идет в Германию и Францию.</span>
-                        </p>
-                    </div>
+                        <span ng-if="lang=='en' ">The history of our company goes back three generations ago, when a craftsman Adam Ciechanowski founded the company Argo. His son expanded the company's offer of painting accessories, and in subsequent years there has been further development of our company. Argo as a manufacturer of professional tools and paint rollers and tools for building sets primarily on the highest quality products. We also make sure that their prices match the capabilities customers. We cooperate with networks such as Castorama and Leroy Merlin. Our brand was also appreciated abroad - products Argo goes to Germany and France.</span>
+                        <span ng-if="lang=='ru' ">История нашей компании восходит три поколения назад, когда ремесленник Адам Ciechanowski основал компанию Арго. Его сын расширили предложение компании живописи аксессуаров, а в последующие годы наблюдается дальнейшее развитие нашей компании. Арго как производитель профессиональных инструментов и малярных валиков и инструментов для строительства устанавливает прежде всего на высокое качество продукции. Мы также уверены, что их цены соответствуют возможностям клиентов. Мы сотрудничаем с сетями, такими как Castorama и Leroy Merlin. Наш бренд был также оценен за рубежом - продукция Арго идет в Германию и Францию.</span>
+                    </p>
+                </div>
+                <!-- </div> -->
+                <div id="divider-home " class="divider history-img "></div>
+                <div carousel ng-repeat="p in products" ng-if="$index == 0">
+                    <a class="carousel-item featured-products" href="javascript:void(0);" ng-repeat="p in products" ng-if="p.isNew" ng-init="isActive(p.name.pl)" ">
+                        <img class="z-depth-3 " ng-src="{{p.image_url}} ">
+                        <!-- <span ng-if="activeProduct==p .name.pl ">  -->
+                            <p ui-sref="mainProducts({id : p.id}) " class="center ">
+                            <span ng-if="lang=='pl' ">{{p.name.pl}}</span>
+                            <span ng-if="lang=='en' ">{{p.name.en}}</span>
+                            <span ng-if="lang=='ru' ">{{p.name.ru}}</span>
+                             </p>
+                        <!-- </span> -->
+                     
+                    </a>
                 </div>
             </div>
         </div>

@@ -68,6 +68,10 @@ body {
     padding-bottom: 100px;
 }
 
+#tlo{
+    background-image: url('img/tlo.png');
+}
+
 .row {
     margin-bottom: 0px !important;
     padding-bottom: 20px;
@@ -294,6 +298,29 @@ button:hover {
     width: 88px;
 }
 
+.category-name {
+    padding: 5px;
+}
+
+.category-card {
+    cursor: pointer;
+    height: 200px;
+}
+
+.category-card:hover {
+    outline: 1px solid #26a69a;
+}
+
+.main-category-image {
+    width: 170px !important;
+    height: 130px !important;
+}
+
+.all-category{
+    text-align: center;
+    line-height: 200px;
+}
+
 .categories-tree {
     background-color: #26a69a !important;
 }
@@ -327,7 +354,7 @@ button:hover {
 
 .carousel .carousel-item {
     padding-top: 10px;
-    margin-top: -50px;
+    margin-top: 45px;
 }
 
 .carousel-item img {
@@ -343,10 +370,12 @@ button:hover {
 
 .shopping-basket-td {
     line-height: 35px;
+    padding: 8px 5px !important;
 }
 
 .shopping-basket-td-qty {
     line-height: 35px;
+    padding: 8px 5px !important;
 }
 
 .shopping-basket-p-qty {
@@ -614,6 +643,8 @@ footer {
         width: 100% !important;
         display: block;
         line-height: 0px;
+        margin-top: 5px;
+        padding: 15px 5px !important;
     }
     .shopping-basket-td img {
         display: block;
@@ -625,6 +656,8 @@ footer {
         display: block;
         line-height: 0px;
         height: 45px;
+        margin-top: 0px;
+        padding: 15px 5px !important;
     }
     .shopping-basket-button {
         margin-top: -12px !important;
@@ -700,4 +733,62 @@ footer {
         width: 205px !important;
         height: 135px !important;
     }
+}
+
+
+
+
+#cookieinfo * {
+    margin: 0px;
+    padding: 0px;
+}
+
+#cookieinfo {
+    position: fixed;
+    font-size: 12px;
+    font-family: Arial, Verdana, sans-serif;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    background-color: #323334; 
+    padding: 20px;
+    box-shadow: 0px -1px 3px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    text-align: center;
+}
+
+#cookieinfo h6 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #cdd7da;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
+    margin-bottom: 7px;
+}
+
+#cookieinfo p {
+    font-size: 12px;
+    color: #afb4bc;
+    line-height: 1.5em;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
+}
+
+#cookieinfo a {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 22px;
+    height: 22px;
+    border-radius: 11px;
+    line-height: 22px;
+    font-size: 12px;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    background-color: #26a69a;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+#cookieinfo a:hover {
+    background-color: #2bbbad; 
 }
