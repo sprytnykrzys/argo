@@ -159,9 +159,9 @@ angular
                     }
                 };
 
-                // if (monster.get('cookieinfo') === 'true') {
-                //     return false;
-                // }
+                if (monster.get('cookieinfo') === 'true') {
+                    return false;
+                }
 
                 var container = document.createElement('div'),
                     link = document.createElement('a');
