@@ -143,6 +143,63 @@ angular
                 }
             };
 
+            $scope.newPosition = {
+                position: ""
+            }
+
+            $scope.changeUpPosition = function(p, position) {
+                if (position == 0) {
+                    Materialize.toast('Nie ma takiej pozycji!', 4000);
+                } else {
+                    $scope.newPosition.position = position;
+                    $scope.setSequence(p.id, p.categoryId);
+                }
+            }
+
+            $scope.changeDownPosition = function(p, position) {
+                if ($localStorage.products.length == position + 1) {
+                    Materialize.toast('Nie ma takiej pozycji!', 4000);
+                } else {
+                    $scope.newPosition.position = position + 2;
+                    $scope.setSequence(p.id, p.categoryId);
+                }
+
+            }
+
+            $scope.setSequence = function(id_product, id_category, position) {
+                // $scope.newPosition.id_category = id_category;
+                if ($scope.newPosition.position == position +1) {
+                    Materialize.toast('Nie ma takiej pozycji!', 4000);
+                } else {
+
+                    $scope.newPosition.id_product = id_product;
+
+                    ContentSrvc.setSequenceProducts($scope.newPosition).then(function(data) {
+                        $scope.getProductsFromAPI();
+                        Materialize.toast('Zapisano!', 4000);
+
+                        $scope.newPosition = {
+                            position: "",
+                            id_category: "",
+                            id_product: ""
+                        }
+
+                    }, function(data) {
+                        if (data.status == 403) {
+                            $localStorage.user = null;
+                            $rootScope.user = null;
+                            Materialize.toast('Zostałeś wylogowany', 4000);
+                            $state.go('adminLogin');
+                        } else {
+                            Materialize.toast('Wystąpił błąd', 4000);
+                            $scope.getCategoriesFromAPI();
+                        }
+                    });
+                }
+
+
+            };
+
             File.prototype.convertToBase64 = function(callback) {
                 var FR = new FileReader();
                 FR.onload = function(e) {

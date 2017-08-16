@@ -1,4 +1,7 @@
 <div id="outer" class="row">
+    <div id="cookies">
+        
+    </div>
     <div id="mainHeader" class="col s12">
         <nav>
             <div class="nav-wrapper">
@@ -7,17 +10,26 @@
                 </a>
                 <ul class="left hide-on-med-and-down">
                     <li ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}">
-                        <a href="" ng-click="changeState(item.uiSref)">
+                        <a href="" ng-click="changeState(item.uiSref)" ng-if="item.uiSref !== 'pedzle.pl'">
                             <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
                             <span ng-if="lang == 'en'">{{item.labelEn}}</span>
                             <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
                         </a>
-                        <!-- ng-if="!ifBasketEmpty(item.labelPl)" -->
+                        <a href="http://www.pedzle.pl/" target="_blank" ng-click="changeState(item.uiSref)" ng-if="item.uiSref == 'pedzle.pl'">
+                            <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                            <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                            <span ng-if="lang == 'ru'">{{item.labelRu}}</span> 
+                        </a>
                     </li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}">
-                        <a href="" ng-click="changeState(item.uiSref)">
+                        <a href="" ng-click="changeState(item.uiSref)" ng-if="item.uiSref !== 'pedzle.pl'">
+                            <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                            <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                            <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                        </a>
+                        <a href="http://www.pedzle.pl/" target="_blank" ng-click="changeState(item.uiSref)" ng-if="item.uiSref == 'pedzle.pl'">
                             <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
                             <span ng-if="lang == 'en'">{{item.labelEn}}</span>
                             <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
@@ -55,7 +67,12 @@
                 <div class="brand-logo footer-height center hide-on-med-and-down">
                     <ul class="lista">
                         <li class="lista2" ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}">
-                            <a href="" ng-click="changeState(item.uiSref)">
+                            <a href="" ng-click="changeState(item.uiSref)" ng-if="item.uiSref !== 'pedzle.pl'">
+                                <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                                <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                                <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                            </a>
+                            <a href="http://www.pedzle.pl/" target="_blank" ng-click="changeState(item.uiSref)" ng-if="item.uiSref == 'pedzle.pl'">
                                 <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
                                 <span ng-if="lang == 'en'">{{item.labelEn}}</span>
                                 <span ng-if="lang == 'ru'">{{item.labelRu}}</span>

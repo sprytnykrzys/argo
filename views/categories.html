@@ -8,7 +8,6 @@
                         <div class="collapsible-body">
                             <ul>
                                 <li ng-repeat="cat in nestedCategories" ng-include="'namVal'">
-
                                 </li>
                             </ul>
                         </div>
@@ -23,6 +22,7 @@
                     <tr>
                         <th>Zdjęcie</th>
                         <th>Kategoria nadrzędna</th>
+                        <th>Pozycja</th>
                         <th ng-repeat="(key, value) in categories[0].name">Tytuł {{key | uppercase}}</th>
                         <th ng-repeat="(key, value) in categories[0].description">Opis {{key | uppercase}}</th>
                         <th>Edytuj</th>
@@ -56,6 +56,13 @@
                                      </select>
                                 </div>
                             </span>
+                        </td>
+                        <td>
+                            <h5>{{p.front_position}}</h5>
+                            <button class="btn waves-effect waves-light buttonWithIcon greenButton left" ng-click="changeUpPosition(p.id, p.front_position)"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
+                            <button class="btn waves-effect waves-light buttonWithIcon right" ng-click="changeDownPosition(p.id, p.front_position)"><i class="fa fa-arrow-down" aria-hidden="true"></i></button>
+                            <input class="" type="text" ng-model="newPosition.position" placeholder="Podaj pozycję" />
+                            <button type="button" class="btn waves-effect waves-light buttonWithIcon greenButton" ng-click="setSequence(p.id, p.front_position)"><!-- <i class="fa fa-floppy-o" aria-hidden="true"></i> --> Ustaw</button>
                         </td>
                         <td ng-repeat="(key, value) in p.name"><span ng-if="!p.edit"><span ng-if="p.name[key]">{{p.name[key]}}</span><span ng-if="!p.name[key]">-</span></span>
                             <input ng-if="p.edit" type="text" ng-model="p.name[key]" />

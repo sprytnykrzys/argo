@@ -8,6 +8,7 @@
                         <th>Zdjęcie</th>
                         <th>Kategoria</th>
                         <th>Promowany</th>
+                        <th>Pozycja</th>
                         <th>Kod kreskowy</th>
                         <th>Kod produktu</th>
                         <th ng-repeat="(key, value) in products[0].name">Tytuł {{key | uppercase}}</th>
@@ -49,6 +50,17 @@
                                     <span class="lever"></span> Tak
                                 </label>
                             </div>
+                        </td>
+                        <td>
+                            <h5>{{$index + 1}}</h5>
+                            <button class="btn waves-effect waves-light buttonWithIcon greenButton left" ng-click="changeUpPosition(p, $index)"><i class="fa fa-arrow-up" aria-hidden="true"></i>
+                            </button>
+                            <!-- <span>{{$index + 1}}</span> -->
+                            <button class="btn waves-effect waves-light buttonWithIcon right" ng-click="changeDownPosition(p, $index)"><i class="fa fa-arrow-down" aria-hidden="true"></i>
+                            </button>
+                            <input class="" type="text" ng-model="newPosition.position" placeholder="Podaj pozycję" />
+                            <button type="button" class="btn waves-effect waves-light buttonWithIcon greenButton" ng-click="setSequence(p.id, p.categoryId, $index)">
+                                <!-- <i class="fa fa-floppy-o" aria-hidden="true"></i> -->Ustaw</button>
                         </td>
                         <td><span ng-if="!p.edit"><span ng-if="p.barcode">{{p.barcode}}</span><span ng-if="!p.barcode">-</span></span>
                             <input ng-if="p.edit" type="text" ng-model="p.barcode" />

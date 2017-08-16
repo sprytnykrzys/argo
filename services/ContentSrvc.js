@@ -280,5 +280,66 @@ angular.module('Argo.Services.ContentSrvc', [
 
             return promise;
         }
+
+        this.setSequenceCategories = function(data) {
+            $rootScope.showPreloader();
+            var data = {
+                "uid": $localStorage.user.uid,
+                "token": $localStorage.user.token,
+                "id_category": data.id_category,
+                "position": data.position
+            };
+
+            // delete data.category.edit;
+
+            var req = {
+                method: 'POST',
+                data: data,
+                url: $rootScope.endpointURL + "/category/position",
+                headers: {
+                    "Content-Type": "text/plain"
+                }
+            };
+
+            var promise = $http(req);
+
+            promise.then(function(data) {
+                $localStorage.user.token = data.data.token;
+                $rootScope.hidePreloader();
+            });
+
+            return promise;
+        }
+
+        this.setSequenceProducts = function(data) {
+            $rootScope.showPreloader();
+            var data = {
+                "uid": $localStorage.user.uid,
+                "token": $localStorage.user.token,
+                "id_category": data.id_category,
+                "id_product": data.id_product,
+                "position": data.position
+            };
+
+            // delete data.category.edit;
+
+            var req = {
+                method: 'POST',
+                data: data,
+                url: $rootScope.endpointURL + "/product/position",
+                headers: {
+                    "Content-Type": "text/plain"
+                }
+            };
+
+            var promise = $http(req);
+
+            promise.then(function(data) {
+                $localStorage.user.token = data.data.token;
+                $rootScope.hidePreloader();
+            });
+
+            return promise;
+        }
     }
 ]);

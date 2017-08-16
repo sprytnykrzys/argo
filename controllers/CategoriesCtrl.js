@@ -32,7 +32,7 @@ angular
                 });
             };
 
-             $scope.getNestedCategoriesFromAPI = function() {
+            $scope.getNestedCategoriesFromAPI = function() {
                 $scope.nestedCategories = null;
                 ContentSrvc.getNestedCategories().then(function(data) {
                     $scope.nestedCategories = data.data.categories;
@@ -42,8 +42,8 @@ angular
                 });
             };
 
-             $scope.getCategoriesFromAPI();
-             $scope.getNestedCategoriesFromAPI();
+            $scope.getCategoriesFromAPI();
+            $scope.getNestedCategoriesFromAPI();
 
             $scope.newItem = {
                 name: {
@@ -55,7 +55,7 @@ angular
                 id_parent: ""
             };
 
-           
+
 
             $scope.addCategory = function() {
                 var selectedFile = document.getElementById('newFile').files[0];
@@ -110,7 +110,7 @@ angular
                     // $scope.getCategoriesFromAPI();
                     // Materialize.toast('Zapisano!', 4000);
                     $scope.changeParentCategory(p)
-                    
+
                 }, function(data) {
                     if (data.status == 403) {
                         $localStorage.user = null;
@@ -190,6 +190,61 @@ angular
                         $scope.getCategoriesFromAPI();
                     }
                 });
+
+            };
+
+            $scope.newPosition = {
+                position: ""
+            }
+
+            $scope.changeUpPosition = function(id_category, position) {
+                if (position == 1) {
+                    Materialize.toast('Nie ma takiej pozycji!', 4000);
+                } else {
+                    $scope.newPosition.position = position - 1;
+                    $scope.setSequence(id_category);
+                }
+
+            }
+
+            $scope.changeDownPosition = function(id_category, position) {
+                if ($localStorage.categories.length == position) {
+                    Materialize.toast('Nie ma takiej pozycji!', 4000);
+                } else {
+                    $scope.newPosition.position = position + 1;
+                    $scope.setSequence(id_category);
+                }
+
+            }
+
+            $scope.setSequence = function(id_category, position) {
+                if ($scope.newPosition.position == position) {
+                    Materialize.toast('Nie ma takiej pozycji!', 4000);
+                } else {
+                    $scope.newPosition.id_category = id_category;
+
+                    ContentSrvc.setSequenceCategories($scope.newPosition).then(function(data) {
+                        $scope.getCategoriesFromAPI();
+                        $scope.getNestedCategoriesFromAPI();
+                        Materialize.toast('Zapisano!', 4000);
+
+                        $scope.newPosition = {
+                            position: "",
+                            id_category: ""
+                        }
+
+                    }, function(data) {
+                        if (data.status == 403) {
+                            $localStorage.user = null;
+                            $rootScope.user = null;
+                            Materialize.toast('Zostałeś wylogowany', 4000);
+                            $state.go('adminLogin');
+                        } else {
+                            Materialize.toast('Wystąpił błąd', 4000);
+                            $scope.getCategoriesFromAPI();
+                        }
+                    });
+                }
 
             };
 

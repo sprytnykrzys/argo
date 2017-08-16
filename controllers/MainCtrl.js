@@ -39,6 +39,11 @@ angular
                 'activeStateRule': 'contact',
                 'uiSref': 'contact'
             }, {
+                'labelPl': 'Sklep',
+                'labelEn': 'Shop',
+                'labelRu': 'магазин',
+                'uiSref': 'pedzle.pl'
+            }, {
                 'labelPl': 'Zapytanie Ofertowe',
                 'labelEn': 'Inquiry',
                 'labelRu': 'запрос',
@@ -173,10 +178,12 @@ angular
                 link.setAttribute('href', '#');
                 link.setAttribute('title', 'Zamknij');
                 link.innerHTML = 'x';
+                var div = document.getElementById('cookies');
 
                 function clickHandler(e) {
                     if (e.preventDefault) {
                         e.preventDefault();
+                        div.setAttribute('style', 'display: none;');
                     } else {
                         e.returnValue = false;
                     }
@@ -200,7 +207,8 @@ angular
                 }
 
                 container.appendChild(link);
-                document.body.appendChild(container);
+
+                document.getElementById("cookies").appendChild(container);
 
                 monster.set('cookieinfo', 'true', 365);
 
