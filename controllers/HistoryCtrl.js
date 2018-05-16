@@ -17,20 +17,20 @@ angular
             };
 
             $scope.historyItems = [{
-                'labelPl': 'O nas',
-                'labelEn': 'About us',
-                'labelRu': 'О компании '
+                'labelPl': 'O firmie',
+                'labelEn': 'About company',
+                'labelRu': 'О фирмe'
             }, {
                 'labelPl': 'Historia',
                 'labelEn': 'History',
-                'labelRu': 'история'
+                'labelRu': 'История'
             }, {
-                'labelPl': 'O firmie',
-                'labelEn': 'About company',
-                'labelRu': 'сведения об организации'
+                'labelPl': 'Nasza misja',
+                'labelEn': 'Our mission',
+                'labelRu': 'Hаша миссия'
             }];
 
-            $scope.activeView = 'O nas';
+            $scope.activeView = 'O firmie';
 
             $scope.changeView = function(data) {
                 $scope.activeView = data.labelPl;

@@ -17,36 +17,36 @@ angular
             $scope.mainMenuItems = [{
                 'labelPl': 'Strona główna',
                 'labelEn': 'Home',
-                'labelRu': 'дома',
+                'labelRu': 'Главная',
                 'activeStateRule': 'home',
                 'uiSref': 'home'
             }, {
                 'labelPl': 'Produkty',
                 'labelEn': 'Products',
-                'labelRu': 'продукты',
+                'labelRu': 'Продукты',
                 'activeStateRule': 'mainProducts',
                 'uiSref': 'mainProducts'
             }, {
                 'labelPl': 'O nas',
                 'labelEn': 'About us',
-                'labelRu': 'О компании',
+                'labelRu': 'O нас',
                 'activeStateRule': 'history',
                 'uiSref': 'history'
             }, {
                 'labelPl': 'Kontakt',
                 'labelEn': 'Contact',
-                'labelRu': 'контакт',
+                'labelRu': 'Kонтакт',
                 'activeStateRule': 'contact',
                 'uiSref': 'contact'
             }, {
                 'labelPl': 'Sklep',
                 'labelEn': 'Shop',
-                'labelRu': 'магазин',
+                'labelRu': 'Магазин',
                 'uiSref': 'pedzle.pl'
             }, {
                 'labelPl': 'Zapytanie Ofertowe',
                 'labelEn': 'Inquiry',
-                'labelRu': 'запрос',
+                'labelRu': 'Запрос',
                 'activeStateRule': 'shoppingBasket',
                 'uiSref': 'shoppingBasket'
             }];
