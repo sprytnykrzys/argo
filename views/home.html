@@ -2,11 +2,11 @@
     <div class="page col s12 m12 l12 centered">
         <div id="tlo" class="col s12 m12 l12" style="background-image: url('img/tlo.jpeg');">
             <!-- <img src="img/tlo.png"> -->
-            <h5 style="margin-top: 0px;">
-            <span ng-if="lang == 'pl'">Polski producent narzędzi malarskich i budowlanych</span>
-            <span ng-if="lang == 'en'">Polish manufacturer of painting and construction tools</span>
-            <span ng-if="lang == 'ru'">Польский производитель малярныx и строительныx инструментов</span>
-        </h5>
+            <h5 style="margin-top: 0px; font-size: 34px;font-weight: bold; color: #EF2623;">
+                <span ng-if="lang == 'pl'">ARGO - Polski producent narzędzi malarskich i budowlanych</span>
+                <span ng-if="lang == 'en'">ARGO - Polish manufacturer of painting and construction tools</span>
+                <span ng-if="lang == 'ru'">ARGO - Польский производитель инструментов для рисования и строительства</span>
+            </h5>
             <button class="btn waves-effect waves-light" type="button" ui-sref="mainProducts" style="margin-top: 350px;">
                 <span ng-if="lang == 'pl'">Zobacz produkty</span>
                 <span ng-if="lang == 'en'">See products</span>
@@ -17,29 +17,52 @@
         <div class="container">
             <div class="row">
                 <!-- <div class="row "> -->
-                <div class="col l12 m12 s12">
+                <!-- <div class="col l12 m12 s12">
                     <h5 class="center history-img ">
-                            <span ng-if="lang=='pl' ">O firmie</span>
-                            <span ng-if="lang=='en' ">About company</span>
-                            <span ng-if="lang=='ru' ">О фирмe</span>
-                        </h5>
+                        <span ng-if="lang=='pl' ">O firmie</span>
+                        <span ng-if="lang=='en' ">About company</span>
+                        <span ng-if="lang=='ru' ">О фирмe</span>
+                    </h5>
                     <p style="text-align: left; font-size: 16px; ">
                         <span ng-if="lang=='pl' ">
-                        <!-- Historia naszej firmy sięga trzech pokoleń wstecz, kiedy to rzemieślnik Adam Ciechanowski założył firmę Argo. Jego syn poszerzył ofertę firmy o akcesoria malarskie, a w następnych latach nastąpił dalszy rozwój naszego przedsiębiorstwa. Argo jako producent profesjonalnych narzędzi i wałków malarskich oraz narzędzi budowlanych stawia przede wszystkim na najwyższą jakość oferowanych artykułów. Dbamy także o to, by ich ceny odpowiadały możliwościom Klientów. Współpracujemy z takimi sieciami jak Castorama i Leroy Merlin. Naszą markę doceniono też za granicą – produkty firmy Argo trafiają do Niemiec i Francji. -->
-                        Firma ARGO od wielu dziesięcioleci specjalizuje się w wytwarzaniu profesjonalnych narzędzi niezbędnych dla każdego prawdziwego fachowca: wałków i kuwet malarskich oraz narzędzi i akcesoriów budowlanych. Stawiamy przede wszystkim na najwyższą jakość oferowanych artykułów i ich dostępność dla naszych Klientów. Od wielu lat z powodzeniem współpracujemy z sieciami dużych marketów budowlanych, mimo to, traktujemy z należytą uwagą także mniejszych kontrahentów dopasowując ofertę także do ich potrzeb. Naszą markę doceniono nie tylko w kraju – produkty firmy ARGO sprzedają się na rynki Niemiec, Szwecji i Francji. Naszą produkcję z sukcesami eksportujemy również do odbiorców z obszaru Europy środkowo-wschodniej. 
-                        ARGO ciągle wprowadza nowe technologie, unowocześnia i poszerza park maszynowy, testuje nowe, coraz doskonalsze materiały. Korzystamy nie tylko z polskich doświadczeń w tej dziedzinie, ale także niemieckich czy francuskich. Priorytetem ARGO niezmiennie jest wysoka jakość produkcji, a także dbałość o zadowolenie naszych Klientów.
+                            Firma ARGO od wielu dziesięcioleci specjalizuje się w wytwarzaniu profesjonalnych narzędzi niezbędnych dla każdego prawdziwego
+                            fachowca: wałków i kuwet malarskich oraz narzędzi i akcesoriów budowlanych. Stawiamy przede wszystkim
+                            na najwyższą jakość oferowanych artykułów i ich dostępność dla naszych Klientów. Od wielu lat
+                            z powodzeniem współpracujemy z sieciami dużych marketów budowlanych, mimo to, traktujemy z należytą
+                            uwagą także mniejszych kontrahentów dopasowując ofertę także do ich potrzeb. Naszą markę doceniono
+                            nie tylko w kraju – produkty firmy ARGO sprzedają się na rynki Niemiec, Szwecji i Francji. Naszą
+                            produkcję z sukcesami eksportujemy również do odbiorców z obszaru Europy środkowo-wschodniej.
+                            ARGO ciągle wprowadza nowe technologie, unowocześnia i poszerza park maszynowy, testuje nowe,
+                            coraz doskonalsze materiały. Korzystamy nie tylko z polskich doświadczeń w tej dziedzinie, ale
+                            także niemieckich czy francuskich. Priorytetem ARGO niezmiennie jest wysoka jakość produkcji,
+                            a także dbałość o zadowolenie naszych Klientów.
                         </span>
                         <span ng-if="lang=='en' ">
-                        ARGO has for decades specialised in the manufacture of professional tools that skilled hand-workers cannot do without, i.e. paint rollers and trays, as well as building tools and accessories. Our focus is to provide high quality products and ensure their availability to Clients. For many years now we have successfully cooperated with large hardware stores, while at the same time caring for our smaller clients and customizing our offer to take account of their needs. Our brand is recognised home and abroad. ARGO products are sold in Poland, Germany, Sweden and France, as well as in Central and Eastern Europe. 
-                        ARGO keeps introducing new technologies, modernising and extending its machine park, and testing new and improved materials. We make use both of Polish expertise, as well as German or French. Our priority has always been to ensure top quality of production, and Client satisfaction.
+                            ARGO has for decades specialised in the manufacture of professional tools that skilled hand-workers cannot do without, i.e.
+                            paint rollers and trays, as well as building tools and accessories. Our focus is to provide high
+                            quality products and ensure their availability to Clients. For many years now we have successfully
+                            cooperated with large hardware stores, while at the same time caring for our smaller clients
+                            and customizing our offer to take account of their needs. Our brand is recognised home and abroad.
+                            ARGO products are sold in Poland, Germany, Sweden and France, as well as in Central and Eastern
+                            Europe. ARGO keeps introducing new technologies, modernising and extending its machine park,
+                            and testing new and improved materials. We make use both of Polish expertise, as well as German
+                            or French. Our priority has always been to ensure top quality of production, and Client satisfaction.
                         </span>
                         <span ng-if="lang=='ru' ">
-                        Фирма АRGO на протяжении многих десятилетий специализируется на изготовлении профессиональных продуктов необходимых для каждого, настоящего специалиста: малярных валиков и кювет, а также строительных инструментов и аксессуаров.
-                        Мы ориентируемся прежде всего на высочайшее качество предлагаемых продуктов и их доступность для наших клиентов. На протяжении многих лет мы успешно сотрудничаем с сетями крупных строительных супермаркетов, тем не менее мы с должным вниманием относимся к меньшим покупателям и подбираем ассортимент для удовлетворениия их потребностей. Наш бренд получил признание не только в стране. Товары фирмы АRGO продаются на рынки Германии, Швеции, Франции. Мы с успехом экспортируем наши изделия для потребителей из Центральиой и Восточной Европы.
-                        АRGO постоянно внедряет новые технологии, модернизирует и расширяет парк машин, тестирует новые, всё более совершенные материалы. Мы используем не только польский опыт в этой области, но и немецкий или французский. Приоритетом АRGO является постоянное высокое качество продукции, а также забота об удовлетворении наших клиентов.
+                            Фирма АRGO на протяжении многих десятилетий специализируется на изготовлении профессиональных продуктов необходимых для каждого,
+                            настоящего специалиста: малярных валиков и кювет, а также строительных инструментов и аксессуаров.
+                            Мы ориентируемся прежде всего на высочайшее качество предлагаемых продуктов и их доступность
+                            для наших клиентов. На протяжении многих лет мы успешно сотрудничаем с сетями крупных строительных
+                            супермаркетов, тем не менее мы с должным вниманием относимся к меньшим покупателям и подбираем
+                            ассортимент для удовлетворениия их потребностей. Наш бренд получил признание не только в стране.
+                            Товары фирмы АRGO продаются на рынки Германии, Швеции, Франции. Мы с успехом экспортируем наши
+                            изделия для потребителей из Центральиой и Восточной Европы. АRGO постоянно внедряет новые технологии,
+                            модернизирует и расширяет парк машин, тестирует новые, всё более совершенные материалы. Мы используем
+                            не только польский опыт в этой области, но и немецкий или французский. Приоритетом АRGO является
+                            постоянное высокое качество продукции, а также забота об удовлетворении наших клиентов.
                         </span>
                     </p>
-                </div>
+                </div> -->
                 <!-- </div> -->
                 <div id="divider-home " class="divider history-img "></div>
                 <div carousel ng-repeat="p in products" ng-if="$index == 0">

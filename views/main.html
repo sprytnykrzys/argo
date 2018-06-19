@@ -1,95 +1,95 @@
-<div id="outer" class="row">
-    <div id="cookies">
-        
-    </div>
-    <div id="mainHeader" class="col s12">
-        <nav>
-            <div class="nav-wrapper">
-                <a ui-sref="main" class="brand-logo center"><img src="img/argo.png" /></a>
-                <a href="" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars" aria-hidden="true"></i>
-                </a>
-                <ul class="left hide-on-med-and-down">
-                    <li ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}">
-                        <a href="" ng-click="changeState(item.uiSref)" ng-if="item.uiSref !== 'pedzle.pl'">
-                            <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
-                            <span ng-if="lang == 'en'">{{item.labelEn}}</span>
-                            <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
-                        </a>
-                        <a href="http://www.pedzle.pl/" target="_blank" ng-click="changeState(item.uiSref)" ng-if="item.uiSref == 'pedzle.pl'">
-                            <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
-                            <span ng-if="lang == 'en'">{{item.labelEn}}</span>
-                            <span ng-if="lang == 'ru'">{{item.labelRu}}</span> 
-                        </a>
-                    </li>
-                </ul>
-                <ul class="side-nav" id="mobile-demo">
-                    <li ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}">
-                        <a href="" ng-click="changeState(item.uiSref)" ng-if="item.uiSref !== 'pedzle.pl'">
-                            <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
-                            <span ng-if="lang == 'en'">{{item.labelEn}}</span>
-                            <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
-                        </a>
-                        <a href="http://www.pedzle.pl/" target="_blank" ng-click="changeState(item.uiSref)" ng-if="item.uiSref == 'pedzle.pl'">
-                            <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
-                            <span ng-if="lang == 'en'">{{item.labelEn}}</span>
-                            <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div id="lang-items">
-            <div id="mainlang" class="fixed-action-btn click-to-toggle">
-                <a class="btn-floating btn-large z-depth-2" ng-repeat="l in globalLang" ng-if="l.selected" ng-style="{'background-image': 'url(' + l.flag + ')'}"></a>
-                <ul>
-                    <li ng-repeat="l in globalLang" ng-if="!l.selected" ng-click="selectLang(l.langCode)">
-                        <a class="btn-floating z-depth-2" ng-style="{'background-image': 'url(' + l.flag + ')'}"></a>
-                    </li>
-                </ul>
-            </div>
-            <div id="lang-arrow">
-                <i class="fa fa-arrow-right" aria-hidden="true"></i>
-            </div>
-        </div>
-    </div>
-    <div class="loader-wrapper" ng-if="preloaderCounter > 0">
-        <img src="img/preloader.svg"></img>
-    </div>
-    <div class="ui-view-container">
-        <div class="fade" ui-view>
-        </div>
-    </div>
-</div>
-<footer class="page-footer">
-    <div class="row">
-        <div class="col l12 m12 s12">
-            <nav id="nav-footer">
-                <div class="brand-logo footer-height center hide-on-med-and-down">
-                    <ul class="lista">
-                        <li class="lista2" ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}">
-                            <a href="" ng-click="changeState(item.uiSref)" ng-if="item.uiSref !== 'pedzle.pl'">
-                                <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
-                                <span ng-if="lang == 'en'">{{item.labelEn}}</span>
-                                <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
-                            </a>
-                            <a href="http://www.pedzle.pl/" target="_blank" ng-click="changeState(item.uiSref)" ng-if="item.uiSref == 'pedzle.pl'">
-                                <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
-                                <span ng-if="lang == 'en'">{{item.labelEn}}</span>
-                                <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <button class="btn waves-effect waves-light right" type="button" ng-click="scrollToTop()">
-                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                </button>
-            </nav>
-        </div>
-    </div>
-    <div class="footer-copyright">
-        <div class="container center">
-            <span>© 2017 ARGO Edward Ciechanowski </span>
-            <span id="link-k-org"><span id="dash">---</span> designed & made by <a href="http://k-org.pl/" target="_blank">k-org.pl</a></span>
-        </div>
-    </div>
-</footer>
+<div id="outer" class="row">
+    <div id="cookies">
+        
+    </div>
+    <div id="mainHeader" class="col s12">
+        <nav>
+            <div class="nav-wrapper">
+                <a ui-sref="main" class="brand-logo center"><img src="img/argo.png" /></a>
+                <a href="" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars" aria-hidden="true"></i>
+                </a>
+                <ul class="left hide-on-med-and-down">
+                    <li ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}">
+                        <a href="" ng-click="changeState(item.uiSref)" ng-if="item.uiSref !== 'pedzle.pl'">
+                            <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                            <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                            <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                        </a>
+                        <a href="http://www.pedzle.pl/" target="_blank" ng-click="changeState(item.uiSref)" ng-if="item.uiSref == 'pedzle.pl'">
+                            <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                            <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                            <span ng-if="lang == 'ru'">{{item.labelRu}}</span> 
+                        </a>
+                    </li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}">
+                        <a href="" ng-click="changeState(item.uiSref)" ng-if="item.uiSref !== 'pedzle.pl'">
+                            <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                            <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                            <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                        </a>
+                        <a href="http://www.pedzle.pl/" target="_blank" ng-click="changeState(item.uiSref)" ng-if="item.uiSref == 'pedzle.pl'">
+                            <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                            <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                            <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="lang-items">
+            <div id="mainlang" class="fixed-action-btn click-to-toggle">
+                <a class="btn-floating btn-large z-depth-2" ng-repeat="l in globalLang" ng-if="l.selected" ng-style="{'background-image': 'url(' + l.flag + ')'}"></a>
+                <ul>
+                    <li ng-repeat="l in globalLang" ng-if="!l.selected" ng-click="selectLang(l.langCode)">
+                        <a class="btn-floating z-depth-2" ng-style="{'background-image': 'url(' + l.flag + ')'}"></a>
+                    </li>
+                </ul>
+            </div>
+            <div id="lang-arrow">
+                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+    <div class="loader-wrapper" ng-if="preloaderCounter > 0">
+        <img src="img/preloader.svg"></img>
+    </div>
+    <div class="ui-view-container">
+        <div class="fade" ui-view>
+        </div>
+    </div>
+</div>
+<footer class="page-footer">
+    <div class="row">
+        <div class="col l12 m12 s12">
+            <nav id="nav-footer">
+                <div class="brand-logo footer-height center hide-on-med-and-down">
+                    <ul class="lista">
+                        <li class="lista2" ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}">
+                            <a href="" ng-click="changeState(item.uiSref)" ng-if="item.uiSref !== 'pedzle.pl'">
+                                <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                                <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                                <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                            </a>
+                            <a href="http://www.pedzle.pl/" target="_blank" ng-click="changeState(item.uiSref)" ng-if="item.uiSref == 'pedzle.pl'">
+                                <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                                <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                                <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="btn waves-effect waves-light right" type="button" ng-click="scrollToTop()">
+                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                </button>
+            </nav>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container center">
+            <span>© 2017 ARGO Edward Ciechanowski </span>
+            <span id="link-k-org"><span id="dash">---</span> designed & made by <a href="http://k-org.pl/" target="_blank">k-org.pl</a></span>
+        </div>
+    </div>
+</footer>
