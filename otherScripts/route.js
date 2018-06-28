@@ -1,25 +1,26 @@
-angular.module('Argo.Routes', [
-    'ui.router',
-    'ngMaterial',
+angular
+    .module('Argo.Routes', [
+        'ui.router',
+        'ngMaterial',
 
-    'Argo.Services.AuthorizationSrvc',
-    'Argo.Services.ContentSrvc',
+        'Argo.Services.AuthorizationSrvc',
+        'Argo.Services.ContentSrvc',
 
-    'Argo.Controllers.MainCtrl',
-    'Argo.Controllers.AdminCtrl',
-    'Argo.Controllers.AdminLoginCtrl',
-    'Argo.Controllers.IndexCtrl',
-    'Argo.Controllers.ProductsCtrl',
-    'Argo.Controllers.CategoriesCtrl',
-    'Argo.Controllers.MainProductsCtrl',
-    'Argo.Controllers.ContactCtrl',
-    'Argo.Controllers.HistoryCtrl',
-    'Argo.Controllers.HomeCtrl',
-    'Argo.Controllers.FeaturesCtrl',
-    'Argo.Controllers.ShoppingBasketCtrl',
-])
+        'Argo.Controllers.MainCtrl',
+        'Argo.Controllers.AdminCtrl',
+        'Argo.Controllers.AdminLoginCtrl',
+        'Argo.Controllers.IndexCtrl',
+        'Argo.Controllers.ProductsCtrl',
+        'Argo.Controllers.CategoriesCtrl',
+        'Argo.Controllers.MainProductsCtrl',
+        'Argo.Controllers.ContactCtrl',
+        'Argo.Controllers.HistoryCtrl',
+        'Argo.Controllers.HomeCtrl',
+        'Argo.Controllers.FeaturesCtrl',
+        'Argo.Controllers.ShoppingBasketCtrl'
+    ])
 
-.config([
+    .config([
         '$stateProvider',
         '$urlRouterProvider',
         '$mdDateLocaleProvider',
@@ -94,59 +95,69 @@ angular.module('Argo.Routes', [
 
             // $locationProvider.html5Mode(true);
 
-
             $urlRouterProvider.otherwise(function($injector, $location) {
-                var $state = $injector.get("$state");
-                $state.go("home");
+                var $state = $injector.get('$state');
+                $state.go('home');
             });
-
         }
     ])
-    .run(['$rootScope', '$state', '$localStorage', '$window', '$location', '$http', function($rootScope, $state, $localStorage, $window, $location, $http) {
+    .run([
+        '$rootScope',
+        '$state',
+        '$localStorage',
+        '$window',
+        '$location',
+        '$http',
+        function($rootScope, $state, $localStorage, $window, $location, $http) {
+            $rootScope.$on('$stateChangeStart', function(e, to, params, from) {
+                $rootScope.currState = to.name;
+                $rootScope.parentCurrState = to.parent;
 
-        $rootScope.$on('$stateChangeStart', function(e, to, params, from) {
-            $rootScope.currState = to.name;
-            $rootScope.parentCurrState = to.parent;
+                if ($rootScope.currState != 'mainProducts') {
+                    $localStorage.links = null;
+                    $localStorage.currCategories = null;
+                }
 
-            if ($localStorage.user && !$rootScope.user) {
-                $rootScope.user = $localStorage.user;
-            }
+                if ($localStorage.user && !$rootScope.user) {
+                    $rootScope.user = $localStorage.user;
+                }
 
-            //TODO - should be moved to config file
+                //TODO - should be moved to config file
 
-            if (!$localStorage.currLang) {
-                $rootScope.lang = 'pl';
-                $localStorage.currLang = 'pl';
-            } else {
-                $rootScope.lang = $localStorage.currLang;
-            }
+                if (!$localStorage.currLang) {
+                    $rootScope.lang = 'pl';
+                    $localStorage.currLang = 'pl';
+                } else {
+                    $rootScope.lang = $localStorage.currLang;
+                }
 
+                // $rootScope.endpointURL = 'http://argo.k-org.pl';
 
-            $rootScope.endpointURL = 'http://argo.k-org.pl';
+                $http.get('conf/config.json').then(function(data) {
+                    $rootScope.configData = data.data;
+                });
 
+                if (to.name != 'adminLogin' && (to.parent == 'admin' || to.name == 'admin') && !$localStorage.user) {
+                    e.preventDefault();
+                    $state.go('adminLogin');
+                }
 
+                if (to.name == 'main') {
+                    e.preventDefault();
+                    $state.go('home');
+                }
 
-            if (((to.name != 'adminLogin') && (to.parent == 'admin' || to.name == 'admin')) && !$localStorage.user) {
-                e.preventDefault();
-                $state.go("adminLogin");
-            }
+                $rootScope.preloaderCounter = 0;
 
-            if (to.name == 'main') {
-                e.preventDefault();
-                $state.go('home');
-            }
+                $rootScope.showPreloader = function() {
+                    $rootScope.preloaderCounter++;
+                };
 
-            $rootScope.preloaderCounter = 0;
-
-            $rootScope.showPreloader = function() {
-                $rootScope.preloaderCounter++;
-            }
-
-            $rootScope.hidePreloader = function() {
-                //setTimeout(function() {
-                $rootScope.preloaderCounter--;
-                //}, 500);
-            }
-        });
-
-    }]);
+                $rootScope.hidePreloader = function() {
+                    //setTimeout(function() {
+                    $rootScope.preloaderCounter--;
+                    //}, 500);
+                };
+            });
+        }
+    ]);
