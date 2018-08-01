@@ -131,6 +131,13 @@ body {
     margin-right: auto;
     float: none !important;
 }
+.homeText{
+    text-align: justify; 
+    font-size: 16px;
+    margin-top: 20px; 
+    font-weight: 400;
+    color: #707070;
+}
 
 .products img {
     max-width: 100px;
