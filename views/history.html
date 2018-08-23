@@ -9,11 +9,13 @@
             <div class="row">
                 <div class="col l12 m12 s12 center">
                     <ul class="pagination">
-                        <li ng-repeat="item in historyItems" ng-class="{'active' : activeView == item.labelPl}" ng-click="changeView(item)"><a href="">
-                            <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
-                            <span ng-if="lang == 'en'">{{item.labelEn}}</span>
-                            <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
-                        </a></li>
+                        <li ng-repeat="item in historyItems" ng-class="{'active' : activeView == item.labelPl}" ng-click="changeView(item)">
+                            <a href="">
+                                <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
+                                <span ng-if="lang == 'en'">{{item.labelEn}}</span>
+                                <span ng-if="lang == 'ru'">{{item.labelRu}}</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -21,10 +23,33 @@
                 <div class="col l12 m12 s12">
                     <p>
                         <span ng-if="lang == 'pl'">
-                        Największym kapitałem naszej firmy są ludzie. To właśnie od ich wysiłku i profesjonalizmu zależy finalny efekt tego, co robimy i dobra opinia u naszych Klientów. Firma od zawsze stawia na najwyższą jakość swych produktów, starając się poprzez pokolenia kontynuować najlepsze tradycje dawnych krakowskich rzemieślników. Od prawie stu lat przypominana jest kolejnym firmowym pokoleniom maksyma założyciela, Adama Ciechanowskiego: „Każdą pracę należy wykonać tak, by nie trzeba było już do niej wracać”. My tę maksymę trochę żartobliwie poszerzyliśmy, dodając: „... naszą pracę wykonać tak, by nasi Klienci zawsze chcieli do nas wracać”. Właśnie takie mamy podejście do wszystkiego, co robimy, zdając sobie doskonale sprawę, że na zaufanie do marki ARGO ciężko pracowały całe pokolenia. Prosimy, sprawdź nas – przekonasz się, że współpraca z nami to dobry wybór!</span>
-                        <span ng-if="lang == 'en'">People are our most valuable asset. It is their effort and professionalism that affects the final result of our work and thereby shapes our Clients’ opinions. ARGO has always focused on product quality, while continuing the best traditions of old Krakow’s craftsmen. For nearly a century, we have abode by the maxim repeated by the company’s founder, Adam Ciechanowski: “All work must be done in such a way that you do not have to return to it”. We have added another aspect to the maxim: “and that our Clients want to shop with us again”. This is our approach to all we do. We are well aware that it has taken four generations to build customer trust in the ARGO brand. And we are committed to maintaining it! 
-                        Come and check us out. Stay with us, and you will be happy with your choice!</span>
-                        <span ng-if="lang == 'ru'">Крупнейшим капиталом нашей фирмы являются люди. Именно от их усилий и профессионализма зависит конечный результат того, что мы делаем, и хорошее мнение у наших Клиентов. Фирма всегда ставит на высокое качество своих продуктов, пытаясь через поколения продолжать лучшие традиции старинных краковских мастеров. На протяжении почти ста лет повторяется девиз основателя, Адама Цехановского: „Любую работу нужно выполнять так, чтобы не нужно было к ней возвращаться”. Мы эту золотую мысль немного шутливо расширили, добавив: „... нашу работу сделать так, чтобы наши Клиенты всегда хотели к нам вернуться”. Именно такой у нас подход ко всему, что мы делаем, понимая прекрасно, что на доверие к бренду ARGO тяжело работали целые поколения. Пожалуйста, проверьте нас, a вы убедитесь, что сотрудничество с нами-это хороший выбор!</span>
+                            Największym kapitałem naszej firmy są ludzie. To właśnie od ich wysiłku i profesjonalizmu zależy finalny efekt tego, co robimy
+                            i dobra opinia u naszych Klientów. Firma od zawsze stawia na najwyższą jakość swych produktów,
+                            starając się poprzez pokolenia kontynuować najlepsze tradycje dawnych krakowskich rzemieślników.
+                            Od prawie stu lat przypominana jest kolejnym firmowym pokoleniom maksyma założyciela, Adama Ciechanowskiego:
+                            „Każdą pracę należy wykonać tak, by nie trzeba było już do niej wracać”. My tę maksymę trochę
+                            żartobliwie poszerzyliśmy, dodając: „... naszą pracę wykonać tak, by nasi Klienci zawsze chcieli
+                            do nas wracać”. Właśnie takie mamy podejście do wszystkiego, co robimy, zdając sobie doskonale
+                            sprawę, że na zaufanie do marki ARGO ciężko pracowały całe pokolenia. Prosimy, sprawdź nas –
+                            przekonasz się, że współpraca z nami to dobry wybór!</span>
+                        <span ng-if="lang == 'en'">People are our most valuable asset. It is their effort and professionalism that affects the final
+                            result of our work and thereby shapes our Clients’ opinions. ARGO has always focused on product
+                            quality, while continuing the best traditions of old Krakow’s craftsmen. For nearly a century,
+                            we have abode by the maxim repeated by the company’s founder, Adam Ciechanowski: “All work must
+                            be done in such a way that you do not have to return to it”. We have added another aspect to
+                            the maxim: “and that our Clients want to shop with us again”. This is our approach to all we
+                            do. We are well aware that it has taken four generations to build customer trust in the ARGO
+                            brand. And we are committed to maintaining it! Come and check us out. Stay with us, and you will
+                            be happy with your choice!</span>
+                        <span ng-if="lang == 'ru'">Крупнейшим капиталом нашей фирмы являются люди. Именно от их усилий и профессионализма зависит конечный
+                            результат того, что мы делаем, и хорошее мнение у наших Клиентов. Фирма всегда ставит на высокое
+                            качество своих продуктов, пытаясь через поколения продолжать лучшие традиции старинных краковских
+                            мастеров. На протяжении почти ста лет повторяется девиз основателя, Адама Цехановского: „Любую
+                            работу нужно выполнять так, чтобы не нужно было к ней возвращаться”. Мы эту золотую мысль немного
+                            шутливо расширили, добавив: „... нашу работу сделать так, чтобы наши Клиенты всегда хотели к
+                            нам вернуться”. Именно такой у нас подход ко всему, что мы делаем, понимая прекрасно, что на
+                            доверие к бренду ARGO тяжело работали целые поколения. Пожалуйста, проверьте нас, a вы убедитесь,
+                            что сотрудничество с нами-это хороший выбор!</span>
                     </p>
                 </div>
             </div>
@@ -32,60 +57,123 @@
                 <div class="col l12 m12 s12">
                     <p>
                         <span ng-if="lang == 'pl'">
-                        Firma ARGO od wielu dziesięcioleci specjalizuje się w wytwarzaniu profesjonalnych narzędzi niezbędnych dla każdego prawdziwego fachowca: wałków i kuwet malarskich oraz narzędzi i akcesoriów budowlanych. Stawiamy przede wszystkim na najwyższą jakość oferowanych artykułów i ich dostępność dla naszych Klientów. Od wielu lat z powodzeniem współpracujemy z sieciami dużych marketów budowlanych, mimo to, traktujemy z należytą uwagą także mniejszych kontrahentów dopasowując ofertę także do ich potrzeb. Naszą markę doceniono nie tylko w kraju – produkty firmy ARGO sprzedają się na rynki Niemiec, Szwecji i Francji. Naszą produkcję z sukcesami eksportujemy również do odbiorców z obszaru Europy środkowo-wschodniej. 
-                        ARGO ciągle wprowadza nowe technologie, unowocześnia i poszerza park maszynowy, testuje nowe, coraz doskonalsze materiały. Korzystamy nie tylko z polskich doświadczeń w tej dziedzinie, ale także niemieckich czy francuskich. Priorytetem ARGO niezmiennie jest wysoka jakość produkcji, a także dbałość o zadowolenie naszych Klientów.</span>
-                        <span ng-if="lang == 'en'">ARGO has for decades specialised in the manufacture of professional tools that skilled hand-workers cannot do without, i.e. paint rollers and trays, as well as building tools and accessories. Our focus is to provide high quality products and ensure their availability to Clients. For many years now we have successfully cooperated with large hardware stores, while at the same time caring for our smaller clients and customizing our offer to take account of their needs. Our brand is recognised home and abroad. ARGO products are sold in Poland, Germany, Sweden and France, as well as in Central and Eastern Europe. 
-                        ARGO keeps introducing new technologies, modernising and extending its machine park, and testing new and improved materials. We make use both of Polish expertise, as well as German or French. Our priority has always been to ensure top quality of production, and Client satisfaction.</span>
-                        <span ng-if="lang == 'ru'">Фирма АRGO на протяжении многих десятилетий специализируется на изготовлении профессиональных продуктов необходимых для каждого, настоящего специалиста: малярных валиков и кювет, а также строительных инструментов и аксессуаров.
-                        Мы ориентируемся прежде всего на высочайшее качество предлагаемых продуктов и их доступность для наших клиентов. На протяжении многих лет мы успешно сотрудничаем с сетями крупных строительных супермаркетов, тем не менее мы с должным вниманием относимся к меньшим покупателям и подбираем ассортимент для удовлетворениия их потребностей. Наш бренд получил признание не только в стране. Товары фирмы АRGO продаются на рынки Германии, Швеции, Франции. Мы с успехом экспортируем наши изделия для потребителей из Центральиой и Восточной Европы.
-                        АRGO постоянно внедряет новые технологии, модернизирует и расширяет парк машин, тестирует новые, всё более совершенные материалы. Мы используем не только польский опыт в этой области, но и немецкий или французский. Приоритетом АRGO является постоянное высокое качество продукции, а также забота об удовлетворении наших клиентов.</span>
+                            Firma ARGO od wielu dziesięcioleci specjalizuje się w wytwarzaniu profesjonalnych narzędzi niezbędnych dla każdego prawdziwego
+                            fachowca: wałków i kuwet malarskich oraz narzędzi i akcesoriów budowlanych. Stawiamy przede wszystkim
+                            na najwyższą jakość oferowanych artykułów i ich dostępność dla naszych Klientów. Od wielu lat
+                            z powodzeniem współpracujemy z sieciami dużych marketów budowlanych, mimo to, traktujemy z należytą
+                            uwagą także mniejszych kontrahentów dopasowując ofertę także do ich potrzeb. Naszą markę doceniono
+                            nie tylko w kraju – produkty firmy ARGO sprzedają się na rynki Niemiec, Szwecji i Francji. Naszą
+                            produkcję z sukcesami eksportujemy również do odbiorców z obszaru Europy środkowo-wschodniej.
+                            ARGO ciągle wprowadza nowe technologie, unowocześnia i poszerza park maszynowy, testuje nowe,
+                            coraz doskonalsze materiały. Korzystamy nie tylko z polskich doświadczeń w tej dziedzinie, ale
+                            także niemieckich czy francuskich. Priorytetem ARGO niezmiennie jest wysoka jakość produkcji,
+                            a także dbałość o zadowolenie naszych Klientów.</span>
+                        <span ng-if="lang == 'en'">ARGO has for decades specialised in the manufacture of professional tools that skilled hand-workers
+                            cannot do without, i.e. paint rollers and trays, as well as building tools and accessories. Our
+                            focus is to provide high quality products and ensure their availability to Clients. For many
+                            years now we have successfully cooperated with large hardware stores, while at the same time
+                            caring for our smaller clients and customizing our offer to take account of their needs. Our
+                            brand is recognised home and abroad. ARGO products are sold in Poland, Germany, Sweden and France,
+                            as well as in Central and Eastern Europe. ARGO keeps introducing new technologies, modernising
+                            and extending its machine park, and testing new and improved materials. We make use both of Polish
+                            expertise, as well as German or French. Our priority has always been to ensure top quality of
+                            production, and Client satisfaction.</span>
+                        <span ng-if="lang == 'ru'">Фирма АRGO на протяжении многих десятилетий специализируется на изготовлении профессиональных продуктов
+                            необходимых для каждого, настоящего специалиста: малярных валиков и кювет, а также строительных
+                            инструментов и аксессуаров. Мы ориентируемся прежде всего на высочайшее качество предлагаемых
+                            продуктов и их доступность для наших клиентов. На протяжении многих лет мы успешно сотрудничаем
+                            с сетями крупных строительных супермаркетов, тем не менее мы с должным вниманием относимся к
+                            меньшим покупателям и подбираем ассортимент для удовлетворениия их потребностей. Наш бренд получил
+                            признание не только в стране. Товары фирмы АRGO продаются на рынки Германии, Швеции, Франции.
+                            Мы с успехом экспортируем наши изделия для потребителей из Центральиой и Восточной Европы. АRGO
+                            постоянно внедряет новые технологии, модернизирует и расширяет парк машин, тестирует новые, всё
+                            более совершенные материалы. Мы используем не только польский опыт в этой области, но и немецкий
+                            или французский. Приоритетом АRGO является постоянное высокое качество продукции, а также забота
+                            об удовлетворении наших клиентов.</span>
                     </p>
-                    <div class="history-img" style="display: block; margin-right: auto; margin-left: auto; height: 196px; width: 118px">
-                        <img src="img/1.jpg" class="z-depth-3 materialboxed">
+                    <div class="history-img" style="display: block; margin-right: auto; margin-left: auto; height: 196px; width: 300px;">
+                        <img src="img/oFirmie.gif" style="height: 196px; width: 300px;" class="z-depth-3 materialboxed">
                     </div>
                 </div>
             </div>
             <div class="row" ng-repeat="item in historyItems" ng-if="item.labelPl == 'Historia' && activeView == item.labelPl" ng-init="materialBoxed()">
                 <div class="col l12 m12 s12">
                     <p>
-                        <span ng-if="lang == 'pl'">ARGO jest rodzinną firmą z wieloletnią tradycją. Początki firmy ARGO sięgają czterech pokoleń wstecz. Jej założycielem był w latach dwudziestych poprzedniego wieku Adam Ciechanowski – znany krakowski rzemieślnik zrzeszony w krakowskim Cechu Rzemiosł Metalowych. Zajmował się wówczas usługami ślusarskimi. 
-                        Kontynuatorem rodzinnych tradycji był syn Adama, Stefan Ciechanowski, który razem ze swym bratem Janem znacznie poszerzył działalność o produkcję wag szalkowych i dziesiętnych różnego typu oraz ich legalizację. Nieco później firma podjęła produkcję artykułów malarskich: rynienek malarskich, skrobaków, szpachelek. 
-                        W roku 1977 firmę od swego ojca przejął Edward Ciechanowski – w tym też czasie przyjęła ona nazwę ARGO. Po rozeznaniu potrzeb rynkowych Edward rozszerzył i zmodyfikował profil produkcji. Firma ARGO z dużym powodzeniem wprowadzała na rynek wałki malarskie, kuwety, kratki, uchwyty do wałków oraz inne akcesoria malarskie doceniane przez zawodowców i amatorów. 
-                        W styczniu 2014 roku firma ARGO została przekształcona w Spółkę Jawną i w ramach kontynuacji najlepszych rodzinnych tradycji, jest obecnie prowadzona przez córkę i zięcia Edwarda Ciechanowskiego – Joannę i Krzysztofa Purwin.</span>
-                        <span ng-if="lang == 'en'">ARGO is a family business with a long tradition. The company was founded four generations back, i.e. in the 1920s, by Adam Ciechanowski – a respected Krakow craftsman, member of the Metal Crafts Guild. Back then, Adam Ciechanowski provided locksmith’s services. 
-                        The family tradition was upheld by Adam’s son, Stefan Ciechanowski, who – together with his brother Jan – significantly extended the range of the company’s operations, and launched the manufacture of various types of balance beam scales and decimal balances. In addition, the brothers dealt with the legalization of weighing scales. Later on, the company commenced on the manufacture of painting tools and accessories like paint troughs, scrapers, and spatulas. 
-                        In 1977, the company was taken over by Stefan’s son, Edward Ciechanowski. It was then that is started to be called ARGO. Having done the relevant market research, Edward extended and modified the range of production. ARGO started to successfully market paint rollers, trays, grids, roller handles, and other accessories valued by professionals and amateurs alike. 
-                        In January 2014, ARGO was transformed into a General Partnership, and is now managed by Edward Ciechanowski’s daughter and son-in-law – Joanna and Krzysztof Purwin – who continue the best family tradition.</span>
-                        <span ng-if="lang == 'ru'">АRGO - семейная фирма с многолетней традицией. Начало фирмы относится к четырём поколениям назад. Её основателем в двадцатых годах прошлого века был Адам Цехановски - известный краковский мастер, член Гильдии металлических ремесел Кракова. В то время он занимался слесарным обслуживанием.
-                        Продолжателем семейных традиций был сын Адама, Стефан Цехановски, который вместе со своим братом Яном значительно расширил деятельность фирмы, включaя производство и легализацию чашечных весов и десятичных различного типа. Чуть позже фирма стала производить малярные товары: ванночки, скребки, шпатели.
-                        В 1977 году фирму от своего отца взял в свои руки Эдвард Цехановски. В то же время она приняла названиие АRGO. Изучив потребности рынка, Эдвард расширил и изменил профиль производства. Фирма ARGO с большим успехом выпускала на рынок малярные валики, кюветы, решётки, держители для валиков и другие малярные aксессуары, которые были высоко оценены профессионалами и любителями.
-                        В 2014 году фирма АRGO была преобразована в публичную компанию. Сохраняя самые лучшие семейные традиции, в настоящее время она управляется дочерью и зятем Эдварда Цехановского - Иоанной и Кшиштофом Пурвин.</span>
+                        <span ng-if="lang == 'pl'">ARGO jest rodzinną firmą z wieloletnią tradycją. Początki firmy ARGO sięgają czterech pokoleń wstecz.
+                            Jej założycielem był w latach dwudziestych poprzedniego wieku Adam Ciechanowski – znany krakowski
+                            rzemieślnik zrzeszony w krakowskim Cechu Rzemiosł Metalowych. Zajmował się wówczas usługami ślusarskimi.
+                            Kontynuatorem rodzinnych tradycji był syn Adama, Stefan Ciechanowski, który razem ze swym bratem
+                            Janem znacznie poszerzył działalność o produkcję wag szalkowych i dziesiętnych różnego typu oraz
+                            ich legalizację. Nieco później firma podjęła produkcję artykułów malarskich: rynienek malarskich,
+                            skrobaków, szpachelek. W roku 1977 firmę od swego ojca przejął Edward Ciechanowski – w tym też
+                            czasie przyjęła ona nazwę ARGO. Po rozeznaniu potrzeb rynkowych Edward rozszerzył i zmodyfikował
+                            profil produkcji. Firma ARGO z dużym powodzeniem wprowadzała na rynek wałki malarskie, kuwety,
+                            kratki, uchwyty do wałków oraz inne akcesoria malarskie doceniane przez zawodowców i amatorów.
+                            W styczniu 2014 roku firma ARGO została przekształcona w Spółkę Jawną i w ramach kontynuacji
+                            najlepszych rodzinnych tradycji, jest obecnie prowadzona przez córkę i zięcia Edwarda Ciechanowskiego
+                            – Joannę i Krzysztofa Purwin.</span>
+                        <span ng-if="lang == 'en'">ARGO is a family business with a long tradition. The company was founded four generations back, i.e.
+                            in the 1920s, by Adam Ciechanowski – a respected Krakow craftsman, member of the Metal Crafts
+                            Guild. Back then, Adam Ciechanowski provided locksmith’s services. The family tradition was upheld
+                            by Adam’s son, Stefan Ciechanowski, who – together with his brother Jan – significantly extended
+                            the range of the company’s operations, and launched the manufacture of various types of balance
+                            beam scales and decimal balances. In addition, the brothers dealt with the legalization of weighing
+                            scales. Later on, the company commenced on the manufacture of painting tools and accessories
+                            like paint troughs, scrapers, and spatulas. In 1977, the company was taken over by Stefan’s son,
+                            Edward Ciechanowski. It was then that is started to be called ARGO. Having done the relevant
+                            market research, Edward extended and modified the range of production. ARGO started to successfully
+                            market paint rollers, trays, grids, roller handles, and other accessories valued by professionals
+                            and amateurs alike. In January 2014, ARGO was transformed into a General Partnership, and is
+                            now managed by Edward Ciechanowski’s daughter and son-in-law – Joanna and Krzysztof Purwin –
+                            who continue the best family tradition.</span>
+                        <span ng-if="lang == 'ru'">АRGO - семейная фирма с многолетней традицией. Начало фирмы относится к четырём поколениям назад.
+                            Её основателем в двадцатых годах прошлого века был Адам Цехановски - известный краковский мастер,
+                            член Гильдии металлических ремесел Кракова. В то время он занимался слесарным обслуживанием.
+                            Продолжателем семейных традиций был сын Адама, Стефан Цехановски, который вместе со своим братом
+                            Яном значительно расширил деятельность фирмы, включaя производство и легализацию чашечных весов
+                            и десятичных различного типа. Чуть позже фирма стала производить малярные товары: ванночки, скребки,
+                            шпатели. В 1977 году фирму от своего отца взял в свои руки Эдвард Цехановски. В то же время она
+                            приняла названиие АRGO. Изучив потребности рынка, Эдвард расширил и изменил профиль производства.
+                            Фирма ARGO с большим успехом выпускала на рынок малярные валики, кюветы, решётки, держители для
+                            валиков и другие малярные aксессуары, которые были высоко оценены профессионалами и любителями.
+                            В 2014 году фирма АRGO была преобразована в публичную компанию. Сохраняя самые лучшие семейные
+                            традиции, в настоящее время она управляется дочерью и зятем Эдварда Цехановского - Иоанной и
+                            Кшиштофом Пурвин.</span>
                     </p>
-                    <div class="row">
-                        <div class="col l3 m3 s6 history-img">
+                    <div class="row center">
+                        <div class="col l1 disableColumn"></div>
+                        <div class="col l2 m3 s6 history-img">
                             <div class="center-img">
                                 <img src="img/2.jpg" class="z-depth-3 materialboxed">
                             </div>
                             <p>Adam Ciechanowski</p>
                         </div>
-                        <div class="col l3 m3 s6 history-img">
+                        <div class="col l2 m3 s6 history-img">
                             <div class="center-img">
                                 <img src="img/3.jpg" class="z-depth-3 materialboxed">
                             </div>
                             <p>Stefan Ciechanowski</p>
                         </div>
-                        <div class="col l3 m3 s6 history-img">
+                        <div class="col l2 m3 s6 history-img">
                             <div class="center-img" style="height: 113px; width: 113px;">
                                 <img src="img/4.jpg" class="z-depth-3 materialboxed">
                             </div>
                             <p>Janina Ciechanowska</p>
                         </div>
-                        <div class="col l3 m3 s6 history-img">
+                        <div class="col l2 m3 s6 history-img">
                             <div class="center-img" style="height: 113px; width: 113px;">
                                 <img src="img/5.jpg" class="z-depth-3 materialboxed">
                             </div>
                             <p>Edward Ciechanowski</p>
                         </div>
+                        <div class="col l2 m3 s6 history-img">
+                            <div class="center-img" style="height: 113px; width: 113px;">
+                                <img src="img/joannaKrzysztof.jpg" style="width: 113px; height: 113px;" class="z-depth-3 materialboxed">
+                            </div>
+                            <p>Joanna i Krzysztof
+                                <br/>Purwin</p>
+                        </div>
+                        <div class="col l1 disableColumn"></div>
                     </div>
                 </div>
             </div>

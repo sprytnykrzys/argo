@@ -213,6 +213,9 @@ blockquote {
     .fixed-action-btn {
         right: 10px !important;
     }
+    .disableColumn {
+        display: none;
+    }
 }
 
 nav {
