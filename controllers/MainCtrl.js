@@ -49,6 +49,13 @@ angular
                 'labelRu': 'Запрос',
                 'activeStateRule': 'shoppingBasket',
                 'uiSref': 'shoppingBasket'
+            },
+            {
+                'labelPl': 'RODO',
+                'labelEn': '',
+                'labelRu': '',
+                'activeStateRule': 'rodo',
+                'uiSref': 'rodo'
             }];
 
             $scope.globalLang = [{

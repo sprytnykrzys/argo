@@ -25,7 +25,7 @@
 
                     <li ng-repeat="item in mainMenuItems" ng-class="{'active' : currState == item.activeStateRule}">
 
-                        <a href="" ng-click="changeState(item.uiSref)" ng-if="item.uiSref !== 'pedzle.pl'">
+                        <a href="" ng-click="changeState(item.uiSref)" ng-if="item.uiSref !== 'pedzle.pl'"  style="padding: 0 12px">
 
                             <span ng-if="lang == 'pl'">{{item.labelPl}}</span>
 

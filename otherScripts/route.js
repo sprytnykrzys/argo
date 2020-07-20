@@ -17,7 +17,8 @@ angular
         'Argo.Controllers.HistoryCtrl',
         'Argo.Controllers.HomeCtrl',
         'Argo.Controllers.FeaturesCtrl',
-        'Argo.Controllers.ShoppingBasketCtrl'
+        'Argo.Controllers.ShoppingBasketCtrl',
+        'Argo.Controllers.RodoCtrl'
     ])
 
     .config([
@@ -91,6 +92,12 @@ angular
                     templateUrl: 'views/home.html',
                     parent: 'main',
                     controller: 'HomeCtrl'
+                })
+                .state('rodo', {
+                    url: '/rodo',
+                    templateUrl: 'views/rodo.html',
+                    parent: 'main',
+                    controller: 'RodoCtrl'
                 });
 
             // $locationProvider.html5Mode(true);
